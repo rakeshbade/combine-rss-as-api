@@ -1,5 +1,5 @@
 {
-  "name": "http-server-basic-hackerrank",
+  "name": "rss-api",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
