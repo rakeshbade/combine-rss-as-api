@@ -9,6 +9,12 @@
     "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEF9YXA=="
   },
   {
+    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeGVtVVQ=="
+  },
+  {
+    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWA=="
+  },
+  {
     "blogUrl": "https://www.accesswire.com/newsroom",
     "container": ".article-box",
     "header": "a",
