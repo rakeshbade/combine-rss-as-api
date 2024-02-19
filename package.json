@@ -14,5 +14,8 @@
     "node-libcurl": "^4.0.0",
     "puppeteer": "^22.1.0",
     "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.2"
   }
 }
