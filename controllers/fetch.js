@@ -5,6 +5,7 @@ const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const parser = new xml2js.Parser();
 const builder = new xml2js.Builder();
+const fs = require("fs");
 
 const parseFeed = (feed) => {
   return new Promise((resolve, reject) => {
@@ -45,18 +46,22 @@ const getArticlesFromHtml = (html, config) => {
 };
 
 const fetchArticlesFromUrl = async (url, config) => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox"],
+    ignoreDefaultArgs: ["--disable-extensions"],
+  });
   const page = await browser.newPage();
   await page.goto(url);
   await page.waitForFunction(
-    "window.performance.timing.loadEventEnd - window.performance.timing.navigationStart >= 500"
+    "window.performance.timing.loadEventEnd - window.performance.timing.navigationStart >= 500",
   );
   const pageSourceHTML = await page.content();
   await browser.close();
   return getArticlesFromHtml(pageSourceHTML, config);
 };
 
-const fetchData = async (configQuery, jsLoad = true) => {
+const fetchData = async (configQuery) => {
   const blogs = config[configQuery];
   const blogPromises = blogs.map(async (rss) => {
     const url = rss["rssUrl"] || rss["blogUrl"];
@@ -66,7 +71,7 @@ const fetchData = async (configQuery, jsLoad = true) => {
       if (statusCode !== 200) return [];
       return parseFeed(feedData);
     } else {
-      const data = jsLoad
+      const data = rss["jsLoad"]
         ? await fetchArticlesFromUrl(url, rss)
         : await curly.get(url);
       return data;
