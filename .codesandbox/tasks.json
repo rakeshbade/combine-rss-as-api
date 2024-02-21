@@ -16,13 +16,11 @@
     },
     "prestart": {
       "name": "prestart",
-      "command": "npm run prestart",
-      "runAtStart": false
+      "command": "npm run prestart"
     },
     "pretest": {
       "name": "pretest",
-      "command": "npm run pretest",
-      "runAtStart": false
+      "command": "npm run pretest"
     }
   }
 }
