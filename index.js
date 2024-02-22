@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const { fetchData, convertEntriesToRss } = require("./controllers/fetch");
+const { fetchData } = require("./controllers/fetch");
 const { getDataFromFile } = require("./utils/fileUtils");
 const port = process.env.PORT || 3000; // You can choose any port number
 
