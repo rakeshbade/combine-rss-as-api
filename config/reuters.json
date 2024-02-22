@@ -5,6 +5,7 @@
     "header": "header a>span",
     "description": "header a>span",
     "link": "a",
-    "date": "time"
+    "date": "time",
+    "loadType": "puppeteer"
   }
 ]

@@ -1,32 +1,38 @@
 const config = require("../config/index");
 const { curly } = require("node-libcurl");
+const axios = require("axios");
 const xml2js = require("xml2js");
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const parser = new xml2js.Parser();
 const builder = new xml2js.Builder();
-const fs = require("fs");
+const { writeToFile } = require("../utils/fileUtils");
+
+const loadDataBy = {
+  curl: "curl",
+  puppeteer: "puppeteer",
+  axios: "axios",
+};
 
 const parseFeed = (feed) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     parser.parseString(feed, (err, result) => {
-      if (err) {
-        return reject(err);
-      } else {
-        const entries = result["rss"]["channel"][0]["item"] || [];
-        const simplifiedEntries = (entries || []).map((entry) => ({
-          title: entry.title[0],
-          pubDate: entry.pubDate[0],
-          description: entry.description[0],
-          link: entry.link[0],
-        }));
-        return resolve(simplifiedEntries);
+      if (err || !result || !result["rss"] || !result["rss"]["channel"]) {
+        return resolve(feed);
       }
+      const entries = result["rss"]["channel"][0]["item"] || [];
+      const simplifiedEntries = (entries || []).map((entry) => ({
+        title: entry.title[0],
+        pubDate: entry.pubDate[0],
+        description: entry.description[0],
+        link: entry.link[0],
+      }));
+      return resolve(simplifiedEntries);
     });
   });
 };
 
-const getArticlesFromHtml = (html, config) => {
+const getArticlesFromPuppeter = (html, config) => {
   const articles = [];
   const $ = cheerio.load(html);
   $(config.container).each((i, ele) => {
@@ -45,7 +51,7 @@ const getArticlesFromHtml = (html, config) => {
   return articles;
 };
 
-const fetchArticlesFromUrl = async (url, config) => {
+const fetchArticlesFromPuppeter = async (url, config) => {
   const browser = await puppeteer.launch({
     headless: "new",
     args: ["--no-sandbox"],
@@ -56,33 +62,71 @@ const fetchArticlesFromUrl = async (url, config) => {
   await page.waitForFunction(
     "window.performance.timing.loadEventEnd - window.performance.timing.navigationStart >= 500",
   );
+  await page.waitForSelector(config.container);
   const pageSourceHTML = await page.content();
   await browser.close();
-  return getArticlesFromHtml(pageSourceHTML, config);
+  return getArticlesFromPuppeter(pageSourceHTML, config);
 };
 
-const fetchData = async (configQuery) => {
-  const blogs = config[configQuery];
-  const blogPromises = blogs.map(async (rss) => {
-    const url = rss["rssUrl"] || rss["blogUrl"];
-    if (rss["rssUrl"]) {
-      const { statusCode, data } = await curly.get(url);
-      const feedData = data.toString();
-      if (statusCode !== 200) return [];
-      return parseFeed(feedData);
-    } else {
-      const data = rss["jsLoad"]
-        ? await fetchArticlesFromUrl(url, rss)
-        : await curly.get(url);
-      return data;
-    }
-  });
-  const blogJsonData = await Promise.all(blogPromises);
-  const entries = (blogJsonData || [])
-    .filter(Boolean)
-    .reduce((p, c) => (p = p.concat(c)), []);
+const fetchData = async (blogName) => {
+  const blogs = config[blogName];
+  let currentLoadType = loadDataBy.axios;
 
-  return entries;
+  const fetchBlogData = async (rss) => {
+    if (rss["loadType"]) {
+      currentLoadType = rss["loadType"];
+    }
+
+    const url = rss["blogUrl"];
+    console.log(
+      "Fetching data for ",
+      blogName,
+      " from ",
+      url,
+      " using load type ",
+      currentLoadType,
+    );
+    try {
+      if (currentLoadType === loadDataBy.curl) {
+        const { data } = await curly.get(url);
+        return data.toString();
+      } else if (currentLoadType === loadDataBy.puppeteer) {
+        return await fetchArticlesFromPuppeter(url, rss);
+      } else {
+        const { data } = await axios.get(url);
+        return data;
+      }
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
+
+  const blogPromises = blogs.map(fetchBlogData);
+
+  const blogJsonData = await Promise.all(blogPromises);
+  console.log("Blog data fetched for ", blogName, " successfully");
+  const xmlToList = await Promise.all(
+    blogJsonData.filter(Boolean).map(parseFeed),
+  );
+  console.log("Blog data parsed for ", blogName, " successfully");
+  const entries = xmlToList.reduce(
+    (accumulator, current) => accumulator.concat(current),
+    [],
+  );
+
+  console.log(
+    "Blog data merged for ",
+    blogName,
+    " successfully",
+    "with entries",
+    entries.length,
+  );
+
+  const rssXml = convertEntriesToRss(blogName, entries);
+  await writeToFile(blogName, rssXml);
+
+  console.log("Blog data written for ", blogName, " successfully");
 };
 
 const convertEntriesToRss = (blog, entries) => {
@@ -90,7 +134,7 @@ const convertEntriesToRss = (blog, entries) => {
     rss: {
       channel: {
         title: blog,
-        link: `www.example.com`,
+        link: JSON.stringify(config[blog]),
         description: `feed for ${blog}`,
         item: entries,
       },

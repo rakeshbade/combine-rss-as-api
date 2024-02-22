@@ -1,18 +1,18 @@
 [
   {
-    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJaF1hQVQ=="
+    "blogUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJaF1hQVQ=="
   },
   {
-    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRXw=="
+    "blogUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRXw=="
   },
   {
-    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEF9YXA=="
+    "blogUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEF9YXA=="
   },
   {
-    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeGVtVVQ=="
+    "blogUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeGVtVVQ=="
   },
   {
-    "rssUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWA=="
+    "blogUrl": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWA=="
   },
   {
     "blogUrl": "https://www.accesswire.com/newsroom",
@@ -21,6 +21,6 @@
     "description": ".html-embed-21.w-embed",
     "link": "a",
     "date": ".article-date",
-    "jsLoad": true
+    "loadType": "puppeteer"
   }
 ]
