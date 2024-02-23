@@ -41,6 +41,7 @@ const getArticlesFromPuppeter = (html, config) => {
     article.link = $(ele).find(config.link).attr("href");
     article.date = $(ele).find(config.date).text().trim();
     if (article.date) {
+      console.log(article.date);
       article.date = new Date(article.date).toISOString();
     } else {
       article.date = new Date().toISOString();

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rss>
+  <channel>
+    <title>business</title>
+    <link>[{"blogUrl":"https://www.barrons.com/topics/markets?mod=BOL_TOPNAV","container":"article","header":"h3 a span","description":".BarronsTheme--summary--3UHA7uDx span","link":"h3 a","date":".BarronsTheme--timestamp--1QcAFHpF p","loadType":"puppeteer"},{"blogUrl":"https://www.wsj.com/business/deals","container":".css-bdm6mo","header":"h3 a span p","description":".css-m54ll1","link":"h3 a","date":".es486sg0","loadType":"puppeteer"}]</link>
+    <description>feed for business</description>
+  </channel>
+</rss>
