@@ -1,0 +1,4 @@
+{
+  "installCommand": "start",
+  "buildCommand": false
+}
