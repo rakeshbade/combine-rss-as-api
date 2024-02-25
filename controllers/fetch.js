@@ -7,6 +7,7 @@ const cheerio = require("cheerio");
 const parser = new xml2js.Parser();
 const builder = new xml2js.Builder();
 const { writeToFile } = require("../utils/fileUtils");
+const { applicationLogger: LOG } = require("./logger");
 
 const loadDataBy = {
   curl: "curl",
@@ -74,23 +75,28 @@ const fetchArticlesFromPuppeter = async (url, config) => {
   return getArticlesFromPuppeter(pageSourceHTML, config);
 };
 
+const waitFor = (timer) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timer);
+  });
+};
+
 const fetchData = async (blogName) => {
   const blogs = config[blogName];
   let currentLoadType = loadDataBy.axios;
-
   const fetchBlogData = async (rss) => {
     if (rss["loadType"]) {
       currentLoadType = rss["loadType"];
     }
 
     const url = rss["blogUrl"];
-    console.log(
-      "Fetching data for ",
-      blogName,
-      " from ",
-      url,
-      " using load type ",
-      currentLoadType,
+    LOG.info(
+      "Fetching data for " +
+        blogName +
+        " from " +
+        url +
+        " using load type " +
+        currentLoadType,
     );
     try {
       if (currentLoadType === loadDataBy.curl) {
@@ -103,25 +109,27 @@ const fetchData = async (blogName) => {
         return data;
       }
     } catch (error) {
-      console.error(error);
+      LOG.error(error);
       return null;
+    } finally {
+      await waitFor(250);
     }
   };
 
   const blogPromises = blogs.map(fetchBlogData);
 
   const blogJsonData = await Promise.all(blogPromises);
-  console.log("Blog data fetched for ", blogName, " successfully");
+  LOG.info("Blog data fetched for ", blogName, " successfully");
   const xmlToList = await Promise.all(
     blogJsonData.filter(Boolean).map(parseFeed),
   );
-  console.log("Blog data parsed for ", blogName, " successfully");
+  LOG.info("Blog data parsed for ", blogName, " successfully");
   const entries = xmlToList.reduce(
     (accumulator, current) => accumulator.concat(current),
     [],
   );
 
-  console.log(
+  LOG.info(
     "Blog data merged for ",
     blogName,
     " successfully",
@@ -132,7 +140,7 @@ const fetchData = async (blogName) => {
   const rssXml = convertEntriesToRss(blogName, entries);
   await writeToFile(blogName, rssXml);
 
-  console.log("Blog data written for ", blogName, " successfully");
+  LOG.info("Blog data written for ", blogName, " successfully");
 };
 
 const convertEntriesToRss = (blog, entries) => {

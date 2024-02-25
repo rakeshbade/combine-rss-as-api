@@ -9,7 +9,9 @@
     "pretest": "npm install"
   },
   "dependencies": {
+    "@miketako3/cloki": "^0.1.15",
     "axios": "^1.6.7",
+    "bunyan": "^1.8.15",
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
     "node-libcurl": "^4.0.0",
