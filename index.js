@@ -9,7 +9,7 @@ app.get("/rss", async (req, res) => {
   const { blog } = req.query;
   if (!blog) return res.status(404).send({ message: "invalid query" });
   try {
-    LOG.info("Received request for ", blog);
+    LOG.info("Received request for", blog);
 
     let xmlFeed = await getDataFromFile(blog);
     if (!xmlFeed) {

@@ -3,27 +3,26 @@ var bunyan = require("bunyan");
 
 const sendGrafanaLog = async (log) => {
   const userId = process.env.GRAFANA_USERID;
-  const apiKey = process.env.GRAFANA_API_KEY;
+  const apiKey = process.env.GRAFANA_TOKEN;
   const { msg, time, pid, hostname, v, ...streams } = log;
+  const dateTime = (
+    Math.floor(new Date(time).getTime() / 1000) * 1000000000
+  ).toString();
   const logs = {
     streams: [
       {
         stream: streams,
-        values: [[time, msg]],
+        values: [[dateTime, msg]],
       },
     ],
   };
 
-  axios.post(
-    "https://logs-prod-006.grafana.net/loki/api/v1/push",
-    JSON.stringify(logs),
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer 817692:your-api-key",
-      },
+  axios.post("https://logs-prod-006.grafana.net/loki/api/v1/push", logs, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${userId}:${apiKey}`,
     },
-  );
+  });
 };
 
 const name = "rss-api";
@@ -38,7 +37,7 @@ const eventLogger = bunyan.createLogger({
 
 const emitLogger = (message) => {
   console.log(message);
-  // sendGrafanaLog(message);
+  sendGrafanaLog(message);
 };
 
 applicationLogger._emit = emitLogger;

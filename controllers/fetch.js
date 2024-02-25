@@ -1,4 +1,5 @@
 const config = require("../config/index");
+const blogRegex = require("../config/regex");
 const { curly } = require("node-libcurl");
 const axios = require("axios");
 const xml2js = require("xml2js");
@@ -8,6 +9,11 @@ const parser = new xml2js.Parser();
 const builder = new xml2js.Builder();
 const { writeToFile } = require("../utils/fileUtils");
 const { applicationLogger: LOG } = require("./logger");
+
+const isPostByRegex = (post, blogName) => {
+  const regex = blogRegex[blogName];
+  if (!regex || JSON.stringify(post).match(regex)) return post;
+};
 
 const loadDataBy = {
   curl: "curl",
@@ -22,12 +28,17 @@ const parseFeed = (feed) => {
         return resolve(feed);
       }
       const entries = result["rss"]["channel"][0]["item"] || [];
-      const simplifiedEntries = (entries || []).map((entry) => ({
-        title: entry.title[0],
-        pubDate: entry.pubDate[0],
-        description: entry.description[0],
-        link: entry.link[0],
-      }));
+      const simplifiedEntries = (entries || []).reduce((prev, entry) => {
+        const post = {
+          title: entry.title[0],
+          pubDate: entry.pubDate[0] || Date.now(),
+          description: entry.description[0] || entry.title[0],
+          link: entry.link[0],
+        };
+        if (!post.link) return prev;
+        prev.push(post);
+        return prev;
+      }, []);
       return resolve(simplifiedEntries);
     });
   });
@@ -124,10 +135,9 @@ const fetchData = async (blogName) => {
     blogJsonData.filter(Boolean).map(parseFeed),
   );
   LOG.info("Blog data parsed for ", blogName, " successfully");
-  const entries = xmlToList.reduce(
-    (accumulator, current) => accumulator.concat(current),
-    [],
-  );
+  const entries = xmlToList
+    .reduce((accumulator, current) => accumulator.concat(current), [])
+    .filter((post) => isPostByRegex(post, blogName));
 
   LOG.info(
     "Blog data merged for ",
