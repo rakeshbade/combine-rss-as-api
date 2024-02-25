@@ -1,3 +1,3 @@
 module.exports = {
-    allwires: /(?:NASDAQ|NYSE)/i
+  allwires: /(?:NASDAQ|NYSE)/i,
 };
