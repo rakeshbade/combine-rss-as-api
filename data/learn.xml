@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rss>
+  <channel>
+    <title>learn</title>
+    <link>[{"blogUrl":"https://blog.bytebytego.com/feed"},{"blogUrl":"https://rss.app/feeds/6ZHdXEHEDRoSmpi7.xml"}]</link>
+    <description>feed for learn</description>
+    <item>
+      <title>EP100: Polling vs. Webhooks </title>
+      <pubDate>Sat, 24 Feb 2024 16:30:21 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: Polling vs. Webhooks How do we manage configurations in a system? What is CSS (Cascading Style Sheets)? What is GraphQL? Is it a replacement for the REST API? SPONSOR US &amp;#128536; Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored)</description>
+      <link>https://blog.bytebytego.com/p/ep100-polling-vs-webhooks</link>
+    </item>
+    <item>
+      <title>How to Design a Good API?</title>
+      <pubDate>Thu, 22 Feb 2024 16:30:28 GMT</pubDate>
+      <description>We can find web services and APIs (Application Programming Interfaces) everywhere, but many are painful to use. Have you ever connected a web service using its API and wondered, "What were they thinking?" We have, and connecting services via API can be confusing. Whether due to bad design, missing docs, constant changes, or bugs, using APIs is often a struggle.</description>
+      <link>https://blog.bytebytego.com/p/how-to-design-a-good-api</link>
+    </item>
+    <item>
+      <title>A Brief History of Airbnb’s Architecture</title>
+      <pubDate>Tue, 20 Feb 2024 16:30:45 GMT</pubDate>
+      <description>Boost your AI projects with Brave (Sponsored) You probably know Brave as the privacy browser. But did you also know it has a search API that can power your AI projects? Introducing, the Brave Search API. It&amp;#8217;s affordable: Small teams can access the same tools as the big players.</description>
+      <link>https://blog.bytebytego.com/p/a-brief-history-of-airbnbs-architecture</link>
+    </item>
+    <item>
+      <title>EP99: What is the best way to learn SQL?</title>
+      <pubDate>Sat, 17 Feb 2024 16:31:00 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: Top 6 Tools to Turn Diagrams into Beautiful Code (Youtube video) How do you pay from your digital wallet, such as Paypal, Paytm and Venmo, by scanning the QR code? What is the best way to learn SQL? What is gRPC?</description>
+      <link>https://blog.bytebytego.com/p/ep99-what-is-the-best-way-to-learn</link>
+    </item>
+    <item>
+      <title>Virtualization and Containerization: Which one to pick? </title>
+      <pubDate>Thu, 15 Feb 2024 16:30:37 GMT</pubDate>
+      <description>Software applications have traditionally been closely tied to the specific servers they run on and the operating systems they use. But as companies look to get more out of their infrastructure while spending less time and effort managing it, vendors are offering easier deployment options. Virtualization and Containerization let you run multiple isolated applications on a single physical server while sharing and managing resources between them.</description>
+      <link>https://blog.bytebytego.com/p/virtualization-and-containerization</link>
+    </item>
+    <item>
+      <title>EP98: GitOps Workflow - Simplified Visual Guide </title>
+      <pubDate>Sat, 10 Feb 2024 16:30:07 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: Good APIs Vs Bad APIs: 7 Tips for API Design (Youtube video) GitOps Workflow - Simplified Visual Guide How do Search Engines Work? The Payments Ecosystem Object-oriented Programming: A Primer Compare your streaming data options (Sponsored)</description>
+      <link>https://blog.bytebytego.com/p/ep98-gitops-workflow-simplified-visual</link>
+    </item>
+    <item>
+      <title>How do We Design for High Availability?</title>
+      <pubDate>Thu, 08 Feb 2024 16:30:32 GMT</pubDate>
+      <description>In an era where digital presence is vital for business continuity, the concept of high availability (HA) has become a cornerstone in system design. High availability refers to systems that can operate continuously without failure for extended periods.</description>
+      <link>https://blog.bytebytego.com/p/how-do-we-design-for-high-availability</link>
+    </item>
+    <item>
+      <title>A Crash Course in P2P</title>
+      <pubDate>Tue, 06 Feb 2024 16:31:00 GMT</pubDate>
+      <description>Create your free AI chatbot (Sponsored) Meet Sendbird SmartAssistant, a customizable chatbot powered by OpenAI&amp;#8217;s GPT engine. The only chatbot that can be presented in your brand, trained with your own content, and deployed via low-to-no code. In this interactive Demo you will see how Sendbird offers:</description>
+      <link>https://blog.bytebytego.com/p/a-crash-course-in-p2p</link>
+    </item>
+    <item>
+      <title>EP97: 10 Good Coding Principles to Improve Code Quality</title>
+      <pubDate>Sat, 03 Feb 2024 16:30:56 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: How Disney Hotstar Captures One Billion Emojis (Youtube video) 10 Good Coding Principles to improve code quality Top Network Security Cheatsheet How does a VPN work? Explaining 9 types of API testing What is a cookie?</description>
+      <link>https://blog.bytebytego.com/p/ep97-10-good-coding-principles-to</link>
+    </item>
+    <item>
+      <title>Good Code vs. Bad Code</title>
+      <pubDate>Thu, 01 Feb 2024 16:30:28 GMT</pubDate>
+      <description>In our newsletter, we&amp;#8217;ve mainly focused on system designs. This time, we&amp;#8217;re switching gears to a topic just as crucial: the code itself. Ever encountered a system that looks great in design but turns out to be a headache in code? That&amp;#8217;s our focus in this issue. We&amp;#8217;re breaking down what makes code good versus bad. It&amp;#8217;s all about turning those great designs into equally great code. Let&amp;#8217;s dive into the details that truly make a difference in coding.</description>
+      <link>https://blog.bytebytego.com/p/good-code-vs-bad-code</link>
+    </item>
+    <item>
+      <title>EP96: A cheat sheet for system design</title>
+      <pubDate>Sat, 27 Jan 2024 16:30:23 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: A cheat sheet for system designs Visualizing a SQL query Cloud Disaster Recovery Strategies Part-Time Opportunity: Tech Researcher &amp; Writer at ByteByteGo Free Digital Download: The State of Streaming Data (Sponsored)</description>
+      <link>https://blog.bytebytego.com/p/ep96-a-cheat-sheet-for-system-design</link>
+    </item>
+    <item>
+      <title>Mastering Design Principles - SOLID</title>
+      <pubDate>Thu, 25 Jan 2024 16:30:09 GMT</pubDate>
+      <description>In the fast-paced world of software development, writing robust, maintainable, and scalable code is critically important. One way to achieve this is by following a set of fundamental design principles known as the SOLID principles. These principles provide a clear framework for crafting software that is easy to understand, extend, and maintain.</description>
+      <link>https://blog.bytebytego.com/p/mastering-design-principles-solid</link>
+    </item>
+    <item>
+      <title>EP95: Linux File System Explained</title>
+      <pubDate>Sat, 20 Jan 2024 16:30:10 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: Linux File System Explained (Youtube video) REST API Vs. GraphQL Key Use Cases for Load Balancers Types of memory. Which ones do you know? Top 6 Firewall Use Cases SPONSOR US ScyllaDB Summit | Feb 14-15 | Free + Virtual (Sponsored)</description>
+      <link>https://blog.bytebytego.com/p/ep95-linux-file-system-explained</link>
+    </item>
+    <item>
+      <title>A Crash Course in Networking</title>
+      <pubDate>Thu, 18 Jan 2024 16:30:46 GMT</pubDate>
+      <description>The Internet has become an integral part of our daily lives, shaping how we communicate, access information, and conduct business. At its core, the Internet is a global system of interconnected computer networks that use standardized communication protocols to facilitate data exchange. This enables the transmission of text, images, videos, and more, across all sorts of devices.</description>
+      <link>https://blog.bytebytego.com/p/a-crash-course-in-networking</link>
+    </item>
+    <item>
+      <title>EP94: REST API Cheatsheet</title>
+      <pubDate>Sat, 13 Jan 2024 16:30:37 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: Everything You NEED to Know About Client Architecture Patterns (Youtube video) REST API Cheatsheet How Does a Typical Push Notification System Work? Top 4 Most Popular Use Cases for UDP Top 8 Programming Paradigms</description>
+      <link>https://blog.bytebytego.com/p/ep94-rest-api-cheatsheet</link>
+    </item>
+    <item>
+      <title>Netflix: What Happens When You Press Play - Part 2</title>
+      <pubDate>Thu, 11 Jan 2024 16:30:14 GMT</pubDate>
+      <description>Remember how we said a CDN has computers distributed all over the world? Netflix developed its own computer system for video storage. Netflix calls them Open Connect Appliances or OCAs. Here&amp;#8217;s what an early OCA installation in a site looked like: There are many OCAs in the above picture. OCAs are grouped into clusters of multiple servers.</description>
+      <link>https://blog.bytebytego.com/p/netflix-what-happens-when-you-press-288</link>
+    </item>
+    <item>
+      <title>How Discord Serves 15-Million Users on One Server</title>
+      <pubDate>Tue, 09 Jan 2024 16:30:56 GMT</pubDate>
+      <description>Measuring GenAI Code&amp;#8217;s Impact: Free Workshop (Sponsored) How is GenAI impacting software development? Join LinearB and ThoughtWorks&amp;#8217; Global Lead for AI Software Delivery to explore the metrics showing AI&amp;#8217;s impact, unpack best practices for leveraging AI in software development, and measure the ROI of your own GenAI initiative.</description>
+      <link>https://blog.bytebytego.com/p/how-discord-serves-15-million-users</link>
+    </item>
+    <item>
+      <title>EP93: Is Passkey Shaping a Passwordless Future?</title>
+      <pubDate>Sat, 06 Jan 2024 16:30:27 GMT</pubDate>
+      <description>This week&amp;#8217;s system design refresher: Top 9 Most Popular Types of API Testing (Youtube video) Is Passkey Shaping a Passwordless Future? How can Cache Systems go wrong? Big Endian vs Little Endian How do we incorporate Event Sourcing into the systems?</description>
+      <link>https://blog.bytebytego.com/p/ep93-is-passkey-shaping-a-passwordless</link>
+    </item>
+    <item>
+      <title>Netflix: What Happens When You Press Play?</title>
+      <pubDate>Thu, 04 Jan 2024 16:30:27 GMT</pubDate>
+      <description>This week's newsletter features a chapter from one of my favorite books, Explain the Cloud Like I&amp;#8217;m 10. I am fascinated by our guest author, Todd Hoff&amp;#8217;s ability to distill complex topics into simpler discussions. This is one of our inspirations for why we made the ByteByteGo newsletter in the first place.</description>
+      <link>https://blog.bytebytego.com/p/netflix-what-happens-when-you-press</link>
+    </item>
+    <item>
+      <title>Best of ByteByteGo's Newsletter 2023</title>
+      <pubDate>Tue, 02 Jan 2024 16:30:17 GMT</pubDate>
+      <description>In 2023, we sent out 104 newsletters, featuring a deep dive newsletter on Thursdays and system design fundamentals on Saturdays. Here is The Best of ByteByteGo's System Design Newsletter 2023. I hope you find something interesting to read. Understanding Database Types</description>
+      <link>https://blog.bytebytego.com/p/best-of-bytebytegos-newsletter-2023</link>
+    </item>
+    <item>
+      <title>Reddit Discloses Bitcoin and Ether Holdings in IPO Filing (2 minute read)</title>
+      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
+      <description>Reddit has announced plans to IPO under the ticker RDDT. It disclosed it had used excess cash for investments in Bitcoin and Ether to hold on the balance sheet in its filings with the SEC. In addition to holding crypto for investment purposes, Reddit also holds ETH and MATIC for sales of select digital collectibles.</description>
+      <link>https://www.coindesk.com/business/2024/02/22/reddit-discloses-holding-bitcoin-and-ether-in-ipo-filing/?utm_source=tldrcrypto</link>
+    </item>
+    <item>
+      <title>Introducing Sudo for Windows! (3 minute read)</title>
+      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
+      <description>Sudo for Windows is a new feature in Windows 11 Insider Preview Build 26052 that allows users to run elevated commands from an unelevated console session. This article contains details on how to enable, configure, and use it and discusses plans for open-sourcing and expanding its documentation.</description>
+      <link>https://devblogs.microsoft.com/commandline/introducing-sudo-for-windows/?utm_source=tldrdevops</link>
+    </item>
+    <item>
+      <title>Dead Simple Sites (Website)</title>
+      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
+      <description>No overly animated content, scroll jacking, or excessive storytelling. Just most minimal websites on the web.</description>
+      <link>https://deadsimplesites.com/?utm_source=tldrdesign</link>
+    </item>
+    <item>
+      <title>Sneaky SSH-Snake malware steals SSH keys - putting your whole network at risk (2 minute read)</title>
+      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
+      <description>Approximately 100 organizations have had their SSH credentials stolen using a recently released open source pentesting tool with worm-like capabilities. The tool is completely self-replicating and self-propagating — and completely fileless. In many ways, SSH-Snake is actually a worm: it replicates itself and spreads itself from one system to another as far as it can.</description>
+      <link>https://www.techradar.com/pro/security/sneaky-ssh-snake-malware-steals-ssh-keys-putting-your-whole-network-at-risk?utm_source=tldrinfosec</link>
+    </item>
+  </channel>
+</rss>
