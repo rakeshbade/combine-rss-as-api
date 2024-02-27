@@ -14,13 +14,15 @@ app.get("/rss", async (req, res) => {
   try {
     LOG.info("Received request for", blog);
 
+    // let xmlFeed = await getDataFromFile(blog);
+    // if (!xmlFeed) {
+    //   await fetchData(blog);
+    //   xmlFeed = await getDataFromFile(blog);
+    // } else {
+    //   eventEmitter.emit("fetchData", blog);
+    // }
+    await fetchData(blog);
     let xmlFeed = await getDataFromFile(blog);
-    if (!xmlFeed) {
-      await fetchData(blog);
-      xmlFeed = await getDataFromFile(blog);
-    } else {
-      eventEmitter.emit("fetchData", blog);
-    }
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
     LOG.error(e);

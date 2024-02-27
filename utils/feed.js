@@ -22,12 +22,15 @@ const convertEntriesToRss = (blogName, entries = [])=>{
     }
   });
   sortedList.forEach((post)=>{
+    const title = post.title;
+    const description = post.title || post.description;
+    const link = post.url || post.link;
     feed.addItem({
-      title: post.title,
-      id: post.url || post.link,
-      link: post.url || post.link,
-      description: post.description || post.title,
-      content: post.content || post.description || post.title,
+      title: title,
+      id: link,
+      link: link,
+      description: description,
+      content: description,
       date: new Date(post.date) || Date.now(),
     });
   })
