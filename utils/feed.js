@@ -1,8 +1,11 @@
 const { Feed } = require("feed");
 const config = require("../config/index");
 
-const convertEntriesToRss = (blogName, entries)=>{
+const convertEntriesToRss = (blogName, entries = [])=>{
   const blog = config[blogName];
+  const sortedList = entries.slice().sort((a, b) => {
+    return b.date - a.date; 
+  });
   const feed = new Feed({
     title: blogName,
     description: blogName,
@@ -18,11 +21,11 @@ const convertEntriesToRss = (blogName, entries)=>{
       link: "baderakesh.com"
     }
   });
-  (entries || []).forEach((post)=>{
+  sortedList.forEach((post)=>{
     feed.addItem({
       title: post.title,
-      id: post.url,
-      link: post.url,
+      id: post.url || post.link,
+      link: post.url || post.link,
       description: post.description || post.title,
       content: post.content || post.description || post.title,
       date: new Date(post.date) || Date.now(),

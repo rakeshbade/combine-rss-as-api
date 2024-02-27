@@ -39,7 +39,7 @@ const parseFeed = (feed) => {
       const simplifiedEntries = (entries || []).reduce((prev, entry) => {
         const post = {
           title: entry.title[0],
-          date: entry.pubDate[0] || entry.date[0],
+          date: new Date(String(entry.pubDate[0] || entry.date[0])).getTime() || Date.now(),
           description: entry.description[0] || entry.title[0],
           link: entry.link[0],
         };
