@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
-const { fetchData } = require("./controllers/fetch");
+const { fetchData } = require("./services/fetch");
 const { getDataFromFile } = require("./utils/fileUtils");
 const port = process.env.PORT || 3000; // You can choose any port number
-const { applicationLogger: LOG, eventLogger } = require("./controllers/logger");
+const { applicationLogger: LOG, eventLogger } = require("./services/logger");
+const { zipAllFiles } = require("./services/download");
+const { getEarningsCalendar } = require("./services/earnings");
 
 app.get("/rss", async (req, res) => {
   const { blog } = req.query;
@@ -25,6 +27,18 @@ app.get("/rss", async (req, res) => {
   }
 });
 
+app.get("/sec-earnings", async(req,res)=>{
+  try {
+    const numberOfWeeks = 2;
+    LOG.info(`Get earning calendar for the next ${numberOfWeeks} weeks`);
+    const data = await getEarningsCalendar({numberOfWeeks})
+    res.send(data);
+  } catch (e) {
+    LOG.error(e);
+    return res.status(500).send(e);
+  }
+})
+
 app.post("/log", express.json({ type: ["text/*"] }), (req, res) => {
   const { type } = req.params;
   if (!req.body) {
@@ -41,6 +55,13 @@ app.post("/log", express.json({ type: ["text/*"] }), (req, res) => {
     return res.status(500).send(e);
   }
 });
+
+app.get("/download",  async (req, res) => {
+  const archive = zipAllFiles();
+  res.set('Content-Type', 'application/zip');
+  res.set('Content-Disposition', 'attachment; filename=all_files.zip');
+  archive.pipe(res);
+})
 
 // Start the server
 app.listen(port, () => {

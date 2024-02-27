@@ -21,6 +21,14 @@ const loadDataBy = {
   axios: "axios",
 };
 
+const getCurlHttpHeaders = url=>{
+  const urlParams = new URL(url)
+  return [
+    `Host: ${urlParams.host}`,
+    'Access-Control-Allowed-Origin: ${urlParams.host}'
+  ]
+}
+
 const parseFeed = (feed) => {
   return new Promise((resolve) => {
     parser.parseString(feed, (err, result) => {
@@ -111,7 +119,9 @@ const fetchData = async (blogName) => {
     );
     try {
       if (currentLoadType === loadDataBy.curl) {
-        const { data } = await curly.get(url);
+        const { data } = await curly.get(url, {
+          httpHeader: getCurlHttpHeaders(url),
+        });
         return data.toString();
       } else if (currentLoadType === loadDataBy.puppeteer) {
         return await fetchArticlesFromPuppeter(url, rss);
@@ -168,4 +178,4 @@ const convertEntriesToRss = (blog, entries) => {
   return rssXml;
 };
 
-module.exports = { fetchData, convertEntriesToRss };
+module.exports = { fetchData, convertEntriesToRss, getCurlHttpHeaders };
