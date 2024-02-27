@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000; // You can choose any port number
 const { applicationLogger: LOG, eventLogger } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
 const { getEarningsCalendar } = require("./services/earnings");
+const { eventEmitter } = require("./utils/events");
 
 app.get("/rss", async (req, res) => {
   const { blog } = req.query;
@@ -18,7 +19,7 @@ app.get("/rss", async (req, res) => {
       await fetchData(blog);
       xmlFeed = await getDataFromFile(blog);
     } else {
-      fetchData(blog);
+      eventEmitter.emit("fetchData", blog);
     }
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {

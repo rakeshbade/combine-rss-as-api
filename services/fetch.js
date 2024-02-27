@@ -6,8 +6,8 @@ const xml2js = require("xml2js");
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const parser = new xml2js.Parser();
-const builder = new xml2js.Builder();
 const { writeToFile } = require("../utils/fileUtils");
+const {convertEntriesToRss} = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
 
 const isPostByRegex = (post, blogName) => {
@@ -39,7 +39,7 @@ const parseFeed = (feed) => {
       const simplifiedEntries = (entries || []).reduce((prev, entry) => {
         const post = {
           title: entry.title[0],
-          pubDate: entry.pubDate[0] || Date.now(),
+          date: entry.pubDate[0] || entry.date[0],
           description: entry.description[0] || entry.title[0],
           link: entry.link[0],
         };
@@ -84,14 +84,19 @@ const fetchArticlesFromPuppeter = async (url, config) => {
     ignoreDefaultArgs: ["--disable-extensions"],
   });
   const page = await browser.newPage();
-  await page.goto(url);
-  await page.waitForFunction(
-    "window.performance.timing.loadEventEnd - window.performance.timing.navigationStart >= 500",
-  );
-  await page.waitForSelector(config.container);
-  const pageSourceHTML = await page.content();
-  await browser.close();
-  return getArticlesFromPuppeter(pageSourceHTML, config);
+  try{
+    await page.goto(url);
+    await page.waitForFunction(
+      "window.performance.timing.loadEventEnd - window.performance.timing.navigationStart >= 500",
+    );
+    await page.waitForSelector(config.container);
+    const pageSourceHTML = await page.content();
+    return getArticlesFromPuppeter(pageSourceHTML, config);
+  }catch(e){
+    throw e
+  }finally{
+    await browser.close();
+  }
 };
 
 const waitFor = (timer) => {
@@ -163,19 +168,4 @@ const fetchData = async (blogName) => {
   LOG.info("Blog data written for ", blogName, " successfully");
 };
 
-const convertEntriesToRss = (blog, entries) => {
-  const rssFeed = {
-    rss: {
-      channel: {
-        title: blog,
-        link: JSON.stringify(config[blog]),
-        description: `feed for ${blog}`,
-        item: entries,
-      },
-    },
-  };
-  const rssXml = builder.buildObject(rssFeed);
-  return rssXml;
-};
-
-module.exports = { fetchData, convertEntriesToRss, getCurlHttpHeaders };
+module.exports = { fetchData, getCurlHttpHeaders };
