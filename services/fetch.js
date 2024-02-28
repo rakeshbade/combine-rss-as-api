@@ -12,7 +12,7 @@ const { applicationLogger: LOG } = require("./logger");
 
 const isPostByRegex = (post, blogName) => {
   const regex = blogRegex[blogName];
-  if (!regex || JSON.stringify(post).match(regex)) return post;
+  if (!regex || (JSON.stringify(post).match(regex.include) && !JSON.stringify(post).match(regex.exclude))) return post;
 };
 
 const loadDataBy = {
