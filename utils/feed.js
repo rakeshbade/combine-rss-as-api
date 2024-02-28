@@ -23,7 +23,7 @@ const convertEntriesToRss = (blogName, entries = [])=>{
   });
   sortedList.forEach((post)=>{
     const title = post.title;
-    const description = post.description || post.title;
+    const description =  post.description || post.title;
     const link = post.url || post.link;
     feed.addItem({
       title: title,

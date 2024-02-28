@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 const { fetchData } = require("./services/fetch");
-const { getDataFromFile } = require("./utils/fileUtils");
+const { getDataFromRssData } = require("./utils/fileUtils");
 const port = process.env.PORT || 3000; // You can choose any port number
 const { applicationLogger: LOG, eventLogger } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
-const { getEarningsCalendar } = require("./services/earnings");
+const { getEarningsCalendar, getCompanyCodesFromEarningsData } = require("./services/earnings");
 const { eventEmitter } = require("./utils/events");
 
 app.get("/rss", async (req, res) => {
@@ -22,7 +22,7 @@ app.get("/rss", async (req, res) => {
     //   eventEmitter.emit("fetchData", blog);
     // }
     await fetchData(blog);
-    let xmlFeed = await getDataFromFile(blog);
+    let xmlFeed = await getDataFromRssData(blog);
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
     LOG.error(e);
@@ -33,9 +33,9 @@ app.get("/rss", async (req, res) => {
 app.get("/sec-earnings", async(req,res)=>{
   try {
     const numberOfWeeks = 2;
-    LOG.info(`Get earning calendar for the next ${numberOfWeeks} weeks`);
-    const data = await getEarningsCalendar({numberOfWeeks})
-    res.send(data);
+    const earnings = await getEarningsCalendar({numberOfWeeks});
+    const companies = getCompanyCodesFromEarningsData(earnings)
+    res.send(companies);
   } catch (e) {
     LOG.error(e);
     return res.status(500).send(e);
