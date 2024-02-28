@@ -54,7 +54,7 @@ const getEarningsCalendar = async ({numberOfWeeks})=>{
     httpHeader: headers,
   });
   const content = {
-    lastBuildDate: new Date().toISOString(),
+    lastBuildDate: new Date().getTime(),
     data: responseData
   }
   await writeContentToFile(fileName, JSON.stringify(content))
