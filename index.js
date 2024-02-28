@@ -7,7 +7,9 @@ const { applicationLogger: LOG, eventLogger } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
 const { getEarningsCalendar, getCompanyCodesFromEarningsData } = require("./services/earnings");
 const { eventEmitter } = require("./utils/events");
+
 process.env.TZ = "America/New_York"
+
 app.get("/rss", async (req, res) => {
   const { blog } = req.query;
   if (!blog) return res.status(404).send({ message: "invalid query" });

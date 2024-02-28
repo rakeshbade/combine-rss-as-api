@@ -39,7 +39,7 @@ const parseFeed = (feed) => {
       const simplifiedEntries = (entries || []).reduce((prev, entry) => {
         const link = entry.link[0];
         if (!link) return prev;
-        const date = new Date(String(entry.pubDate[0] || entry.date[0])).getTime() || Date.now();
+        const date = new Date(String(entry.pubDate[0] || entry.date[0])).getTime();
         const description = entry.description[0] || entry.content[0] || entry.title[0];
         const title = entry.title[0];
         const post = {
@@ -71,9 +71,9 @@ const getArticlesFromPuppeter = (html, config) => {
       if (article.date.includes(" ET")) {
         article.date = article.date.replace(" ET", "");
       }
-      article.date = new Date(article.date).toISOString();
+      article.date = new Date(article.date).getTime();
     } else {
-      article.date = new Date().toISOString();
+      article.date = new Date().getTime();
     }
     article.description = $(ele).find(config.description).text().trim();
     articles.push(article);

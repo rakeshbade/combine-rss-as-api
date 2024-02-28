@@ -1,6 +1,16 @@
 const { Feed } = require("feed");
 const config = require("../config/index");
 
+const getDateTimeET = (post)=>{
+  let result;
+  try{
+    result = new Date(post.date).getTime()
+  }catch(e){
+    throw new Error("Invalid date in the post", post)
+  }
+  return new Date(result);
+}
+
 const convertEntriesToRss = (blogName, entries = [])=>{
   const blog = config[blogName];
   const sortedList = entries.slice().sort((a, b) => {
@@ -12,7 +22,7 @@ const convertEntriesToRss = (blogName, entries = [])=>{
     id: blogName,
     link: `http://${blogName}.link`,
     language: "en",
-    updated: new Date(),
+    updated: getDateTimeET(sortedList[0]),
     generator: "nodejs", 
     // feedLinks: {},
     author: {
@@ -25,13 +35,14 @@ const convertEntriesToRss = (blogName, entries = [])=>{
     const title = post.title;
     const description =  post.description || post.title;
     const link = post.url || post.link;
+    let date = getDateTimeET(post)
     feed.addItem({
       title: title,
       id: link,
       link: link,
       description: description,
       content: description,
-      date: new Date(post.date) || Date.now(),
+      date: date,
     });
   })
   return feed.rss2()
