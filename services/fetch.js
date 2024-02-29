@@ -12,7 +12,7 @@ const { applicationLogger: LOG } = require("./logger");
 
 const isPostByRegex = (post, blogName) => {
   const regex = blogRegex[blogName];
-  if (!regex || (JSON.stringify(post).match(regex.include) && !JSON.stringify(post).match(regex.exclude))) return post;
+  if (!regex || (JSON.stringify(post).match(regex.include) && !(post.title).match(regex.exclude))) return post;
 };
 
 const loadDataBy = {
@@ -38,10 +38,11 @@ const parseFeed = (feed) => {
       const entries = result["rss"]["channel"][0]["item"] || [];
       const simplifiedEntries = (entries || []).reduce((prev, entry) => {
         const link = entry.link[0];
-        if (!link) return prev;
-        const date = new Date(String(entry.pubDate[0] || entry.date[0])).getTime();
-        const description = entry.description[0] || entry.content[0] || entry.title[0];
+        const pubDate = entry.pubDate[0] || entry.date[0];
         const title = entry.title[0];
+        if (!link || !pubDate || !title) return prev;
+        const date = new Date(String(pubDate)).getTime();
+        const description = entry.description[0] || entry.content[0] || entry.title[0];
         const post = {
           title: title.replace(/<\/?[^>]+(>|$)/g, ""),
           date,
