@@ -16,10 +16,10 @@ app.get("/rss", async (req, res) => {
   try {
     LOG.info("Received request for", blog);
 
-    let xmlFeed = await getDataFromFile(blog);
+    let xmlFeed = await getDataFromRssData(blog);
     if (!xmlFeed) {
       await fetchData(blog);
-      xmlFeed = await getDataFromFile(blog);
+      xmlFeed = await getDataFromRssData(blog);
     } else {
       eventEmitter.emit("fetchData", blog);
     }
