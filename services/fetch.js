@@ -11,6 +11,7 @@ const {convertEntriesToRss} = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
 
 const isPostByRegex = (post, blogName) => {
+  if(!post) return;
   const regex = blogRegex[blogName];
   if (!regex || (JSON.stringify(post).match(regex.include) && !(post.title).match(regex.exclude))) return post;
 };
@@ -41,7 +42,9 @@ const parseFeed = (feed) => {
         const pubDate = entry.pubDate[0] || entry.date[0];
         const title = entry.title[0];
         if (!link || !pubDate || !title) return prev;
+        // filter all posts older than 1 hours
         const date = new Date(String(pubDate)).getTime();
+        if(Math.abs(Date.now()-date)> 60 * 60 *1000) return prev;
         const description = entry.description[0] || entry.content[0] || entry.title[0];
         const post = {
           title: title.replace(/<\/?[^>]+(>|$)/g, ""),
