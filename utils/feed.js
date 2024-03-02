@@ -1,12 +1,35 @@
 const { Feed } = require("feed");
 const config = require("../config/index");
+const NodeCache = require( "node-cache" );
+
+const buildCache = ()=>{
+  const cache = new NodeCache();
+  const lastLoadedData = "lastLoadedData";
+  return {
+    getCurrentDate: ()=>{
+      return cache.get(lastLoadedData)
+    },
+    setCurrentDate: ()=>{
+      const value = Date.now();
+      return cache.set(lastLoadedData, value)
+    },
+    clearCurrentDate: ()=>{
+      return cache.del(lastLoadedData);
+    },
+    hasCurrentDate: ()=>{
+      return cache.has(lastLoadedData)
+    }
+  }
+}
+
 
 const getDateTimeET = (post)=>{
+  if(!post) return;
   let result;
   try{
     result = new Date(post.date).getTime()
   }catch(e){
-    throw new Error("Invalid date in the post", post)
+    throw Error("Invalid date in the post", post)
   }
   return new Date(result);
 }
@@ -48,5 +71,7 @@ const convertEntriesToRss = (blogName, entries = [])=>{
 }
 
 module.exports = {
-  convertEntriesToRss
+  convertEntriesToRss,
+  appCache: buildCache(),
+  getDateTimeET
 }

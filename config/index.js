@@ -3,6 +3,6 @@ const business = require("./business.json");
 const learn = require("./learn.json");
 module.exports = {
   allwires,
-  business,
+  // business,
   learn
 };

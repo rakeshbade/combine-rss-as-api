@@ -7,6 +7,7 @@ const { applicationLogger: LOG, eventLogger } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
 const { getEarningsCalendar, getCompanyCodesFromEarningsData } = require("./services/earnings");
 const { eventEmitter } = require("./utils/events");
+const {appCache} = require("./utils/feed")
 
 process.env.TZ = "America/New_York"
 
@@ -33,6 +34,12 @@ app.get("/rss", async (req, res) => {
 app.get("/feed-all", async (req, res) => {
   try {
     let name = "all";
+    const { cache } = req.query;
+    if(cache === false){
+      appCache.clearCurrentDate();
+    }else{
+      appCache.setCurrentDate();
+    }
     eventEmitter.emit("fetchAllFeed", name);
     let xmlFeed = await getDataFromRssData(name);
     return res.set("Content-Type", "text/xml").send(xmlFeed);
