@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const { fetchData } = require("./services/fetch");
+const { fetchData, fetchEntries } = require("./services/fetch");
 const { getDataFromRssData } = require("./utils/fileUtils");
 const port = process.env.PORT || 3000; // You can choose any port number
 const { applicationLogger: LOG, eventLogger } = require("./services/logger");
@@ -23,6 +23,18 @@ app.get("/rss", async (req, res) => {
     } else {
       eventEmitter.emit("fetchData", blog);
     }
+    return res.set("Content-Type", "text/xml").send(xmlFeed);
+  } catch (e) {
+    LOG.error(e);
+    return res.status(500).send(e);
+  }
+});
+
+app.get("/feed-all", async (req, res) => {
+  try {
+    let name = "all";
+    eventEmitter.emit("fetchAllFeed", name);
+    let xmlFeed = await getDataFromRssData(name);
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
     LOG.error(e);

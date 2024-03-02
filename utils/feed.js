@@ -12,7 +12,6 @@ const getDateTimeET = (post)=>{
 }
 
 const convertEntriesToRss = (blogName, entries = [])=>{
-  const blog = config[blogName];
   const sortedList = entries.slice().sort((a, b) => {
     return b.date - a.date; 
   });

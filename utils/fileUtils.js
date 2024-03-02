@@ -59,4 +59,5 @@ const getDataFromRssData = (blogName) => {
   return getDataFromFile(fileName)
 };
 
+
 module.exports = { getFileName, writeToFile, getDataFromFile, getDataFromRssData, writeContentToFile };

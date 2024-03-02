@@ -113,7 +113,7 @@ const waitFor = (timer) => {
   });
 };
 
-const fetchData = async (blogName) => {
+const fetchEntries = async (blogName) => {
   const blogs = config[blogName];
   let currentLoadType = loadDataBy.axios;
   const fetchBlogData = async (rss) => {
@@ -169,11 +169,15 @@ const fetchData = async (blogName) => {
     "with entries",
     entries.length,
   );
+    return entries;
+};
 
+const fetchData = async (blogName) => {
+  const entries = await fetchEntries(blogName);
   const rssXml = convertEntriesToRss(blogName, entries);
   await writeToFile(blogName, rssXml);
 
   LOG.info("Blog data written for ", blogName, " successfully");
 };
 
-module.exports = { fetchData, getCurlHttpHeaders };
+module.exports = { fetchData, getCurlHttpHeaders, fetchEntries };
