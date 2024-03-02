@@ -40,5 +40,13 @@
   },
   {
     "blogUrl": "https://www.prnewswire.com/rss/news-releases-list.rss"
+  },{
+    "blogUrl": "https://www.accesswire.com/newsroom",
+    "container": ".article-box",
+    "header": "a",
+    "description": ".html-embed-21.w-embed",
+    "link": "a",
+    "date": ".article-date",
+    "loadType": "puppeteer"
   }
 ]
