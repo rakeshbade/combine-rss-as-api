@@ -27,15 +27,7 @@ npm install
 sudo npm install pm2 --global
 pm2 start npm --name $APP_DIR -- start  # Replace "appName" with your desired PM2 app name
 
-curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
-  | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" \
-  | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
-
-ngrok config add-authtoken "$AUTH_TOKEN"
-
-ngrok http http://localhost:3000
-
-# Step 6: Test
-# Open a web browser and navigate to http://<your_domain_or_ip>
+sudo npm install -g tunnelmole
+tmole 3000
 
 echo "Node.js app successfully deployed and accessible externally!"
