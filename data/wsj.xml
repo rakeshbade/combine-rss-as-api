@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>wsj</title>
+        <link>http://wsj.link</link>
+        <description>wsj</description>
+        <lastBuildDate>Sun, 03 Mar 2024 15:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>nodejs</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Stock Funds Rise 5.2% Thanks to ‘Magnificent Seven’]]></title>
+            <link>https://www.wsj.com/finance/stocks/stock-funds-increase-magnificent-seven-e57e5183</link>
+            <guid>https://www.wsj.com/finance/stocks/stock-funds-increase-magnificent-seven-e57e5183</guid>
+            <pubDate>Sun, 03 Mar 2024 15:00:00 GMT</pubDate>
+            <description><![CDATA[Stock Funds Rise 5.2% Thanks to ‘Magnificent Seven’]]></description>
+            <content:encoded><![CDATA[Stock Funds Rise 5.2% Thanks to ‘Magnificent Seven’]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How to Invest in a Bull Market]]></title>
+            <link>https://www.wsj.com/finance/stocks/how-to-invest-in-a-bull-market-04b4e482</link>
+            <guid>https://www.wsj.com/finance/stocks/how-to-invest-in-a-bull-market-04b4e482</guid>
+            <pubDate>Sun, 03 Mar 2024 04:00:00 GMT</pubDate>
+            <description><![CDATA[How to Invest in a Bull Market]]></description>
+            <content:encoded><![CDATA[How to Invest in a Bull Market]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Frothy Market Misses Vital Bubble Ingredients]]></title>
+            <link>https://www.wsj.com/finance/stocks/a-frothy-market-misses-vital-bubble-ingredients-510efbaf</link>
+            <guid>https://www.wsj.com/finance/stocks/a-frothy-market-misses-vital-bubble-ingredients-510efbaf</guid>
+            <pubDate>Sat, 02 Mar 2024 04:00:00 GMT</pubDate>
+            <description><![CDATA[A Frothy Market Misses Vital Bubble Ingredients]]></description>
+            <content:encoded><![CDATA[A Frothy Market Misses Vital Bubble Ingredients]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[The Score: Domino’s Pizza, Macy’s, Spirit AeroSystems and More Stocks That Defined the Week]]></title>
+            <link>https://www.wsj.com/finance/stocks/dominos-macys-spirit-aerosystems-and-more-stocks-that-defined-the-week-4ac307eb</link>
+            <guid>https://www.wsj.com/finance/stocks/dominos-macys-spirit-aerosystems-and-more-stocks-that-defined-the-week-4ac307eb</guid>
+            <pubDate>Fri, 01 Mar 2024 22:59:00 GMT</pubDate>
+            <description><![CDATA[The Score: Domino’s Pizza, Macy’s, Spirit AeroSystems and More Stocks That Defined the Week]]></description>
+            <content:encoded><![CDATA[The Score: Domino’s Pizza, Macy’s, Spirit AeroSystems and More Stocks That Defined the Week]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Nvidia Tops $2 Trillion Valuation and Pushes Market Higher]]></title>
+            <link>https://www.wsj.com/finance/stocks/global-stocks-markets-dow-news-03-01-2024-03a17c15</link>
+            <guid>https://www.wsj.com/finance/stocks/global-stocks-markets-dow-news-03-01-2024-03a17c15</guid>
+            <pubDate>Fri, 01 Mar 2024 21:40:00 GMT</pubDate>
+            <description><![CDATA[Nvidia Tops $2 Trillion Valuation and Pushes Market Higher]]></description>
+            <content:encoded><![CDATA[Nvidia Tops $2 Trillion Valuation and Pushes Market Higher]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Reddit Eyes Valuation of Up to $6.5 Billion in IPO]]></title>
+            <link>https://www.wsj.com/finance/stocks/reddit-eyes-valuation-of-up-to-6-5-billion-in-ipo-18e0c346</link>
+            <guid>https://www.wsj.com/finance/stocks/reddit-eyes-valuation-of-up-to-6-5-billion-in-ipo-18e0c346</guid>
+            <pubDate>Fri, 01 Mar 2024 20:08:00 GMT</pubDate>
+            <description><![CDATA[Reddit Eyes Valuation of Up to $6.5 Billion in IPO]]></description>
+            <content:encoded><![CDATA[Reddit Eyes Valuation of Up to $6.5 Billion in IPO]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Auto & Transport Roundup: Market Talk]]></title>
+            <link>https://www.wsj.com/finance/stocks/auto-transport-roundup-market-talk-9f13aaae</link>
+            <guid>https://www.wsj.com/finance/stocks/auto-transport-roundup-market-talk-9f13aaae</guid>
+            <pubDate>Fri, 01 Mar 2024 12:16:00 GMT</pubDate>
+            <description><![CDATA[Auto & Transport Roundup: Market Talk]]></description>
+            <content:encoded><![CDATA[Auto & Transport Roundup: Market Talk]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Health Care Roundup: Market Talk]]></title>
+            <link>https://www.wsj.com/finance/stocks/health-care-roundup-market-talk-aa480c35</link>
+            <guid>https://www.wsj.com/finance/stocks/health-care-roundup-market-talk-aa480c35</guid>
+            <pubDate>Fri, 01 Mar 2024 12:07:00 GMT</pubDate>
+            <description><![CDATA[Health Care Roundup: Market Talk]]></description>
+            <content:encoded><![CDATA[Health Care Roundup: Market Talk]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Heard on the Street’s Stock-Picking Contest]]></title>
+            <link>https://www.wsj.com/finance/stocks/heard-on-the-streets-stock-picking-contest-bbb58f00</link>
+            <guid>https://www.wsj.com/finance/stocks/heard-on-the-streets-stock-picking-contest-bbb58f00</guid>
+            <pubDate>Mon, 21 Aug 2023 11:00:00 GMT</pubDate>
+            <description><![CDATA[Heard on the Street’s Stock-Picking Contest]]></description>
+            <content:encoded><![CDATA[Heard on the Street’s Stock-Picking Contest]]></content:encoded>
+        </item>
+    </channel>
+</rss>

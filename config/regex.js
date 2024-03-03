@@ -5,6 +5,5 @@ module.exports = {
   },
     wsj: {
       include: /(?:\/deals\/)/i,
-      exclude: /(?:)/i
     }
 };
