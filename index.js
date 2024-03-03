@@ -5,9 +5,9 @@ const { getDataFromRssData } = require("./utils/fileUtils");
 const port = process.env.PORT || 9981; // You can choose any port number
 const { applicationLogger: LOG, eventLogger } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
-const { getEarningsCalendar, getCompanyCodesFromEarningsData } = require("./services/earnings");
+const { getEarningsCalendar, getCompanyCodesFromEarningsData, getRecentSecFilingsForEarnings } = require("./services/earnings");
 const { eventEmitter } = require("./utils/events");
-const {appCache} = require("./utils/feed")
+const {appCache, convertEntriesToRss} = require("./utils/feed")
 
 process.env.TZ = "America/New_York"
 
@@ -53,8 +53,10 @@ app.get("/sec-earnings", async(req,res)=>{
   try {
     const numberOfWeeks = 2;
     const earnings = await getEarningsCalendar({numberOfWeeks});
-    const companies = getCompanyCodesFromEarningsData(earnings)
-    res.send(companies);
+    const companies = getCompanyCodesFromEarningsData(earnings);
+    const secFillings = await getRecentSecFilingsForEarnings(companies);
+    const rssXml = convertEntriesToRss("sec-listings", secFillings);
+    res.send(rssXml);
   } catch (e) {
     LOG.error(e);
     return res.status(500).send(e);

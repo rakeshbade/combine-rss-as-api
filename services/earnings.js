@@ -2,8 +2,11 @@ const { curly } = require("node-libcurl");
 const querystring = require('querystring');
 const { getCurlHttpHeaders } = require("./fetch");
 const { getDataFromFile, writeContentToFile } = require("../utils/fileUtils");
+const secCompanies = require("./../data/sec-companies.json");
 const path = require("path");
 const { applicationLogger: LOG } = require("./logger");
+const xml2js = require("xml2js");
+const parser = new xml2js.Parser();
 
 const isWithInHours = (date, hours = 24)=>{
     const timeDifference = Math.abs(new Date(date).getTime() - Date.now());
@@ -61,4 +64,101 @@ const getEarningsCalendar = async ({numberOfWeeks})=>{
   return content;
 }
 
-module.exports = {getEarningsCalendar, getCompanyCodesFromEarningsData}
+const secCompanyMap = Object.entries(secCompanies).reduce((acc, [index, sec])=>{
+  if(!acc[sec.cik_str]){
+    acc[sec.cik_str] = sec
+  }
+  return acc;
+},{});
+
+
+const secListingsByCik = (data)=>{
+  return new Promise((resolve, reject) => {
+    parser.parseString(data, (err, result) => {
+      if(err) return reject(err);
+      const entries = result?.["feed"]?.["entry"];
+      const secEntries = (entries || []).map((entry)=>{
+        const link = entry?.link?.[0]?.['$']?.['href'];
+        const date =  entry?.updated?.[0];
+        if(!link || !date) return;
+        const regex = /\/data\/(\d+)\//;
+        const cik = link.match(regex)[1];
+        // look for cik in the sec entries
+        if(!secCompanyMap[cik]) return;
+        // escape old entries
+        if(!isWithInHours(date,  24)) return;
+        return {
+          title: entry?.title?.[0],
+          date,
+          description: entry?.summary?.[0]?.['_'],
+          url: link,
+          cik,
+          ticker: secCompanyMap[cik].ticker,
+          dataUrl: `https://data.sec.gov/rss?cik=${cik}&type=&exclude=true&count=10`,
+          company: secCompanyMap[cik].title
+        }
+      }).filter(x=> x && x.url);
+      return resolve(secEntries)
+    })
+  })
+}
+
+const parseSecDataFeedToJson = (data, companyData)=>{
+  const supportedFormTypes = [];
+  return new Promise((resolve, reject) => {
+    parser.parseString(data, (err, result) => {
+      if(err) return reject(err);
+      const entries = result?.["feed"]?.["entry"];
+      const secEntries = (entries || []).map((entry)=>{
+        const date =  entry?.updated?.[0];
+        const url = entry?.link?.[0]?.['$']?.['href'];
+        const summary = entry?.summary?.[0]?.['_'];
+        const title = entry?.title?.[0];
+        const formType = entry?.category?.[0]?.['$']?.['term'] || "UNKNOWN";
+        if(supportedFormTypes.length){
+          if(![supportedFormTypes].includes(formType)) return;
+        }
+        if(!data || !url || !summary || !title) return;
+        return {
+          date,
+          url,
+          summary: `FORM::[${formType}]::${summary}`,
+          title: `CIK::[${companyData.cik}] - COMPANY::[${companyData.company} (${companyData.ticker})] - ${title}`,
+        }
+      }).filter(Boolean);
+      return resolve(secEntries)
+    })
+  })
+}
+
+const getRecentSecFilingsForEarnings = async (companies = [])=>{
+  const url = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom";
+  const headers = getCurlHttpHeaders(url);
+  headers.push(`Content-Type: application/atom+xml`);
+  const { data: responseData } = await curly.get(url, {
+    httpHeader: headers,
+  });
+  const listings = await secListingsByCik(responseData);
+  if(!listings.length) return []
+  let earningsListings = listings;
+  if(companies.length){
+    earningsListings = (listings || []).filter((company)=>{
+      return companies.find((c)=>company.ticker === c);
+    })
+  }
+  const listingPromises = (earningsListings || []).map(async (listing)=>{
+      const headers = getCurlHttpHeaders(listing.dataUrl);
+      // headers.push(`Content-Type: application/atom+xml`);
+      const  { data: responseData }  = await curly.get(listing.dataUrl, {
+        httpHeader: headers,
+      });
+      if(!responseData) return;
+      const feedXml = responseData.toString();
+      const feedJson = await parseSecDataFeedToJson(feedXml, listing);
+      return feedJson;
+  }).filter(Boolean);
+  const data = await Promise.all(listingPromises);
+  return data.flat();
+}
+
+module.exports = {getEarningsCalendar, getCompanyCodesFromEarningsData, getRecentSecFilingsForEarnings}

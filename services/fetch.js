@@ -25,10 +25,11 @@ const loadDataBy = {
 };
 
 const getCurlHttpHeaders = url=>{
-  const urlParams = new URL(url)
+  const urlParams = new URL(url);
   return [
     `Host: ${urlParams.host}`,
-    `Access-Control-Allowed-Origin: ${urlParams.host}`
+    `Access-Control-Allowed-Origin: ${urlParams.host}`,
+    `User-Agent: PostmanRuntime/7.32.3`
   ]
 }
 
