@@ -6,9 +6,9 @@ sudo apt install  -y git  # Install Git and pm2 as well
 sudo rm /usr/share/systemtap/tapset/node.stp
 sudo apt remove -y nodejs
 sudo apt remove -y libnode-dev
+sudo apt install  -y npm
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
-sudo apt install  -y npm
 
 
 # Step 3: Application Setup
