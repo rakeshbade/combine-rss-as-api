@@ -14,6 +14,7 @@ sudo apt install  -y npm
 # Step 3: Application Setup
 GIT_URL="https://github.com/rakeshbade/combine-rss-as-api.git"  # Replace with your Git repository URL
 APP_DIR="combine-rss-as-api"  # Replace with your desired app directory name
+PORT="9981"
 
 mkdir -p $APP_DIR
 git clone $GIT_URL $APP_DIR
@@ -25,9 +26,9 @@ npm install
 
 # Step 4: Run Your Application (using PM2)
 sudo npm install pm2 --global
-pm2 start npm --name $APP_DIR -- start  # Replace "appName" with your desired PM2 app name
+pm2 start npm --name $APP_DIR -- start --port $PORT  # Replace "appName" with your desired PM2 app name
 
 sudo npm install -g tunnelmole
-tmole 3000
+tmole $PORT
 
 echo "Node.js app successfully deployed and accessible externally!"
