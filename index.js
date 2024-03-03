@@ -35,7 +35,7 @@ app.get("/feed-all", async (req, res) => {
   try {
     let name = "all";
     const { cache } = req.query;
-    if(cache === false){
+    if(cache === "false"){
       appCache.clearCurrentDate();
     }else{
       appCache.setCurrentDate();

@@ -13,9 +13,9 @@ const { applicationLogger: LOG } = require("./logger");
 const isPostByRegex = (post, blogName) => {
   if(!post) return;
   const regex = blogRegex[blogName];
-  const excludeTitle = regex.exclude ? !(post.title).match(regex.exclude): true;
-  const includePost = regex.include ? JSON.stringify(post).match(regex.include) : true;
-  if (!regex || (includePost && excludeTitle)) return post;
+  const excludeTitle = regex?.exclude ? !((post.title).match(regex.exclude)): true;
+  const includePost = regex?.include ? JSON.stringify(post).match(regex.include) : true;
+  if (includePost && excludeTitle) return post;
 };
 
 const loadDataBy = {
@@ -36,9 +36,11 @@ const parseFeed = (feed) => {
   return new Promise((resolve) => {
     parser.parseString(feed, (err, result) => {
       const entries = result?.["rss"]?.["channel"]?.[0]?.["item"] || result?.urlset?.url;
-      if (err || !entries) {
-        return resolve(result);
+      if (err) {
+        const error = new Error("Parse feed error", err);
+        throw error;
       }
+      if(!entries) return resolve([]);
       const simplifiedEntries = (entries || []).reduce((prev, entry) => {
         const link = entry.link?.[0] || entry.loc?.[0];
         if(entry["news:news"]){
@@ -49,7 +51,7 @@ const parseFeed = (feed) => {
         if (!link || !pubDate || !title) return prev;
         // filter all posts older than 1 hours
         const date = new Date(String(pubDate)).getTime();
-        // if(Math.abs(Date.now()-date)> 60 * 60 *1000) return prev;
+        if(Math.abs(Date.now()-date)> 60 * 60 *1000) return prev;
         const description = entry?.description?.[0] || entry?.content?.[0] || title;
         const post = {
           title: title.replace(/<\/?[^>]+(>|$)/g, ""),

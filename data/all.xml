@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>all</title>
         <link>http://all.link</link>
         <description>all</description>
-        <lastBuildDate>Sun, 03 Mar 2024 17:26:40 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Mar 2024 21:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[SkyWest Secures Agreement to fly 20 Additional E175s for United]]></title>
+            <link>http://www.businesswire.com/news/home/20240303190067/en/SkyWest-Secures-Agreement-to-fly-20-Additional-E175s-for-United/?feedref=JjAwJuNHiystnCoBq_hl-d0q77hRjGWvCunvqSsMC5PkKuEqWGdtYcKRejd3o8qMqnKfqP6Z7nZVMLG-WqUNUuIFBOuQU34x9_qUrqnb9IFt3G9xeKEyIFKgj2nxZILuWb2_mZzaa2HVGkrPJ34F1Q==</link>
+            <guid>http://www.businesswire.com/news/home/20240303190067/en/SkyWest-Secures-Agreement-to-fly-20-Additional-E175s-for-United/?feedref=JjAwJuNHiystnCoBq_hl-d0q77hRjGWvCunvqSsMC5PkKuEqWGdtYcKRejd3o8qMqnKfqP6Z7nZVMLG-WqUNUuIFBOuQU34x9_qUrqnb9IFt3G9xeKEyIFKgj2nxZILuWb2_mZzaa2HVGkrPJ34F1Q==</guid>
+            <pubDate>Sun, 03 Mar 2024 21:00:00 GMT</pubDate>
+            <description><![CDATA[ST. GEORGE, Utah--(BUSINESS WIRE)--SkyWest, Inc. (NASDAQ: SKYW) is pleased to announce a new flying agreement with United Airlines to place 20 partner-financed E175s under a four-year contract. The 20 E175s will join the SkyWest fleet throughout 2024. This agreement is in addition to the previously announced 19 SkyWest-owned E175 agreement with United. “We’re delighted to continue enhancing our United partnership and pleased that we’re able to deliver on the strong market demand,” said Chip Chi]]></description>
+            <content:encoded><![CDATA[ST. GEORGE, Utah--(BUSINESS WIRE)--SkyWest, Inc. (NASDAQ: SKYW) is pleased to announce a new flying agreement with United Airlines to place 20 partner-financed E175s under a four-year contract. The 20 E175s will join the SkyWest fleet throughout 2024. This agreement is in addition to the previously announced 19 SkyWest-owned E175 agreement with United. “We’re delighted to continue enhancing our United partnership and pleased that we’re able to deliver on the strong market demand,” said Chip Chi]]></content:encoded>
+        </item>
     </channel>
 </rss>
