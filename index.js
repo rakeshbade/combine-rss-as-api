@@ -56,7 +56,7 @@ app.get("/sec-earnings", async(req,res)=>{
     const companies = getCompanyCodesFromEarningsData(earnings);
     const secFillings = await getRecentSecFilingsForEarnings(companies);
     const rssXml = convertEntriesToRss("sec-listings", secFillings);
-    res.send(rssXml);
+    return res.set("Content-Type", "text/xml").send(rssXml);
   } catch (e) {
     LOG.error(e);
     return res.status(500).send(e);
