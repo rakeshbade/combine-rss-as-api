@@ -24,6 +24,24 @@ const loadDataBy = {
   axios: "axios",
 };
 
+const createRetryPromise = (asyncFunction,maxRetries=3, delayMs=100) => {
+  return new Promise(async (resolve, reject) => {
+      let retries = 0;
+      while (retries < maxRetries) {
+          try {
+              const result = await asyncFunction();
+              resolve(result);
+              return;
+          } catch (error) {
+              console.error(`Attempt ${retries + 1} failed: ${error.message}`);
+              retries++;
+              await new Promise(resolve => setTimeout(resolve, delayMs));
+          }
+      }
+      reject(new Error(`Max retries (${maxRetries}) reached. Unable to complete operation.`));
+  });
+}
+
 const getCurlHttpHeaders = url=>{
   const urlParams = new URL(url);
   return [
@@ -188,4 +206,4 @@ const fetchData = async (blogName) => {
   LOG.info("Blog data written for ", blogName, " successfully");
 };
 
-module.exports = { fetchData, getCurlHttpHeaders, fetchEntries };
+module.exports = { fetchData, getCurlHttpHeaders, fetchEntries,createRetryPromise };

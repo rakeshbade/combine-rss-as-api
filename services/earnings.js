@@ -1,6 +1,6 @@
 const { curly } = require("node-libcurl");
 const querystring = require('querystring');
-const { getCurlHttpHeaders } = require("./fetch");
+const { getCurlHttpHeaders, createRetryPromise } = require("./fetch");
 const { getDataFromFile, writeContentToFile } = require("../utils/fileUtils");
 const secCompanies = require("./../data/sec-companies.json");
 const path = require("path");
@@ -131,15 +131,19 @@ const parseSecDataFeedToJson = (data, companyData)=>{
   })
 }
 
-const getRecentSecFilingsForEarnings = async (companies = [])=>{
+const secFormListings = async ()=>{
   const url = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom";
   const headers = getCurlHttpHeaders(url);
-  // headers.push(`Content-Type: application/atom+xml`);
+  headers.push(`Content-Type: application/atom+xml`);
   const { data: responseData } = await curly.get(url, {
     httpHeader: headers,
   });
   const feedXml = responseData.toString();
-  const listings = await secListingsByCik(feedXml);
+  return secListingsByCik(feedXml);
+}
+
+const getRecentSecFilingsForEarnings = async (companies = [])=>{
+  const listings = await createRetryPromise(secFormListings);
   if(!listings.length) return []
   let earningsListings = listings;
   if(companies.length){
