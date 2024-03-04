@@ -5,11 +5,15 @@ const { getDataFromRssData } = require("./utils/fileUtils");
 const port = process.env.PORT || 9981; // You can choose any port number
 const { applicationLogger: LOG, eventLogger } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
-const { getEarningsCalendar, getCompanyCodesFromEarningsData, getRecentSecFilingsForEarnings } = require("./services/earnings");
+const {
+  getEarningsCalendar,
+  getCompanyCodesFromEarningsData,
+  getRecentSecFilingsForEarnings,
+} = require("./services/earnings");
 const { eventEmitter } = require("./utils/events");
-const {appCache, convertEntriesToRss} = require("./utils/feed")
+const { appCache, convertEntriesToRss } = require("./utils/feed");
 
-process.env.TZ = "America/New_York"
+process.env.TZ = "America/New_York";
 
 app.get("/rss", async (req, res) => {
   const { blog } = req.query;
@@ -35,9 +39,9 @@ app.get("/feed-all", async (req, res) => {
   try {
     let name = "all";
     const { cache } = req.query;
-    if(cache === "false"){
+    if (cache === "false") {
       appCache.clearCurrentDate();
-    }else{
+    } else {
       appCache.setCurrentDate();
     }
     eventEmitter.emit("fetchAllFeed", name);
@@ -49,22 +53,22 @@ app.get("/feed-all", async (req, res) => {
   }
 });
 
-app.get("/sec-earnings", async(req,res)=>{
+app.get("/sec-earnings", async (req, res) => {
   try {
     const numberOfWeeks = 2;
-    const earnings = await getEarningsCalendar({numberOfWeeks});
+    const earnings = await getEarningsCalendar({ numberOfWeeks });
     const companies = getCompanyCodesFromEarningsData(earnings);
     const secFillings = await getRecentSecFilingsForEarnings(companies);
-    LOG.success("secFillings", secFillings);
+    LOG.info("secFillings", secFillings);
     const rssXml = convertEntriesToRss("sec-listings", secFillings);
-    LOG.success("XML RSS lisings", rssXml);
+    LOG.info("XML RSS lisings", rssXml);
     return res.set("Content-Type", "text/xml").send(rssXml);
   } catch (e) {
     LOG.error(e);
-    let error = (typeof e === 'object') ? JSON.stringify(e) : e;
-    return res.status(500).send({error});
+    let error = typeof e === "object" ? JSON.stringify(e) : e;
+    return res.status(500).send({ error });
   }
-})
+});
 
 app.post("/log", express.json({ type: ["text/*"] }), (req, res) => {
   const { type } = req.params;
@@ -83,12 +87,12 @@ app.post("/log", express.json({ type: ["text/*"] }), (req, res) => {
   }
 });
 
-app.get("/download",  async (req, res) => {
+app.get("/download", async (req, res) => {
   const archive = zipAllFiles();
-  res.set('Content-Type', 'application/zip');
-  res.set('Content-Disposition', 'attachment; filename=all_files.zip');
+  res.set("Content-Type", "application/zip");
+  res.set("Content-Disposition", "attachment; filename=all_files.zip");
   archive.pipe(res);
-})
+});
 
 // Start the server
 app.listen(port, () => {

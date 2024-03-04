@@ -7,14 +7,16 @@ const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const parser = new xml2js.Parser();
 const { writeToFile } = require("../utils/fileUtils");
-const {convertEntriesToRss} = require("../utils/feed");
+const { convertEntriesToRss } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
 
 const isPostByRegex = (post, blogName) => {
-  if(!post) return;
+  if (!post) return;
   const regex = blogRegex[blogName];
-  const excludeTitle = regex?.exclude ? !((post.title).match(regex.exclude)): true;
-  const includePost = regex?.include ? JSON.stringify(post).match(regex.include) : true;
+  const excludeTitle = regex?.exclude ? !post.title.match(regex.exclude) : true;
+  const includePost = regex?.include
+    ? JSON.stringify(post).match(regex.include)
+    : true;
   if (includePost && excludeTitle) return post;
 };
 
@@ -24,54 +26,63 @@ const loadDataBy = {
   axios: "axios",
 };
 
-const createRetryPromise = (asyncFunction,maxRetries=3, delayMs=100) => {
+const createRetryPromise = (asyncFunction, maxRetries = 3, delayMs = 100) => {
   return new Promise(async (resolve, reject) => {
-      let retries = 0;
-      while (retries < maxRetries) {
-          try {
-              const result = await asyncFunction();
-              resolve(result);
-              return;
-          } catch (error) {
-              console.error(`Attempt ${retries + 1} failed: ${error.message}`);
-              retries++;
-              await new Promise(resolve => setTimeout(resolve, delayMs));
-          }
+    let retries = 0;
+    while (retries < maxRetries) {
+      try {
+        const result = await asyncFunction();
+        resolve(result);
+        return;
+      } catch (error) {
+        console.error(`Attempt ${retries + 1} failed: ${error.message}`);
+        retries++;
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
       }
-      reject(new Error(`Max retries (${maxRetries}) reached. Unable to complete operation.`, asyncFunction));
+    }
+    reject(
+      new Error(
+        `Max retries (${maxRetries}) reached. Unable to complete operation.`,
+        asyncFunction,
+      ),
+    );
   });
-}
+};
 
-const getCurlHttpHeaders = url=>{
+const getCurlHttpHeaders = (url) => {
   const urlParams = new URL(url);
   return [
     `Host: ${urlParams.host}`,
     `Access-Control-Allowed-Origin: ${urlParams.host}`,
-    `User-Agent: PostmanRuntime/7.32.3`
-  ]
-}
+    `User-Agent: PostmanRuntime/7.32.3`,
+  ];
+};
 
 const parseFeed = (feed) => {
   return new Promise((resolve) => {
     parser.parseString(feed, (err, result) => {
-      const entries = result?.["rss"]?.["channel"]?.[0]?.["item"] || result?.urlset?.url;
+      const entries =
+        result?.["rss"]?.["channel"]?.[0]?.["item"] || result?.urlset?.url;
       if (err) {
-        const error = new Error("Parse feed error", err);
-        throw error;
+        return result || feed;
       }
-      if(!entries) return resolve([]);
+      if (!entries) return resolve([]);
       const simplifiedEntries = (entries || []).reduce((prev, entry) => {
         const link = entry.link?.[0] || entry.loc?.[0];
-        if(entry["news:news"]){
+        if (entry["news:news"]) {
           entry = entry["news:news"][0];
         }
-        const pubDate = entry.pubDate?.[0] || entry.date?.[0] || entry["news:publication_date"]?.[0];
+        const pubDate =
+          entry.pubDate?.[0] ||
+          entry.date?.[0] ||
+          entry["news:publication_date"]?.[0];
         const title = entry.title?.[0] || entry["news:title"]?.[0];
         if (!link || !pubDate || !title) return prev;
         // filter all posts older than 1 hours
         const date = new Date(String(pubDate)).getTime();
-        if(Math.abs(Date.now()-date)> 60 * 60 *1000) return prev;
-        const description = entry?.description?.[0] || entry?.content?.[0] || title;
+        if (Math.abs(Date.now() - date) > 60 * 60 * 1000) return prev;
+        const description =
+          entry?.description?.[0] || entry?.content?.[0] || title;
         const post = {
           title: title.replace(/<\/?[^>]+(>|$)/g, ""),
           date,
@@ -118,7 +129,7 @@ const fetchArticlesFromPuppeter = async (url, config) => {
     ignoreDefaultArgs: ["--disable-extensions"],
   });
   const page = await browser.newPage();
-  try{
+  try {
     await page.goto(url);
     await page.waitForFunction(
       "window.performance.timing.loadEventEnd - window.performance.timing.navigationStart >= 500",
@@ -126,9 +137,9 @@ const fetchArticlesFromPuppeter = async (url, config) => {
     await page.waitForSelector(config.container);
     const pageSourceHTML = await page.content();
     return getArticlesFromPuppeter(pageSourceHTML, config);
-  }catch(e){
-    throw e
-  }finally{
+  } catch (e) {
+    throw e;
+  } finally {
     await browser.close();
   }
 };
@@ -195,7 +206,7 @@ const fetchEntries = async (blogName) => {
     "with entries",
     entries.length,
   );
-    return entries;
+  return entries;
 };
 
 const fetchData = async (blogName) => {
@@ -206,4 +217,9 @@ const fetchData = async (blogName) => {
   LOG.info("Blog data written for ", blogName, " successfully");
 };
 
-module.exports = { fetchData, getCurlHttpHeaders, fetchEntries,createRetryPromise };
+module.exports = {
+  fetchData,
+  getCurlHttpHeaders,
+  fetchEntries,
+  createRetryPromise,
+};
