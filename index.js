@@ -59,7 +59,8 @@ app.get("/sec-earnings", async(req,res)=>{
     return res.set("Content-Type", "text/xml").send(rssXml);
   } catch (e) {
     LOG.error(e);
-    return res.status(500).send(e);
+    let error = (typeof e === 'object') ? JSON.stringify(e) : e;
+    return res.status(500).send({error});
   }
 })
 

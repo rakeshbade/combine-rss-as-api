@@ -75,7 +75,7 @@ const secCompanyMap = Object.entries(secCompanies).reduce((acc, [index, sec])=>{
 const secListingsByCik = (data)=>{
   return new Promise((resolve, reject) => {
     parser.parseString(data, (err, result) => {
-      if(err) return reject(err);
+      if(err) return reject(`Error parsing data: ${err}, Data: ${data} `);
       const entries = result?.["feed"]?.["entry"];
       const secEntries = (entries || []).map((entry)=>{
         const link = entry?.link?.[0]?.['$']?.['href'];
@@ -107,7 +107,7 @@ const parseSecDataFeedToJson = (data, companyData)=>{
   const supportedFormTypes = [];
   return new Promise((resolve, reject) => {
     parser.parseString(data, (err, result) => {
-      if(err) return reject(err);
+      if(err) return reject(`Error parsing data: ${err}, Data: ${data} `);
       const entries = result?.["feed"]?.["entry"];
       const secEntries = (entries || []).map((entry)=>{
         const date =  entry?.updated?.[0];
@@ -134,11 +134,12 @@ const parseSecDataFeedToJson = (data, companyData)=>{
 const getRecentSecFilingsForEarnings = async (companies = [])=>{
   const url = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom";
   const headers = getCurlHttpHeaders(url);
-  headers.push(`Content-Type: application/atom+xml`);
+  // headers.push(`Content-Type: application/atom+xml`);
   const { data: responseData } = await curly.get(url, {
     httpHeader: headers,
   });
-  const listings = await secListingsByCik(responseData);
+  const feedXml = responseData.toString();
+  const listings = await secListingsByCik(feedXml);
   if(!listings.length) return []
   let earningsListings = listings;
   if(companies.length){
