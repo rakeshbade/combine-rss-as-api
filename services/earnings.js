@@ -99,13 +99,13 @@ const secListingsByCik = (data) => {
           const foundComp = acc.find((c) => c.cik === cik);
           if (foundComp) {
             foundComp.count = foundComp.count + 1 || 2;
-            foundComp.description += `\n<p>[${foundComp.count}] - ${link}<p>`;
+            foundComp.description += `\n[${foundComp.count}] - ${link} `;
             return acc;
           }
           acc.push({
             title: `COMPANY::(${secCompanyMap[cik].title} - ${secCompanyMap[cik].ticker}) - CIK::[${cik}] - ${entry?.title?.[0]}`,
             date,
-            description: `<p>[1] - ${link}<p>\n`,
+            description: `[1] - ${link} \n`,
             url: `https://data.sec.gov/rss?cik=${cik}&type=&exclude=true&count=20`,
             cik,
             ticker: secCompanyMap[cik].ticker,
