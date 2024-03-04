@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0">
     <channel>
         <title>all</title>
         <link>http://all.link</link>
         <description>all</description>
-        <lastBuildDate>Mon, 04 Mar 2024 15:30:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 04 Mar 2024 15:59:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
-        <item>
-            <title><![CDATA[Lawsuit Update Notice: Investors who lost money with Block, Inc. (NYSE: SQ) shares should contact the Shareholders Foundation]]></title>
-            <link>https://www.prnewswire.com/news-releases/lawsuit-update-notice-investors-who-lost-money-with-block-inc-nyse-sq-shares-should-contact-the-shareholders-foundation-302078080.html</link>
-            <guid>https://www.prnewswire.com/news-releases/lawsuit-update-notice-investors-who-lost-money-with-block-inc-nyse-sq-shares-should-contact-the-shareholders-foundation-302078080.html</guid>
-            <pubDate>Mon, 04 Mar 2024 15:30:00 GMT</pubDate>
-            <description><![CDATA[SAN DIEGO, March 4, 2024 /PRNewswire/ -- The Shareholders Foundation, Inc. announced that a lawsuit is pending for certain investors in Block, Inc. (NYSE: SQ) shares. Investors, who purchased shares of Block, Inc. (NYSE: SQ) prior to April 2022 and continue to hold any of those shares,...]]></description>
-            <content:encoded><![CDATA[SAN DIEGO, March 4, 2024 /PRNewswire/ -- The Shareholders Foundation, Inc. announced that a lawsuit is pending for certain investors in Block, Inc. (NYSE: SQ) shares. Investors, who purchased shares of Block, Inc. (NYSE: SQ) prior to April 2022 and continue to hold any of those shares,...]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Perspective Therapeutics Announces $87.4 Million Private Placement]]></title>
-            <link>https://www.globenewswire.com/news-release/2024/03/04/2839719/0/en/Perspective-Therapeutics-Announces-87-4-Million-Private-Placement.html</link>
-            <guid>https://www.globenewswire.com/news-release/2024/03/04/2839719/0/en/Perspective-Therapeutics-Announces-87-4-Million-Private-Placement.html</guid>
-            <pubDate>Mon, 04 Mar 2024 14:45:00 GMT</pubDate>
-            <description><![CDATA[SEATTLE, March  04, 2024  (GLOBE NEWSWIRE) -- Perspective Therapeutics, Inc. (“Perspective” or “the Company”) (NYSE AMERICAN: CATX), a radiopharmaceutical company that is pioneering advanced treatment applications for cancers throughout the body, today announced that it has entered into an investment agreement with a select group of institutional accredited investors, to sell securities in a private placement for aggregate gross proceeds of approximately $87.4 million, before deducting placement agent fees and other offering expenses.]]></description>
-            <content:encoded><![CDATA[SEATTLE, March  04, 2024  (GLOBE NEWSWIRE) -- Perspective Therapeutics, Inc. (“Perspective” or “the Company”) (NYSE AMERICAN: CATX), a radiopharmaceutical company that is pioneering advanced treatment applications for cancers throughout the body, today announced that it has entered into an investment agreement with a select group of institutional accredited investors, to sell securities in a private placement for aggregate gross proceeds of approximately $87.4 million, before deducting placement agent fees and other offering expenses.]]></content:encoded>
-        </item>
     </channel>
 </rss>

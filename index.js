@@ -42,8 +42,6 @@ app.get("/feed-all", async (req, res) => {
     const { cache } = req.query;
     if (cache === "false") {
       appCache.clearCurrentData();
-    } else {
-      appCache.setCurrentData(xmlFeed);
     }
     eventEmitter.emit("fetchAllFeed", name);
     return res.set("Content-Type", "text/xml").send(xmlFeed);
