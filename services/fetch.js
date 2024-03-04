@@ -38,7 +38,7 @@ const createRetryPromise = (asyncFunction,maxRetries=3, delayMs=100) => {
               await new Promise(resolve => setTimeout(resolve, delayMs));
           }
       }
-      reject(new Error(`Max retries (${maxRetries}) reached. Unable to complete operation.`));
+      reject(new Error(`Max retries (${maxRetries}) reached. Unable to complete operation.`, asyncFunction));
   });
 }
 
