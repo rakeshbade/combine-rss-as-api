@@ -88,7 +88,7 @@ const secListingsByCik = (data) => {
         
         // escape old entries
         // 5 days
-        if (!isWithInHours(date, 24 * 5)) return acc;
+        // if (!isWithInHours(date, 24 * 5)) return acc;
         const foundComp = acc.find(c=>c.cik===cik);
         if(foundComp){
           foundComp.count = foundComp.count + 1 || 2;
