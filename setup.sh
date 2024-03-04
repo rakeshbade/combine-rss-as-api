@@ -14,7 +14,7 @@ sudo apt install -y nodejs
 # Step 3: Application Setup
 GIT_URL="https://github.com/rakeshbade/combine-rss-as-api.git"  # Replace with your Git repository URL
 APP_DIR="combine-rss-as-api"  # Replace with your desired app directory name
-PORT="$(( ((RANDOM<<15)|RANDOM) % 5300 + 2000 ))" # random port from 1000 - 9999
+PORT="9981" # random port from 1000 - 9999
 
 mkdir -p $APP_DIR
 git clone $GIT_URL $APP_DIR
