@@ -20,15 +20,12 @@ eventEmitter.on("fetchAllFeed", async (feedName) => {
     completeData = [...data, ...completeData];
   }
 
-  if (appCache.hasCurrentDate()) {
-    completeData = completeData.filter((post) => {
-      return (
-        new Date(post.date).getTime() >
-        new Date(appCache.getCurrentDate()).getTime()
-      );
-    });
+  let rssXml = convertEntriesToRss(feedName, completeData);
+  if (appCache.hasChangedData(rssXml)) {
+    appCache.setCurrentData(rssXml);
+  } else {
+    rssXml = convertEntriesToRss(feedName, []);
   }
-  const rssXml = convertEntriesToRss(feedName, completeData);
   writeToFile(feedName, rssXml);
 });
 

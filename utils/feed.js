@@ -5,7 +5,11 @@ const NodeCache = require("node-cache");
 const buildCache = () => {
   const cache = new NodeCache();
   const lastLoadedData = "lastLoadedData";
+  const getBufferData = (value)=>{
+    return Buffer.from(value).toString('base64')
+  }
   return {
+<<<<<<< HEAD
     getCurrentDate: () => {
       return cache.get(lastLoadedData);
     },
@@ -21,6 +25,25 @@ const buildCache = () => {
     },
   };
 };
+=======
+    getCurrentData: ()=>{
+      return cache.get(lastLoadedData)
+    },
+    setCurrentData: (value)=>{
+      const bufferData = getBufferData(value);
+      return cache.set(lastLoadedData, bufferData);
+    },
+    clearCurrentData: ()=>{
+      return cache.del(lastLoadedData);
+    },
+    hasChangedData: (value)=>{
+      const bufferData = getBufferData(value);
+      return bufferData !== cache.get(lastLoadedData);
+    }
+  }
+}
+
+>>>>>>> 243f67ff8788dcc574186851b32b6e26c5101a49
 
 const getDateTimeET = (post) => {
   if (!post) return;

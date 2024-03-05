@@ -38,14 +38,12 @@ app.get("/rss", async (req, res) => {
 app.get("/feed-all", async (req, res) => {
   try {
     let name = "all";
+    let xmlFeed = await getDataFromRssData(name);
     const { cache } = req.query;
     if (cache === "false") {
-      appCache.clearCurrentDate();
-    } else {
-      appCache.setCurrentDate();
+      appCache.clearCurrentData();
     }
     eventEmitter.emit("fetchAllFeed", name);
-    let xmlFeed = await getDataFromRssData(name);
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
     LOG.error(e);

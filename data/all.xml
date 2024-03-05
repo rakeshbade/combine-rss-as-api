@@ -4,7 +4,11 @@
         <title>all</title>
         <link>http://all.link</link>
         <description>all</description>
+<<<<<<< HEAD
         <lastBuildDate>Tue, 05 Mar 2024 05:20:56 GMT</lastBuildDate>
+=======
+        <lastBuildDate>Mon, 04 Mar 2024 15:59:33 GMT</lastBuildDate>
+>>>>>>> 243f67ff8788dcc574186851b32b6e26c5101a49
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
