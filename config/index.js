@@ -6,5 +6,5 @@ module.exports = {
   allwires,
   business,
   learn,
-  wsj
+  wsj,
 };

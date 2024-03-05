@@ -1,42 +1,48 @@
 const { Feed } = require("feed");
 const config = require("../config/index");
-const NodeCache = require( "node-cache" );
+const NodeCache = require("node-cache");
 
-const buildCache = ()=>{
+const buildCache = () => {
   const cache = new NodeCache();
   const lastLoadedData = "lastLoadedData";
   return {
-    getCurrentDate: ()=>{
-      return cache.get(lastLoadedData)
+    getCurrentDate: () => {
+      return cache.get(lastLoadedData);
     },
-    setCurrentDate: ()=>{
+    setCurrentDate: () => {
       const value = Date.now();
-      return cache.set(lastLoadedData, value)
+      return cache.set(lastLoadedData, value);
     },
-    clearCurrentDate: ()=>{
+    clearCurrentDate: () => {
       return cache.del(lastLoadedData);
     },
-    hasCurrentDate: ()=>{
-      return cache.has(lastLoadedData)
-    }
-  }
-}
+    hasCurrentDate: () => {
+      return cache.has(lastLoadedData);
+    },
+  };
+};
 
-
-const getDateTimeET = (post)=>{
-  if(!post) return;
+const getDateTimeET = (post) => {
+  if (!post) return;
   let result;
-  try{
-    result = new Date(post.date).getTime()
-  }catch(e){
-    throw Error("Invalid date in the post", post)
+  const timeZone = "America/New_York";
+  try {
+    let date = new Date(post.date);
+    let utcDate = new Date(date.toLocaleString("en-US", { timeZone: "UTC" }));
+    let tzDate = new Date(date.toLocaleString("en-US", { timeZone: timeZone }));
+    let offset = utcDate.getTime() - tzDate.getTime();
+
+    date.setTime(date.getTime() + offset);
+    result = date;
+  } catch (e) {
+    throw Error("Invalid date in the post", post);
   }
   return new Date(result);
-}
+};
 
-const convertEntriesToRss = (blogName, entries = [])=>{
+const convertEntriesToRss = (blogName, entries = []) => {
   const sortedList = entries.slice().sort((a, b) => {
-    return b.date - a.date; 
+    return b.date - a.date;
   });
   const feed = new Feed({
     title: blogName,
@@ -45,19 +51,19 @@ const convertEntriesToRss = (blogName, entries = [])=>{
     link: `http://${blogName}.link`,
     language: "en",
     updated: getDateTimeET(sortedList[0]),
-    generator: "nodejs", 
+    generator: "nodejs",
     // feedLinks: {},
     author: {
       name: "Rakesh Bade",
       email: "rakeshbade@gmail.com",
-      link: "baderakesh.com"
-    }
+      link: "baderakesh.com",
+    },
   });
-  sortedList.forEach((post)=>{
+  sortedList.forEach((post) => {
     const title = post.title;
-    const description =  post.description || post.title;
+    const description = post.description || post.title;
     const link = post.url || post.link;
-    let date = getDateTimeET(post)
+    let date = getDateTimeET(post);
     feed.addItem({
       title: title,
       id: link,
@@ -66,12 +72,12 @@ const convertEntriesToRss = (blogName, entries = [])=>{
       content: description,
       date: date,
     });
-  })
-  return feed.rss2()
-}
+  });
+  return feed.rss2();
+};
 
 module.exports = {
   convertEntriesToRss,
   appCache: buildCache(),
-  getDateTimeET
-}
+  getDateTimeET,
+};

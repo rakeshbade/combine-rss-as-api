@@ -4,7 +4,7 @@ var bunyan = require("bunyan");
 const sendGrafanaLog = async (log) => {
   const userId = process.env.GRAFANA_USERID;
   const apiKey = process.env.GRAFANA_TOKEN;
-  if(!userId || !apiKey) return;
+  if (!userId || !apiKey) return;
   const { msg, time, pid, hostname, v, ...streams } = log;
   const dateTime = (
     Math.floor(new Date(time).getTime() / 1000) * 1000000000

@@ -40,7 +40,8 @@
   },
   {
     "blogUrl": "https://www.prnewswire.com/rss/news-releases-list.rss"
-  },{
+  },
+  {
     "blogUrl": "https://www.accesswire.com/newsroom",
     "container": ".article-box",
     "header": "a",
