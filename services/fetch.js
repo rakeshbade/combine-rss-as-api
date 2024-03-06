@@ -9,6 +9,7 @@ const parser = new xml2js.Parser();
 const { writeToFile } = require("../utils/fileUtils");
 const { convertEntriesToRss } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
+const { isWithInHours } = require("./earnings");
 
 const isPostByRegex = (post, blogName) => {
   if (!post) return;
@@ -80,7 +81,7 @@ const parseFeed = (feed) => {
         if (!link || !pubDate || !title) return prev;
         // filter all posts older than 1 hours
         const date = new Date(String(pubDate)).getTime();
-        if (Math.abs(Date.now() - date) > 60 * 60 * 1000) return prev;
+        if (!isWithInHours(date, 1)) return prev;
         const description =
           entry?.description?.[0] || entry?.content?.[0] || title;
         const post = {

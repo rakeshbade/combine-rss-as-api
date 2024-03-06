@@ -21,7 +21,19 @@ eventEmitter.on("fetchAllFeed", async (feedName) => {
     console.log("data", data);
     completeData = [...data, ...completeData];
   }
-
+  const currentData = appCache.getCurrentData();
+  if(!currentData){
+    appCache.setCurrentData(completeData);
+  }
+  else{
+    const changedData = appCache.hasChangedData(completeData);
+    if(changedData.length){
+      appCache.setCurrentData(completeData);
+      completeData = changedData;
+    }else{
+      completeData = [];
+    }
+  }
   let rssXml = convertEntriesToRss(feedName, completeData);
   writeToFile(feedName, rssXml);
 });

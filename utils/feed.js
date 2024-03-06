@@ -1,20 +1,56 @@
 const { Feed } = require("feed");
-const config = require("../config/index");
-const NodeCache = require("node-cache");
+const { isWithInHours } = require("../services/earnings");
+
+// const buildCache = () => {
+//   const cache = new NodeCache({ stdTTL: 60000, checkperiod: 60000 });
+//   const lastLoadedData = "lastLoadedData";
+//   return {
+//     getCurrentData: () => {
+//       return cache.get(lastLoadedData);
+//     },
+//     setCurrentData: (value) => {
+//       return cache.set(lastLoadedData, value);
+//     },
+//     clearCurrentData: () => {
+//       return cache.del(lastLoadedData);
+//     },
+//     hasChangedData: (currentData, newData)=>{
+//       console.log("current", currentData.length, "newData", newData.length)
+//     }
+//   };
+// };
 
 const buildCache = () => {
-  const cache = new NodeCache();
-  const lastLoadedData = "lastLoadedData";
+  let lastLoadedData;
   return {
     getCurrentData: () => {
-      return cache.get(lastLoadedData);
+      return lastLoadedData;
     },
     setCurrentData: (value) => {
-      return cache.set(lastLoadedData, value;
+      console.log("setting current data")
+      lastLoadedData = value
+      return lastLoadedData;
     },
     clearCurrentData: () => {
-      return cache.del(lastLoadedData);
+      lastLoadedData = null;
+      return lastLoadedData;
     },
+    hasChangedData: (newData)=>{
+      if(!newData?.length || !lastLoadedData.length) return true;
+      //filter old post
+      const filterData = lastLoadedData.filter(post=> isWithInHours(post.date,1));
+      if(!filterData.length) return newData;
+      return newData.filter((post)=>{
+        let notFound = true;
+        for(i=0; i<filterData.length;i++){
+          if(filterData[i].link === post.link){
+            notFound = false;
+            break;
+          }
+        }
+        return notFound
+      })
+    }
   };
 };
 
