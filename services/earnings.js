@@ -78,6 +78,11 @@ const secCompanyMap = Object.entries(secCompanies).reduce(
   {},
 );
 
+const isSupportedForm = (title) => {
+  if (!title) return false;
+  return title.startsWith("10-", "8-", "13F", "13D");
+};
+
 const secListingsByCik = (data) => {
   return new Promise((resolve, reject) => {
     parser.parseString(data, (err, result) => {
@@ -102,6 +107,7 @@ const secListingsByCik = (data) => {
             foundComp.description += `\n[${foundComp.count}] - ${link} `;
             return acc;
           }
+          if (!isSupportedForm(entry?.title?.[0])) return acc;
           acc.push({
             title: `COMPANY::(${secCompanyMap[cik].title} - ${secCompanyMap[cik].ticker}) - CIK::[${cik}] - ${entry?.title?.[0]}`,
             date,
@@ -127,7 +133,6 @@ const secFromListings = async () => {
     httpHeader: headers,
   });
   const feedXml = responseData.toString();
-  console.log({ feedXml });
   return secListingsByCik(feedXml);
 };
 

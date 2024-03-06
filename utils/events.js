@@ -16,16 +16,13 @@ eventEmitter.on("fetchAllFeed", async (feedName) => {
   let completeData = [];
   for (let i = 0; i < blogNames.length; i++) {
     const blog = blogNames[i];
+    console.log("Fetching data for ", blog);
     const data = await fetchEntries(blog);
+    console.log("data", data);
     completeData = [...data, ...completeData];
   }
 
   let rssXml = convertEntriesToRss(feedName, completeData);
-  if (appCache.hasChangedData(rssXml)) {
-    appCache.setCurrentData(rssXml);
-  } else {
-    rssXml = convertEntriesToRss(feedName, []);
-  }
   writeToFile(feedName, rssXml);
 });
 

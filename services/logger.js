@@ -2,6 +2,7 @@ const axios = require("axios");
 var bunyan = require("bunyan");
 
 const sendGrafanaLog = async (log) => {
+  return;
   const userId = process.env.GRAFANA_USERID;
   const apiKey = process.env.GRAFANA_TOKEN;
   if (!userId || !apiKey) return;
@@ -37,7 +38,7 @@ const eventLogger = bunyan.createLogger({
 });
 
 const emitLogger = (message) => {
-  console.log(message);
+  // console.log(message);
   sendGrafanaLog(message);
 };
 

@@ -152,6 +152,7 @@ const waitFor = (timer) => {
 
 const fetchEntries = async (blogName) => {
   const blogs = config[blogName];
+  if (!blogs?.length) return [];
   let currentLoadType = loadDataBy.axios;
   const fetchBlogData = async (rss) => {
     if (rss["loadType"]) {
@@ -180,6 +181,7 @@ const fetchEntries = async (blogName) => {
         return data;
       }
     } catch (error) {
+      console.error(error);
       LOG.error(error);
       return null;
     } finally {

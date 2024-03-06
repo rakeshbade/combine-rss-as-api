@@ -5,23 +5,15 @@ const NodeCache = require("node-cache");
 const buildCache = () => {
   const cache = new NodeCache();
   const lastLoadedData = "lastLoadedData";
-  const getBufferData = (value) => {
-    return Buffer.from(value).toString("base64");
-  };
   return {
     getCurrentData: () => {
       return cache.get(lastLoadedData);
     },
     setCurrentData: (value) => {
-      const bufferData = getBufferData(value);
-      return cache.set(lastLoadedData, bufferData);
+      return cache.set(lastLoadedData, value;
     },
     clearCurrentData: () => {
       return cache.del(lastLoadedData);
-    },
-    hasChangedData: (value) => {
-      const bufferData = getBufferData(value);
-      return bufferData !== cache.get(lastLoadedData);
     },
   };
 };
@@ -29,7 +21,7 @@ const buildCache = () => {
 const getDateTimeET = (post) => {
   if (!post) return;
   let result;
-  const timeZone = "America/New_York";
+  const timeZone = "America/Chicago";
   try {
     let date = new Date(post.date);
     let utcDate = new Date(date.toLocaleString("en-US", { timeZone: "UTC" }));
