@@ -43,7 +43,8 @@ const buildCache = () => {
       return newData.filter((post)=>{
         let notFound = true;
         for(i=0; i<filterData.length;i++){
-          if(filterData[i].link === post.link){
+          const urlParams = new URL(post.link);
+          if(filterData[i].link.includes(urlParams.pathname) && filterData[i].link.includes(urlParams.hostname)){
             notFound = false;
             break;
           }
