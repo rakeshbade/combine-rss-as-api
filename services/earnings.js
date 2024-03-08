@@ -1,18 +1,14 @@
-const { curly } = require("node-libcurl");
 const querystring = require("querystring");
-const { getCurlHttpHeaders, createRetryPromise } = require("./fetch");
+const { getCurlHttpHeaders, createRetryPromise, isWithInHours } = require("./fetch");
 const { getDataFromFile, writeContentToFile } = require("../utils/fileUtils");
 const secCompanies = require("./../data/sec-companies.json");
 const path = require("path");
 const { applicationLogger: LOG } = require("./logger");
 const xml2js = require("xml2js");
+const {curlChildProcess} = require("./utils")
 const parser = new xml2js.Parser();
 
-const isWithInHours = (date, hours = 24) => {
-  const timeDifference = Math.abs(new Date(date).getTime() - Date.now());
-  const hoursDifference = timeDifference / (60 * 60 * 1000);
-  return hoursDifference <= hours;
-};
+
 
 const getCompanyCodesFromEarningsData = (earnings) => {
   if (typeof earnings == "string") {
@@ -125,19 +121,27 @@ const secListingsByCik = (data) => {
 };
 
 const secFromListings = async () => {
-  const url =
-    "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom";
-  const headers = getCurlHttpHeaders(url);
-  // headers.push(`Content-Type: application/atom+xml`);
-  const { data: responseData } = await curly.get(url, {
-    httpHeader: headers,
-  });
-  const feedXml = responseData.toString();
+  const curlCommand = `curl 'https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom' \
+    -H 'authority: www.sec.gov' \
+    -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+    -H 'accept-language: en-US,en;q=0.9' \
+    -H 'cache-control: max-age=0' \
+    -H 'cookie: _gid=GA1.2.321654017.1709839942; ...' \
+    -H 'sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'sec-ch-ua-platform: "macOS"' \
+    -H 'sec-fetch-dest: document' \
+    -H 'sec-fetch-mode: navigate' \
+    -H 'sec-fetch-site: none' \
+    -H 'sec-fetch-user: ?1' \
+    -H 'upgrade-insecure-requests: 1' \
+    -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'`
+  const feedXml = await curlChildProcess(curlCommand)
   return secListingsByCik(feedXml);
 };
 
 const getRecentSecFilingsForEarnings = async (companies = []) => {
-  const listings = await createRetryPromise(secFromListings);
+  const listings = await secFromListings();
   if (!listings.length) return [];
   if (companies.length) {
     return (listings || []).filter((company) => {
@@ -150,6 +154,5 @@ const getRecentSecFilingsForEarnings = async (companies = []) => {
 module.exports = {
   getEarningsCalendar,
   getCompanyCodesFromEarningsData,
-  getRecentSecFilingsForEarnings,
-  isWithInHours
+  getRecentSecFilingsForEarnings
 };

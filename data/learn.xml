@@ -1,152 +1,572 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<rss>
-  <channel>
-    <title>learn</title>
-    <link>[{"blogUrl":"https://blog.bytebytego.com/feed"},{"blogUrl":"https://rss.app/feeds/6ZHdXEHEDRoSmpi7.xml"}]</link>
-    <description>feed for learn</description>
-    <item>
-      <title>EP100: Polling vs. Webhooks </title>
-      <pubDate>Sat, 24 Feb 2024 16:30:21 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: Polling vs. Webhooks How do we manage configurations in a system? What is CSS (Cascading Style Sheets)? What is GraphQL? Is it a replacement for the REST API? SPONSOR US &amp;#128536; Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored)</description>
-      <link>https://blog.bytebytego.com/p/ep100-polling-vs-webhooks</link>
-    </item>
-    <item>
-      <title>How to Design a Good API?</title>
-      <pubDate>Thu, 22 Feb 2024 16:30:28 GMT</pubDate>
-      <description>We can find web services and APIs (Application Programming Interfaces) everywhere, but many are painful to use. Have you ever connected a web service using its API and wondered, "What were they thinking?" We have, and connecting services via API can be confusing. Whether due to bad design, missing docs, constant changes, or bugs, using APIs is often a struggle.</description>
-      <link>https://blog.bytebytego.com/p/how-to-design-a-good-api</link>
-    </item>
-    <item>
-      <title>A Brief History of Airbnb’s Architecture</title>
-      <pubDate>Tue, 20 Feb 2024 16:30:45 GMT</pubDate>
-      <description>Boost your AI projects with Brave (Sponsored) You probably know Brave as the privacy browser. But did you also know it has a search API that can power your AI projects? Introducing, the Brave Search API. It&amp;#8217;s affordable: Small teams can access the same tools as the big players.</description>
-      <link>https://blog.bytebytego.com/p/a-brief-history-of-airbnbs-architecture</link>
-    </item>
-    <item>
-      <title>EP99: What is the best way to learn SQL?</title>
-      <pubDate>Sat, 17 Feb 2024 16:31:00 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: Top 6 Tools to Turn Diagrams into Beautiful Code (Youtube video) How do you pay from your digital wallet, such as Paypal, Paytm and Venmo, by scanning the QR code? What is the best way to learn SQL? What is gRPC?</description>
-      <link>https://blog.bytebytego.com/p/ep99-what-is-the-best-way-to-learn</link>
-    </item>
-    <item>
-      <title>Virtualization and Containerization: Which one to pick? </title>
-      <pubDate>Thu, 15 Feb 2024 16:30:37 GMT</pubDate>
-      <description>Software applications have traditionally been closely tied to the specific servers they run on and the operating systems they use. But as companies look to get more out of their infrastructure while spending less time and effort managing it, vendors are offering easier deployment options. Virtualization and Containerization let you run multiple isolated applications on a single physical server while sharing and managing resources between them.</description>
-      <link>https://blog.bytebytego.com/p/virtualization-and-containerization</link>
-    </item>
-    <item>
-      <title>EP98: GitOps Workflow - Simplified Visual Guide </title>
-      <pubDate>Sat, 10 Feb 2024 16:30:07 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: Good APIs Vs Bad APIs: 7 Tips for API Design (Youtube video) GitOps Workflow - Simplified Visual Guide How do Search Engines Work? The Payments Ecosystem Object-oriented Programming: A Primer Compare your streaming data options (Sponsored)</description>
-      <link>https://blog.bytebytego.com/p/ep98-gitops-workflow-simplified-visual</link>
-    </item>
-    <item>
-      <title>How do We Design for High Availability?</title>
-      <pubDate>Thu, 08 Feb 2024 16:30:32 GMT</pubDate>
-      <description>In an era where digital presence is vital for business continuity, the concept of high availability (HA) has become a cornerstone in system design. High availability refers to systems that can operate continuously without failure for extended periods.</description>
-      <link>https://blog.bytebytego.com/p/how-do-we-design-for-high-availability</link>
-    </item>
-    <item>
-      <title>A Crash Course in P2P</title>
-      <pubDate>Tue, 06 Feb 2024 16:31:00 GMT</pubDate>
-      <description>Create your free AI chatbot (Sponsored) Meet Sendbird SmartAssistant, a customizable chatbot powered by OpenAI&amp;#8217;s GPT engine. The only chatbot that can be presented in your brand, trained with your own content, and deployed via low-to-no code. In this interactive Demo you will see how Sendbird offers:</description>
-      <link>https://blog.bytebytego.com/p/a-crash-course-in-p2p</link>
-    </item>
-    <item>
-      <title>EP97: 10 Good Coding Principles to Improve Code Quality</title>
-      <pubDate>Sat, 03 Feb 2024 16:30:56 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: How Disney Hotstar Captures One Billion Emojis (Youtube video) 10 Good Coding Principles to improve code quality Top Network Security Cheatsheet How does a VPN work? Explaining 9 types of API testing What is a cookie?</description>
-      <link>https://blog.bytebytego.com/p/ep97-10-good-coding-principles-to</link>
-    </item>
-    <item>
-      <title>Good Code vs. Bad Code</title>
-      <pubDate>Thu, 01 Feb 2024 16:30:28 GMT</pubDate>
-      <description>In our newsletter, we&amp;#8217;ve mainly focused on system designs. This time, we&amp;#8217;re switching gears to a topic just as crucial: the code itself. Ever encountered a system that looks great in design but turns out to be a headache in code? That&amp;#8217;s our focus in this issue. We&amp;#8217;re breaking down what makes code good versus bad. It&amp;#8217;s all about turning those great designs into equally great code. Let&amp;#8217;s dive into the details that truly make a difference in coding.</description>
-      <link>https://blog.bytebytego.com/p/good-code-vs-bad-code</link>
-    </item>
-    <item>
-      <title>EP96: A cheat sheet for system design</title>
-      <pubDate>Sat, 27 Jan 2024 16:30:23 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: A cheat sheet for system designs Visualizing a SQL query Cloud Disaster Recovery Strategies Part-Time Opportunity: Tech Researcher &amp; Writer at ByteByteGo Free Digital Download: The State of Streaming Data (Sponsored)</description>
-      <link>https://blog.bytebytego.com/p/ep96-a-cheat-sheet-for-system-design</link>
-    </item>
-    <item>
-      <title>Mastering Design Principles - SOLID</title>
-      <pubDate>Thu, 25 Jan 2024 16:30:09 GMT</pubDate>
-      <description>In the fast-paced world of software development, writing robust, maintainable, and scalable code is critically important. One way to achieve this is by following a set of fundamental design principles known as the SOLID principles. These principles provide a clear framework for crafting software that is easy to understand, extend, and maintain.</description>
-      <link>https://blog.bytebytego.com/p/mastering-design-principles-solid</link>
-    </item>
-    <item>
-      <title>EP95: Linux File System Explained</title>
-      <pubDate>Sat, 20 Jan 2024 16:30:10 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: Linux File System Explained (Youtube video) REST API Vs. GraphQL Key Use Cases for Load Balancers Types of memory. Which ones do you know? Top 6 Firewall Use Cases SPONSOR US ScyllaDB Summit | Feb 14-15 | Free + Virtual (Sponsored)</description>
-      <link>https://blog.bytebytego.com/p/ep95-linux-file-system-explained</link>
-    </item>
-    <item>
-      <title>A Crash Course in Networking</title>
-      <pubDate>Thu, 18 Jan 2024 16:30:46 GMT</pubDate>
-      <description>The Internet has become an integral part of our daily lives, shaping how we communicate, access information, and conduct business. At its core, the Internet is a global system of interconnected computer networks that use standardized communication protocols to facilitate data exchange. This enables the transmission of text, images, videos, and more, across all sorts of devices.</description>
-      <link>https://blog.bytebytego.com/p/a-crash-course-in-networking</link>
-    </item>
-    <item>
-      <title>EP94: REST API Cheatsheet</title>
-      <pubDate>Sat, 13 Jan 2024 16:30:37 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: Everything You NEED to Know About Client Architecture Patterns (Youtube video) REST API Cheatsheet How Does a Typical Push Notification System Work? Top 4 Most Popular Use Cases for UDP Top 8 Programming Paradigms</description>
-      <link>https://blog.bytebytego.com/p/ep94-rest-api-cheatsheet</link>
-    </item>
-    <item>
-      <title>Netflix: What Happens When You Press Play - Part 2</title>
-      <pubDate>Thu, 11 Jan 2024 16:30:14 GMT</pubDate>
-      <description>Remember how we said a CDN has computers distributed all over the world? Netflix developed its own computer system for video storage. Netflix calls them Open Connect Appliances or OCAs. Here&amp;#8217;s what an early OCA installation in a site looked like: There are many OCAs in the above picture. OCAs are grouped into clusters of multiple servers.</description>
-      <link>https://blog.bytebytego.com/p/netflix-what-happens-when-you-press-288</link>
-    </item>
-    <item>
-      <title>How Discord Serves 15-Million Users on One Server</title>
-      <pubDate>Tue, 09 Jan 2024 16:30:56 GMT</pubDate>
-      <description>Measuring GenAI Code&amp;#8217;s Impact: Free Workshop (Sponsored) How is GenAI impacting software development? Join LinearB and ThoughtWorks&amp;#8217; Global Lead for AI Software Delivery to explore the metrics showing AI&amp;#8217;s impact, unpack best practices for leveraging AI in software development, and measure the ROI of your own GenAI initiative.</description>
-      <link>https://blog.bytebytego.com/p/how-discord-serves-15-million-users</link>
-    </item>
-    <item>
-      <title>EP93: Is Passkey Shaping a Passwordless Future?</title>
-      <pubDate>Sat, 06 Jan 2024 16:30:27 GMT</pubDate>
-      <description>This week&amp;#8217;s system design refresher: Top 9 Most Popular Types of API Testing (Youtube video) Is Passkey Shaping a Passwordless Future? How can Cache Systems go wrong? Big Endian vs Little Endian How do we incorporate Event Sourcing into the systems?</description>
-      <link>https://blog.bytebytego.com/p/ep93-is-passkey-shaping-a-passwordless</link>
-    </item>
-    <item>
-      <title>Netflix: What Happens When You Press Play?</title>
-      <pubDate>Thu, 04 Jan 2024 16:30:27 GMT</pubDate>
-      <description>This week's newsletter features a chapter from one of my favorite books, Explain the Cloud Like I&amp;#8217;m 10. I am fascinated by our guest author, Todd Hoff&amp;#8217;s ability to distill complex topics into simpler discussions. This is one of our inspirations for why we made the ByteByteGo newsletter in the first place.</description>
-      <link>https://blog.bytebytego.com/p/netflix-what-happens-when-you-press</link>
-    </item>
-    <item>
-      <title>Best of ByteByteGo's Newsletter 2023</title>
-      <pubDate>Tue, 02 Jan 2024 16:30:17 GMT</pubDate>
-      <description>In 2023, we sent out 104 newsletters, featuring a deep dive newsletter on Thursdays and system design fundamentals on Saturdays. Here is The Best of ByteByteGo's System Design Newsletter 2023. I hope you find something interesting to read. Understanding Database Types</description>
-      <link>https://blog.bytebytego.com/p/best-of-bytebytegos-newsletter-2023</link>
-    </item>
-    <item>
-      <title>Reddit Discloses Bitcoin and Ether Holdings in IPO Filing (2 minute read)</title>
-      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
-      <description>Reddit has announced plans to IPO under the ticker RDDT. It disclosed it had used excess cash for investments in Bitcoin and Ether to hold on the balance sheet in its filings with the SEC. In addition to holding crypto for investment purposes, Reddit also holds ETH and MATIC for sales of select digital collectibles.</description>
-      <link>https://www.coindesk.com/business/2024/02/22/reddit-discloses-holding-bitcoin-and-ether-in-ipo-filing/?utm_source=tldrcrypto</link>
-    </item>
-    <item>
-      <title>Introducing Sudo for Windows! (3 minute read)</title>
-      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
-      <description>Sudo for Windows is a new feature in Windows 11 Insider Preview Build 26052 that allows users to run elevated commands from an unelevated console session. This article contains details on how to enable, configure, and use it and discusses plans for open-sourcing and expanding its documentation.</description>
-      <link>https://devblogs.microsoft.com/commandline/introducing-sudo-for-windows/?utm_source=tldrdevops</link>
-    </item>
-    <item>
-      <title>Dead Simple Sites (Website)</title>
-      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
-      <description>No overly animated content, scroll jacking, or excessive storytelling. Just most minimal websites on the web.</description>
-      <link>https://deadsimplesites.com/?utm_source=tldrdesign</link>
-    </item>
-    <item>
-      <title>Sneaky SSH-Snake malware steals SSH keys - putting your whole network at risk (2 minute read)</title>
-      <pubDate>Fri, 23 Feb 2024 12:00:00 GMT</pubDate>
-      <description>Approximately 100 organizations have had their SSH credentials stolen using a recently released open source pentesting tool with worm-like capabilities. The tool is completely self-replicating and self-propagating — and completely fileless. In many ways, SSH-Snake is actually a worm: it replicates itself and spreads itself from one system to another as far as it can.</description>
-      <link>https://www.techradar.com/pro/security/sneaky-ssh-snake-malware-steals-ssh-keys-putting-your-whole-network-at-risk?utm_source=tldrinfosec</link>
-    </item>
-  </channel>
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>learn</title>
+        <link>http://learn.link</link>
+        <description>learn</description>
+        <lastBuildDate>Thu, 07 Mar 2024 22:30:44 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>nodejs</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[The Top 3 Resume Mistakes Costing You the Job]]></title>
+            <link>https://blog.bytebytego.com/p/the-top-3-resume-mistakes-costing</link>
+            <guid>https://blog.bytebytego.com/p/the-top-3-resume-mistakes-costing</guid>
+            <pubDate>Thu, 07 Mar 2024 22:30:44 GMT</pubDate>
+            <description><![CDATA[For this week's issue, I am pleased to introduce our guest author, Ethan Evans, a retired Amazon VP who played a pivotal role in creating some of the groundbreaking services we use today, such as Prime Video, Amazon Video, the Amazon Appstore, Prime Gaming (formerly Twitch Prime), and Twitch Commerce.]]></description>
+            <content:encoded><![CDATA[For this week's issue, I am pleased to introduce our guest author, Ethan Evans, a retired Amazon VP who played a pivotal role in creating some of the groundbreaking services we use today, such as Prime Video, Amazon Video, the Amazon Appstore, Prime Gaming (formerly Twitch Prime), and Twitch Commerce.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mistral x Snowflake (3 minute read)]]></title>
+            <link>https://www.snowflake.com/news/snowflake-partners-with-mistral-ai-to-bring-industry-leading-language-models-to-enterprises-through-snowflake-cortex/?utm_source=tldrai</link>
+            <guid>https://www.snowflake.com/news/snowflake-partners-with-mistral-ai-to-bring-industry-leading-language-models-to-enterprises-through-snowflake-cortex/?utm_source=tldrai</guid>
+            <pubDate>Thu, 07 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Mistral and Snowflake have partnered to bring Mistral Large to Snowflake Cortex customers.]]></description>
+            <content:encoded><![CDATA[Mistral and Snowflake have partnered to bring Mistral Large to Snowflake Cortex customers.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[NIM Network: The First RollApp On Dymension (3 minute read)]]></title>
+            <link>https://forum.dymension.xyz/t/rollapp-submission-introducing-nim-network-the-first-rollapp-on-dymension/1236?utm_source=tldrcrypto</link>
+            <guid>https://forum.dymension.xyz/t/rollapp-submission-introducing-nim-network-the-first-rollapp-on-dymension/1236?utm_source=tldrcrypto</guid>
+            <pubDate>Thu, 07 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[The NIM RollApp combines blockchain tech with gaming to enhance user experiences. NIM, resulting from a three-year effort into gaming and deep-tech cryptography, aims to overcome current limitations in web3 gaming. The $NIM token will serve as the native currency for transactions and staking in the RollApp. NIM plans to start with an AI-focused project and progress through three phases of infrastructural development and application creation. Its tokenomics will provide a robust economy in the ecosystem.]]></description>
+            <content:encoded><![CDATA[The NIM RollApp combines blockchain tech with gaming to enhance user experiences. NIM, resulting from a three-year effort into gaming and deep-tech cryptography, aims to overcome current limitations in web3 gaming. The $NIM token will serve as the native currency for transactions and staking in the RollApp. NIM plans to start with an AI-focused project and progress through three phases of infrastructural development and application creation. Its tokenomics will provide a robust economy in the ecosystem.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Deezer's Branding and Visual Identity Transformation (2 minute read)]]></title>
+            <link>https://abduzeedo.com/deezers-branding-and-visual-identity-transformation?utm_source=tldrdesign</link>
+            <guid>https://abduzeedo.com/deezers-branding-and-visual-identity-transformation?utm_source=tldrdesign</guid>
+            <pubDate>Thu, 07 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Deezer has redefined its music streaming service with a new visual identity and branding by Koto Studio. The redesign centers around a heart-shaped logo that symbolizes a love for music, fostering a sense of community among its users. The redesign includes a dynamic design system featuring the Deezer SANS typeface and flexible UI elements that create a cohesive and emotionally resonant user experience across all brand touchpoints.]]></description>
+            <content:encoded><![CDATA[Deezer has redefined its music streaming service with a new visual identity and branding by Koto Studio. The redesign centers around a heart-shaped logo that symbolizes a love for music, fostering a sense of community among its users. The redesign includes a dynamic design system featuring the Deezer SANS typeface and flexible UI elements that create a cohesive and emotionally resonant user experience across all brand touchpoints.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How to write copy for the 4 stages of the post-purchase customer lifecycle (5 minute read)]]></title>
+            <link>https://writeon.beehiiv.com/p/writeon-newsletter-59?utm_source=tldrmarketing</link>
+            <guid>https://writeon.beehiiv.com/p/writeon-newsletter-59?utm_source=tldrmarketing</guid>
+            <pubDate>Thu, 07 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[This guide walks through how to write copy for the 4 post-purchase stages: onboarding, retention, upsell/cross-sell, and winback. Onboarding copy should offer clear instructions, highlight key benefits, and show how your product fits into users' routines. Retention copy should include regular communication to keep your brand top of mind, encourage customers to share input, and reward loyalty. The upsell/cross-sell stage should focus on increasing customers' lifetime value with personalization. Winback copywriting must first acknowledge the lapse before highlighting new offerings and providing an incentive to return.]]></description>
+            <content:encoded><![CDATA[This guide walks through how to write copy for the 4 post-purchase stages: onboarding, retention, upsell/cross-sell, and winback. Onboarding copy should offer clear instructions, highlight key benefits, and show how your product fits into users' routines. Retention copy should include regular communication to keep your brand top of mind, encourage customers to share input, and reward loyalty. The upsell/cross-sell stage should focus on increasing customers' lifetime value with personalization. Winback copywriting must first acknowledge the lapse before highlighting new offerings and providing an incentive to return.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Feature flags are ruining your codebase (10 minute read)]]></title>
+            <link>https://open.substack.com/pub/zaidesanton/p/feature-flags-are-ruining-your-codebase?r=2bjtip&amp;amp;utm_medium=ios&amp;amp;utm_source=tldrwebdev</link>
+            <guid>https://open.substack.com/pub/zaidesanton/p/feature-flags-are-ruining-your-codebase?r=2bjtip&amp;utm_medium=ios&amp;utm_source=tldrwebdev</guid>
+            <pubDate>Wed, 06 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Feature flags are a valuable tool for separating code deployment from feature releases, but their overuse can complicate codebases and hinder testing. Too many feature flags leads to difficult testing and complex code and creates excuses for PMs to not make hard decisions like completely removing a feature. To deal with this, you should separate your feature flags into categories and deal with them differently: release toggles for merging not-ready code into production, ops toggles for features with unknown performance implications, experiment toggles for A/B tests, and permission toggles to enable different experiences for different users. Only let PMs manage the latter two and let developers remove control release and ops toggles as soon as they're done.]]></description>
+            <content:encoded><![CDATA[Feature flags are a valuable tool for separating code deployment from feature releases, but their overuse can complicate codebases and hinder testing. Too many feature flags leads to difficult testing and complex code and creates excuses for PMs to not make hard decisions like completely removing a feature. To deal with this, you should separate your feature flags into categories and deal with them differently: release toggles for merging not-ready code into production, ops toggles for features with unknown performance implications, experiment toggles for A/B tests, and permission toggles to enable different experiences for different users. Only let PMs manage the latter two and let developers remove control release and ops toggles as soon as they're done.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Crypto-Powered Information Games (32 minute read)]]></title>
+            <link>https://archetype.mirror.xyz/LNgRLem1I27s3Aj0kOChnwG-4bFBdywkJNFtJ7zcX8w?utm_source=tldrcrypto</link>
+            <guid>https://archetype.mirror.xyz/LNgRLem1I27s3Aj0kOChnwG-4bFBdywkJNFtJ7zcX8w?utm_source=tldrcrypto</guid>
+            <pubDate>Wed, 06 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Involving individuals in "information games" could potentially result in data monetization through crypto. Advancements in blockchain technology allow trust to be decentralized, fostering crypto-powered information games that improve decision-making and efficiency. This experimental approach could revolutionize how we manage and commercially benefit from information.]]></description>
+            <content:encoded><![CDATA[Involving individuals in "information games" could potentially result in data monetization through crypto. Advancements in blockchain technology allow trust to be decentralized, fostering crypto-powered information games that improve decision-making and efficiency. This experimental approach could revolutionize how we manage and commercially benefit from information.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[LME (GitHub Repo)]]></title>
+            <link>https://github.com/cisagov/LME?utm_source=tldrinfosec</link>
+            <guid>https://github.com/cisagov/LME?utm_source=tldrinfosec</guid>
+            <pubDate>Wed, 06 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Logging Made Easy (LME) is a no-cost and open logging and protective monitoring solution.]]></description>
+            <content:encoded><![CDATA[Logging Made Easy (LME) is a no-cost and open logging and protective monitoring solution.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[OpenAI and Elon Musk (5 minute read)]]></title>
+            <link>https://openai.com/blog/openai-elon-musk?utm_source=tldrai</link>
+            <guid>https://openai.com/blog/openai-elon-musk?utm_source=tldrai</guid>
+            <pubDate>Wed, 06 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[OpenAI responded to Elon Musk's lawsuit by sharing its side of the story along with screenshots of email exchanges between Sam Altman, Ilya Sutskever, Greg Brockman, and Elon Musk. The receipts show that Musk believed OpenAI’s chance of success was 0% and agreed that there was a need to close source certain models.]]></description>
+            <content:encoded><![CDATA[OpenAI responded to Elon Musk's lawsuit by sharing its side of the story along with screenshots of email exchanges between Sam Altman, Ilya Sutskever, Greg Brockman, and Elon Musk. The receipts show that Musk believed OpenAI’s chance of success was 0% and agreed that there was a need to close source certain models.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Automated Bug Fixing at Facebook Scale]]></title>
+            <link>https://blog.bytebytego.com/p/automated-bug-fixing-at-facebook</link>
+            <guid>https://blog.bytebytego.com/p/automated-bug-fixing-at-facebook</guid>
+            <pubDate>Tue, 05 Mar 2024 22:31:14 GMT</pubDate>
+            <description><![CDATA[&#128204;Save the Date! Innovate Faster with AI Code Generation (Sponsored) With AI code generation tools developers can accelerate timelines at a pace and cost that would have been unfathomable just years ago. However, code generated by AI can include bugs and errors, and readability, maintainability, and security issues &#8211; just like code produced by developers.]]></description>
+            <content:encoded><![CDATA[&#128204;Save the Date! Innovate Faster with AI Code Generation (Sponsored) With AI code generation tools developers can accelerate timelines at a pace and cost that would have been unfathomable just years ago. However, code generated by AI can include bugs and errors, and readability, maintainability, and security issues &#8211; just like code produced by developers.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Pepsi Takes Over Cities Around The World To Show Off New Logo (3 minute read)]]></title>
+            <link>https://designtaxi.com/news/426343/Pepsi-Takes-Over-Cities-Around-The-World-To-Show-Off-New-Logo/?utm_source=tldrdesign</link>
+            <guid>https://designtaxi.com/news/426343/Pepsi-Takes-Over-Cities-Around-The-World-To-Show-Off-New-Logo/?utm_source=tldrdesign</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Pepsi has just revealed its first major global redesign in 14 years with a bang through mesmerizing light shows and giant can displays across 120 markets worldwide. Iconic landmarks became canvases for the refreshed logo. The reimagined logo maintains the brand's iconic circular design while adding a bold modern twist to symbolize Pepsi's unapologetic and innovative spirit.]]></description>
+            <content:encoded><![CDATA[Pepsi has just revealed its first major global redesign in 14 years with a bang through mesmerizing light shows and giant can displays across 120 markets worldwide. Iconic landmarks became canvases for the refreshed logo. The reimagined logo maintains the brand's iconic circular design while adding a bold modern twist to symbolize Pepsi's unapologetic and innovative spirit.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[PitchLeague (Product)]]></title>
+            <link>https://www.pitchleague.ai/?utm_source=tldrai</link>
+            <guid>https://www.pitchleague.ai/?utm_source=tldrai</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Your personal AI pitch deck coach.]]></description>
+            <content:encoded><![CDATA[Your personal AI pitch deck coach.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Call of duty (3 minute read)]]></title>
+            <link>https://dramaticanalyst.substack.com//p/call-of-duty?utm_source=tldrproduct</link>
+            <guid>https://dramaticanalyst.substack.com//p/call-of-duty?utm_source=tldrproduct</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Implementing an on-call rotation system in a data team allowed them to handle ad hoc requests more efficiently. They alleviated workload concerns, identified trends in requests, and encouraged curiosity-driven inquiries by assigning one person per week to field requests, implementing a structured intake form, and conducting weekly reflections.]]></description>
+            <content:encoded><![CDATA[Implementing an on-call rotation system in a data team allowed them to handle ad hoc requests more efficiently. They alleviated workload concerns, identified trends in requests, and encouraged curiosity-driven inquiries by assigning one person per week to field requests, implementing a structured intake form, and conducting weekly reflections.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Claude 3 Opus for video summarization (GitHub Repo)]]></title>
+            <link>https://github.com/hundredblocks/transcription_demo?utm_source=tldrai</link>
+            <guid>https://github.com/hundredblocks/transcription_demo?utm_source=tldrai</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Andrej Karpathy issued a long context challenge to make a blog post from a recent video of his. Claude 3 was able to perform this task with some data pre-processing help. The resulting blog post is high quality and interesting.]]></description>
+            <content:encoded><![CDATA[Andrej Karpathy issued a long context challenge to make a blog post from a recent video of his. Claude 3 was able to perform this task with some data pre-processing help. The resulting blog post is high quality and interesting.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Thought-Leadership Content on LinkedIn: 3 Case Studies (7 minute read)]]></title>
+            <link>https://cxl.com/blog/thought-leadership-content/?utm_source=tldrmarketing</link>
+            <guid>https://cxl.com/blog/thought-leadership-content/?utm_source=tldrmarketing</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Thought leadership content on LinkedIn can be a cost-efficient way to grow your business. Warmly, an outreach tool, used the “build in public” tactic, leading to 8X growth in inbound demo requests. Air, a creative operations platform, created a physical book on creative ops and also leaned into influencer marketing. June.so, a product analytics platform, used product research and insights to generate organic engagement and signups.]]></description>
+            <content:encoded><![CDATA[Thought leadership content on LinkedIn can be a cost-efficient way to grow your business. Warmly, an outreach tool, used the “build in public” tactic, leading to 8X growth in inbound demo requests. Air, a creative operations platform, created a physical book on creative ops and also leaned into influencer marketing. June.so, a product analytics platform, used product research and insights to generate organic engagement and signups.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Anthropic Claude 3 (6 minute read)]]></title>
+            <link>https://www.anthropic.com/news/claude-3-family?utm_source=tldrai</link>
+            <guid>https://www.anthropic.com/news/claude-3-family?utm_source=tldrai</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Anthropic has trained three new models in the Claude 3 family, the strongest of which matches GPT4’s reported benchmark results. It is also a multimodal model and performs well on vision tasks. Importantly, Claude's coding ability is substantially improved with this release.]]></description>
+            <content:encoded><![CDATA[Anthropic has trained three new models in the Claude 3 family, the strongest of which matches GPT4’s reported benchmark results. It is also a multimodal model and performs well on vision tasks. Importantly, Claude's coding ability is substantially improved with this release.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Puter (GitHub Repo)]]></title>
+            <link>https://github.com/HeyPuter/puter?utm_source=tldrwebdev</link>
+            <guid>https://github.com/HeyPuter/puter?utm_source=tldrwebdev</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Puter is an open-source desktop environment that runs in a web browser. It is designed to be feature-rich, exceptionally fast, and highly extensible. Puter can be used to create remote desktop environments and serve as an interface for various services, including cloud storage, remote servers, and web hosting platforms.]]></description>
+            <content:encoded><![CDATA[Puter is an open-source desktop environment that runs in a web browser. It is designed to be feature-rich, exceptionally fast, and highly extensible. Puter can be used to create remote desktop environments and serve as an interface for various services, including cloud storage, remote servers, and web hosting platforms.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[AI chat is not (always) the answer (5 minute read)]]></title>
+            <link>https://www.nngroup.com/articles/ai-chat-not-the-answer/?utm_source=tldrproduct</link>
+            <guid>https://www.nngroup.com/articles/ai-chat-not-the-answer/?utm_source=tldrproduct</guid>
+            <pubDate>Tue, 05 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[While AI developments open up new opportunities, they also introduce challenges. Rushing to add AI chat into your product will not necessarily solve real user needs. Instead, there are alternative use cases of AI that might add more value to a product.]]></description>
+            <content:encoded><![CDATA[While AI developments open up new opportunities, they also introduce challenges. Rushing to add AI chat into your product will not necessarily solve real user needs. Instead, there are alternative use cases of AI that might add more value to a product.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[SHIB, WIF Climb 60% as Shorts Lose Betting Against Meme Coins (3 minute read)]]></title>
+            <link>https://www.coindesk.com/markets/2024/03/02/shib-wif-climb-60-as-shorts-lose-50m-betting-against-meme-coins/?utm_source=tldrcrypto</link>
+            <guid>https://www.coindesk.com/markets/2024/03/02/shib-wif-climb-60-as-shorts-lose-50m-betting-against-meme-coins/?utm_source=tldrcrypto</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Short-sellers collectively lost $50m as leading memecoins surged in price. PEPE, WIF, and BONK all hit all-time highs over the weekend - even Doge saw price gains. Memecoins, only recently stepping into the spotlight as legitimate speculative bets, have rapidly been gaining traction as an asset class not to be overlooked by investors and speculators.]]></description>
+            <content:encoded><![CDATA[Short-sellers collectively lost $50m as leading memecoins surged in price. PEPE, WIF, and BONK all hit all-time highs over the weekend - even Doge saw price gains. Memecoins, only recently stepping into the spotlight as legitimate speculative bets, have rapidly been gaining traction as an asset class not to be overlooked by investors and speculators.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Product-led content strategy in TOFU, MOFU, and BOFU (3 minute read)]]></title>
+            <link>https://news.marketingpowerups.com/p/product-led-content-strategy-in-tofu?utm_source=tldrmarketing</link>
+            <guid>https://news.marketingpowerups.com/p/product-led-content-strategy-in-tofu?utm_source=tldrmarketing</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[This article explains how to include product-led content across each stage of the marketing funnel. Top-of-funnel (TOFU) content should attract new readers, so focus on educating readers on key challenges that they may be facing without being overly promotional. Middle-of-funnel (MOFU) content should articulate who your product is targeted at and the outcomes it can achieve. Avoid boasting about your product’s benefits in bottom-of-funnel (BOFU) content. Instead, highlight the tangible outcomes and results of current customers.]]></description>
+            <content:encoded><![CDATA[This article explains how to include product-led content across each stage of the marketing funnel. Top-of-funnel (TOFU) content should attract new readers, so focus on educating readers on key challenges that they may be facing without being overly promotional. Middle-of-funnel (MOFU) content should articulate who your product is targeted at and the outcomes it can achieve. Avoid boasting about your product’s benefits in bottom-of-funnel (BOFU) content. Instead, highlight the tangible outcomes and results of current customers.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Reddit keeps testing desktop UI changes ahead of its IPO (2 minute read)]]></title>
+            <link>https://www.androidpolice.com/reddit-testing-desktop-redesign-before-ipo/?utm_source=tldrdesign</link>
+            <guid>https://www.androidpolice.com/reddit-testing-desktop-redesign-before-ipo/?utm_source=tldrdesign</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Reddit's recent user interface tweaks and removal of certain features on desktop are causing frustration among users. These alterations, which mimic its mobile app and hint at the discontinuation of the old Reddit design, are unnecessary transformations that affect user navigation and experience.]]></description>
+            <content:encoded><![CDATA[Reddit's recent user interface tweaks and removal of certain features on desktop are causing frustration among users. These alterations, which mimic its mobile app and hint at the discontinuation of the old Reddit design, are unnecessary transformations that affect user navigation and experience.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Hacking Terraform State for Privilege Escalation (7 minute read)]]></title>
+            <link>https://blog.plerion.com/hacking-terraform-state-privilege-escalation/?utm_source=tldrinfosec</link>
+            <guid>https://blog.plerion.com/hacking-terraform-state-privilege-escalation/?utm_source=tldrinfosec</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Terraform can be configured to store state files in a remote backend. This post looks at how attackers can leverage compromised state files. It begins by demonstrating how an attacker could cause AWS resource deletion by confusing a Terraform user into applying a modified state file that results in resource deletion. It then goes on to demonstrate the process of writing and publishing a malicious Terraform provider that can execute code upon Terraform plan or apply and then demonstrates how this can be combined with state file modification to hijack CI/CD systems.]]></description>
+            <content:encoded><![CDATA[Terraform can be configured to store state files in a remote backend. This post looks at how attackers can leverage compromised state files. It begins by demonstrating how an attacker could cause AWS resource deletion by confusing a Terraform user into applying a modified state file that results in resource deletion. It then goes on to demonstrate the process of writing and publishing a malicious Terraform provider that can execute code upon Terraform plan or apply and then demonstrates how this can be combined with state file modification to hijack CI/CD systems.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[WisdomPlan (Tool)]]></title>
+            <link>https://wisdomplan.ai/?utm_source=tldrfounders</link>
+            <guid>https://wisdomplan.ai/?utm_source=tldrfounders</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Master any skill, your way.]]></description>
+            <content:encoded><![CDATA[Master any skill, your way.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Elon Musk Sues OpenAI (4 minute read)]]></title>
+            <link>https://www.courthousenews.com/elon-musk-sues-openai-over-ai-threat/?utm_source=tldrai</link>
+            <guid>https://www.courthousenews.com/elon-musk-sues-openai-over-ai-threat/?utm_source=tldrai</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Elon Musk, co-founder of OpenAI, is suing the company claiming - among other things - that GPT-4 constitutes AGI and is no longer subject to the Microsoft agreement. He also argues for more transparency and openness.]]></description>
+            <content:encoded><![CDATA[Elon Musk, co-founder of OpenAI, is suing the company claiming - among other things - that GPT-4 constitutes AGI and is no longer subject to the Microsoft agreement. He also argues for more transparency and openness.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What we learned in 6 months of working on a CodeGen dev tool GPT Pilot (15 minute read)]]></title>
+            <link>https://blog.pythagora.ai/2024/02/19/gpt-pilot-what-did-we-learn-in-6-months-of-working-on-a-codegen-pair-programmer/?utm_source=tldrnewsletter</link>
+            <guid>https://blog.pythagora.ai/2024/02/19/gpt-pilot-what-did-we-learn-in-6-months-of-working-on-a-codegen-pair-programmer/?utm_source=tldrnewsletter</guid>
+            <pubDate>Mon, 04 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[GPT Pilot is an AI developer that creates plans for how apps and features should be built before coding. It can do most of its work autonomously, asking for clarification or help when required. The project aimed to create a framework of thinking that gets AI to continuously work by revising its previous actions using a feedback loop that determines what it should do next in order to finish the end goal. This article contains lessons learned by its creators during development.]]></description>
+            <content:encoded><![CDATA[GPT Pilot is an AI developer that creates plans for how apps and features should be built before coding. It can do most of its work autonomously, asking for clarification or help when required. The project aimed to create a framework of thinking that gets AI to continuously work by revising its previous actions using a feedback loop that determines what it should do next in order to finish the end goal. This article contains lessons learned by its creators during development.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP101: Top 3 Things You Should Know About Webhooks]]></title>
+            <link>https://blog.bytebytego.com/p/ep101-top-3-things-you-should-know</link>
+            <guid>https://blog.bytebytego.com/p/ep101-top-3-things-you-should-know</guid>
+            <pubDate>Sat, 02 Mar 2024 22:30:16 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Top 3 Things You Should Know About Webhooks (Youtube video) Cloud Load Balancer Cheat Sheet How do we manage sensitive data in a system? What does ACID mean? SPONSOR US Learn Streaming Data Fundamentals at Your Pace (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Top 3 Things You Should Know About Webhooks (Youtube video) Cloud Load Balancer Cheat Sheet How do we manage sensitive data in a system? What does ACID mean? SPONSOR US Learn Streaming Data Fundamentals at Your Pace (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[GitHub Copilot Enterprise is now generally available (3 minute read)]]></title>
+            <link>https://github.blog/2024-02-27-github-copilot-enterprise-is-now-generally-available/?utm_source=tldrdevops</link>
+            <guid>https://github.blog/2024-02-27-github-copilot-enterprise-is-now-generally-available/?utm_source=tldrdevops</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[GitHub Copilot Enterprise, now generally available, addresses the need for tailored code assistance within organizations, enhancing productivity and reducing mundane tasks for developers. It features streamlined code comprehension, instant access to organizational knowledge, and faster pull request reviews.]]></description>
+            <content:encoded><![CDATA[GitHub Copilot Enterprise, now generally available, addresses the need for tailored code assistance within organizations, enhancing productivity and reducing mundane tasks for developers. It features streamlined code comprehension, instant access to organizational knowledge, and faster pull request reviews.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Genie: Generative Interactive Environments (5 minute read)]]></title>
+            <link>https://sites.google.com/view/genie-2024/home?utm_source=tldrai</link>
+            <guid>https://sites.google.com/view/genie-2024/home?utm_source=tldrai</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Google DeepMind's Genie is a foundation world model trained on Internet videos that can generate an endless variety of playable (action-controllable) worlds from synthetic images, photographs, and even sketches.]]></description>
+            <content:encoded><![CDATA[Google DeepMind's Genie is a foundation world model trained on Internet videos that can generate an endless variety of playable (action-controllable) worlds from synthetic images, photographs, and even sketches.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Yes, YouTube has a new UI. Yes, it's terrible (2 minute read)]]></title>
+            <link>https://www.creativebloq.com/news/youtube-new-ui?utm_source=tldrdesign</link>
+            <guid>https://www.creativebloq.com/news/youtube-new-ui?utm_source=tldrdesign</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[YouTube's recent desktop UI update has received significant backlash from users. The new layout features a grid of thumbnails underneath videos, leading to complaints about sensory overload. It is hard to find positive feedback about the change, and it's unclear if the design will revert.]]></description>
+            <content:encoded><![CDATA[YouTube's recent desktop UI update has received significant backlash from users. The new layout features a grid of thumbnails underneath videos, leading to complaints about sensory overload. It is hard to find positive feedback about the change, and it's unclear if the design will revert.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Software engineering practices I like, in 2024 (15 minute read)]]></title>
+            <link>https://thetechenabler.substack.com/p/software-engineering-practices-you?utm_source=tldrdevops</link>
+            <guid>https://thetechenabler.substack.com/p/software-engineering-practices-you?utm_source=tldrdevops</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[This article delves into the evolving landscape of software development, exploring topics such as the shift towards statically typed languages, the importance of automated formatting, and the benefits of union types and parsing. It also discusses the impact of generative AI, the significance of integration tests, and the value of fostering a positive code review culture. The article highlights the importance of respecting candidates' time in the hiring process and streamlining workflows with infrastructure-as-code and developer-focused platforms.]]></description>
+            <content:encoded><![CDATA[This article delves into the evolving landscape of software development, exploring topics such as the shift towards statically typed languages, the importance of automated formatting, and the benefits of union types and parsing. It also discusses the impact of generative AI, the significance of integration tests, and the value of fostering a positive code review culture. The article highlights the importance of respecting candidates' time in the hiring process and streamlining workflows with infrastructure-as-code and developer-focused platforms.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Trading Platform Robinhood, Layer-2 Arbitrum Team Up To Offer Swaps To Users (2 minute read)]]></title>
+            <link>https://www.coindesk.com/tech/2024/02/29/trading-platform-robinhood-layer-2-arbitrum-team-up-to-offer-swaps-to-users/?utm_source=tldrcrypto</link>
+            <guid>https://www.coindesk.com/tech/2024/02/29/trading-platform-robinhood-layer-2-arbitrum-team-up-to-offer-swaps-to-users/?utm_source=tldrcrypto</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Robinhood has revealed plans to enable swaps on Arbitrum, a layer-2 blockchain on Ethereum, for its wallet users in the upcoming months. The collaboration aims to support access to cross-chain swaps and make it easier for non-crypto native users to onboard to on-chain activities from the Robinhood Wallet. The announcement resulted in an over 11% surge in ARB's token price.]]></description>
+            <content:encoded><![CDATA[Robinhood has revealed plans to enable swaps on Arbitrum, a layer-2 blockchain on Ethereum, for its wallet users in the upcoming months. The collaboration aims to support access to cross-chain swaps and make it easier for non-crypto native users to onboard to on-chain activities from the Robinhood Wallet. The announcement resulted in an over 11% surge in ARB's token price.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Where I’m at on the whole CSS-Tricks thing (6 minute read)]]></title>
+            <link>https://chriscoyier.net/2024/02/28/where-im-at-on-the-whole-css-tricks-thing/?utm_source=tldrwebdev</link>
+            <guid>https://chriscoyier.net/2024/02/28/where-im-at-on-the-whole-css-tricks-thing/?utm_source=tldrwebdev</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[The founder of the CSS-Tricks website sold the website in March 2022 to DigitalOcean, who promptly fired the content team and stopped publishing new content. He tried to regain control of CSS-Tricks and proposed running the site himself, but DigitalOcean ultimately declined the proposal due to a lack of internal support. Today, CSS-Tricks remains in a somewhat abandoned state.]]></description>
+            <content:encoded><![CDATA[The founder of the CSS-Tricks website sold the website in March 2022 to DigitalOcean, who promptly fired the content team and stopped publishing new content. He tried to regain control of CSS-Tricks and proposed running the site himself, but DigitalOcean ultimately declined the proposal due to a lack of internal support. Today, CSS-Tricks remains in a somewhat abandoned state.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Popular video doorbells can be easily hijacked, researchers find (3 minute read)]]></title>
+            <link>https://techcrunch.com/2024/02/29/popular-video-doorbells-eken-tuck-hijacked-researchers/?utm_source=tldrinfosec</link>
+            <guid>https://techcrunch.com/2024/02/29/popular-video-doorbells-eken-tuck-hijacked-researchers/?utm_source=tldrinfosec</guid>
+            <pubDate>Fri, 01 Mar 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Security flaws have been discovered in several internet-connected doorbell cameras, including ones made by EKEN. The most serious issue allows hackers to take full control of a camera by holding down a button and scanning a QR code. Retailers have been alerted, but only some have removed the vulnerable cameras from sale.]]></description>
+            <content:encoded><![CDATA[Security flaws have been discovered in several internet-connected doorbell cameras, including ones made by EKEN. The most serious issue allows hackers to take full control of a camera by holding down a button and scanning a QR code. Retailers have been alerted, but only some have removed the vulnerable cameras from sale.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Video Recommendations Work - Part 1]]></title>
+            <link>https://blog.bytebytego.com/p/how-video-recommendations-work-part</link>
+            <guid>https://blog.bytebytego.com/p/how-video-recommendations-work-part</guid>
+            <pubDate>Thu, 29 Feb 2024 22:30:24 GMT</pubDate>
+            <description><![CDATA[The digital landscape has seen dramatic changes in how information is retrieved, moving from simple web portals to complex recommendation systems. This shift has been driven by the rapid increase of online content and the growing demand for personalized, relevant experiences. Let&#8217;s dive into the four pivotal stages for this evolution.]]></description>
+            <content:encoded><![CDATA[The digital landscape has seen dramatic changes in how information is retrieved, moving from simple web portals to complex recommendation systems. This shift has been driven by the rapid increase of online content and the growing demand for personalized, relevant experiences. Let&#8217;s dive into the four pivotal stages for this evolution.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Elon Musk’s bold claim: Tesla’s Roadster to hit 0-60 mph in less than one second (4 minute read)]]></title>
+            <link>https://interestingengineering.com/transportation/elon-musks-bold-claim-teslas-roadster-to-hit-0-60-mph-in-less-than-one-second?utm_source=tldrnewsletter</link>
+            <guid>https://interestingengineering.com/transportation/elon-musks-bold-claim-teslas-roadster-to-hit-0-60-mph-in-less-than-one-second?utm_source=tldrnewsletter</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Elon Musk claims that the Tesla Roadster, which he plans to unveil by the end of 2024, can accelerate from 0 to 60 mph in less than a second. The current record holder for a production car's fastest 0-60 mph is the Dodge Challenger SRT Demon 170, which can do it in 1.66 seconds. If Musk's claims are true, the Tesla Roadster will be faster than the speed of sound. Tesla aims to ship the car in 2025, four years after its original 2020 target.]]></description>
+            <content:encoded><![CDATA[Elon Musk claims that the Tesla Roadster, which he plans to unveil by the end of 2024, can accelerate from 0 to 60 mph in less than a second. The current record holder for a production car's fastest 0-60 mph is the Dodge Challenger SRT Demon 170, which can do it in 1.66 seconds. If Musk's claims are true, the Tesla Roadster will be faster than the speed of sound. Tesla aims to ship the car in 2025, four years after its original 2020 target.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Netlify just sent me a $104K bill for a simple static site (2 minute read)]]></title>
+            <link>https://old.reddit.com/r/webdev/comments/1b14bty/netlify_just_sent_me_a_104k_bill_for_a_simple/?utm_source=tldrwebdev</link>
+            <guid>https://old.reddit.com/r/webdev/comments/1b14bty/netlify_just_sent_me_a_104k_bill_for_a_simple/?utm_source=tldrwebdev</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[A Reddit user who used Netlify to host their static site received a $104,500 bill due to a DDoS attack.]]></description>
+            <content:encoded><![CDATA[A Reddit user who used Netlify to host their static site received a $104,500 bill due to a DDoS attack.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Don't Be Afraid to Dream a Little Bigger (9 minute read)]]></title>
+            <link>https://theknower.substack.com/p/dont-be-afraid-to-dream-a-little?utm_source=tldrcrypto</link>
+            <guid>https://theknower.substack.com/p/dont-be-afraid-to-dream-a-little?utm_source=tldrcrypto</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[We may be earlier in the cycle than some think. This post provides some background on the brutal bear market the space just went through and the historical context of crypto cycles in general. Crypto participants are getting a little anxious as Bitcoin nears all-time highs. However, this cycle is much closer to the beginning than the end and could be much bigger than people are anticipating.]]></description>
+            <content:encoded><![CDATA[We may be earlier in the cycle than some think. This post provides some background on the brutal bear market the space just went through and the historical context of crypto cycles in general. Crypto participants are getting a little anxious as Bitcoin nears all-time highs. However, this cycle is much closer to the beginning than the end and could be much bigger than people are anticipating.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Tim Cook Says Apple Will ‘Break New Ground’ In Generative AI (1 minute read)]]></title>
+            <link>https://www.macrumors.com/2024/02/28/tim-cook-apple-generative-ai-break-new-ground/?utm_source=tldrai</link>
+            <guid>https://www.macrumors.com/2024/02/28/tim-cook-apple-generative-ai-break-new-ground/?utm_source=tldrai</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Apple CEO Tim Cook announced at the company's annual shareholders meeting that the company plans to break new ground in generative AI in 2024, promising transformative opportunities for users.]]></description>
+            <content:encoded><![CDATA[Apple CEO Tim Cook announced at the company's annual shareholders meeting that the company plans to break new ground in generative AI in 2024, promising transformative opportunities for users.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Coinbase Users See $0 Balance After Crypto-Trading App Suffers Glitch (2 minute read)]]></title>
+            <link>https://www.cnbc.com/2024/02/28/coinbase-users-see-0-balance-after-crypto-trading-app-suffers-glitch.html?utm_source=tldrcrypto</link>
+            <guid>https://www.cnbc.com/2024/02/28/coinbase-users-see-0-balance-after-crypto-trading-app-suffers-glitch.html?utm_source=tldrcrypto</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Coinbase experienced a technical glitch that caused users' account balances to display as zero as Bitcoin surpassed $60k yesterday. This malfunction coincided with a sudden drop in prices across the space that resulted in over $1.7 billion in liquidations. Coinbase quickly acknowledged the issue and assured its users that their assets were safe and deployed fixes over the next few hours. Coinbase CEO Brian Armstrong said that the level of traffic it experienced yesterday well exceeded the 10x surges in traffic the company had modeled for, leading to the issues users experienced.]]></description>
+            <content:encoded><![CDATA[Coinbase experienced a technical glitch that caused users' account balances to display as zero as Bitcoin surpassed $60k yesterday. This malfunction coincided with a sudden drop in prices across the space that resulted in over $1.7 billion in liquidations. Coinbase quickly acknowledged the issue and assured its users that their assets were safe and deployed fixes over the next few hours. Coinbase CEO Brian Armstrong said that the level of traffic it experienced yesterday well exceeded the 10x surges in traffic the company had modeled for, leading to the issues users experienced.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Johnson Boxes boosted conversions by 20% (4 minute read)]]></title>
+            <link>https://conversion-rate-experts.com/custody-x-change-johnson-boxes-win-report/?utm_source=tldrmarketing</link>
+            <guid>https://conversion-rate-experts.com/custody-x-change-johnson-boxes-win-report/?utm_source=tldrmarketing</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[A Johnson Box is a highlighted section of text at the top of a direct mail letter, email, or web page designed to grab attention and emphasize key points. Custody X Change, a co‑parenting SaaS product, found through customer research that its comprehensive website content felt overwhelming to some users. The team tested adding simplified Johnson Boxes in the form of navigational jump links. This made it easier for users to locate important information and resulted in a 20% increase in conversions.]]></description>
+            <content:encoded><![CDATA[A Johnson Box is a highlighted section of text at the top of a direct mail letter, email, or web page designed to grab attention and emphasize key points. Custody X Change, a co‑parenting SaaS product, found through customer research that its comprehensive website content felt overwhelming to some users. The team tested adding simplified Johnson Boxes in the form of navigational jump links. This made it easier for users to locate important information and resulted in a 20% increase in conversions.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[15+ Improvements and New Features Come to Figma Prototyping (2 minute read)]]></title>
+            <link>https://www.figma.com/release-notes/?title=15%2B+improvements+and+new+features+come+to+prototyping&amp;amp;utm_source=tldrdesign</link>
+            <guid>https://www.figma.com/release-notes/?title=15%2B+improvements+and+new+features+come+to+prototyping&amp;utm_source=tldrdesign</guid>
+            <pubDate>Thu, 29 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Figma has introduced over 15 new improvements to enhance prototyping, including resizable device frames for mobile prototypes and various editing speed optimizations like simpler interaction copying and advanced overlay modes. The update enhances performance, leading to 22% fewer loading spinners in common scenarios.]]></description>
+            <content:encoded><![CDATA[Figma has introduced over 15 new improvements to enhance prototyping, including resizable device frames for mobile prototypes and various editing speed optimizations like simpler interaction copying and advanced overlay modes. The update enhances performance, leading to 22% fewer loading spinners in common scenarios.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mystery Whale Buys $1.3B in Bitcoin, Sparking Speculation (1 minute read)]]></title>
+            <link>https://www.cryptotimes.io/2024/02/24/mystery-whale-buys-1-3b-in-bitcoin-sparking-speculation/?utm_source=tldrcrypto</link>
+            <guid>https://www.cryptotimes.io/2024/02/24/mystery-whale-buys-1-3b-in-bitcoin-sparking-speculation/?utm_source=tldrcrypto</guid>
+            <pubDate>Wed, 28 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[A mystery buyer reportedly purchased 26,200 Bitcoin for $1.3 billion, sparking speculation on who it could be that would take such a large swing so suddenly.]]></description>
+            <content:encoded><![CDATA[A mystery buyer reportedly purchased 26,200 Bitcoin for $1.3 billion, sparking speculation on who it could be that would take such a large swing so suddenly.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[AWS Ransomware Analysis (5 minute read)]]></title>
+            <link>https://dfir.ch/posts/aws_ransomware/?utm_source=tldrinfosec</link>
+            <guid>https://dfir.ch/posts/aws_ransomware/?utm_source=tldrinfosec</guid>
+            <pubDate>Wed, 28 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[This post discusses a recent customer engagement that entailed responding to an AWS ransomware attack. The attacker deleted several S3 buckets and then left a ransom note (included in the post) and a recovery binary. The post goes through the CloudTrail actions taken by the attackers as well as an analysis of the recovery binary. It concludes by noting that the binary does not make any connections to AWS (or the internet in general) and would not be able to recover the data.]]></description>
+            <content:encoded><![CDATA[This post discusses a recent customer engagement that entailed responding to an AWS ransomware attack. The attacker deleted several S3 buckets and then left a ransom note (included in the post) and a recovery binary. The post goes through the CloudTrail actions taken by the attackers as well as an analysis of the recovery binary. It concludes by noting that the binary does not make any connections to AWS (or the internet in general) and would not be able to recover the data.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Samsung Unveils Galaxy Ring, a Smart AI-Powered Wellness Companion At Your Fingertips (2 minute read)]]></title>
+            <link>https://www.designboom.com/technology/samsung-galaxy-ring-smart-ai-powered-wellness-companion-fingertips-02-27-2024/?utm_source=tldrdesign</link>
+            <guid>https://www.designboom.com/technology/samsung-galaxy-ring-smart-ai-powered-wellness-companion-fingertips-02-27-2024/?utm_source=tldrdesign</guid>
+            <pubDate>Wed, 28 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Samsung revealed a new wearable called the Galaxy Ring during the 2024 Mobile World Conference. The device gathers data on the wearer with advanced sensor technology to provide comprehensive health insights. It uses AI to make personal wellness recommendations and tailor health experiences.]]></description>
+            <content:encoded><![CDATA[Samsung revealed a new wearable called the Galaxy Ring during the 2024 Mobile World Conference. The device gathers data on the wearer with advanced sensor technology to provide comprehensive health insights. It uses AI to make personal wellness recommendations and tailor health experiences.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How NVIDIA Beat Intel and Won the AI Race (6 minute read)]]></title>
+            <link>https://www.crn.com/news/components-peripherals/2024/analysis-how-nvidia-surpassed-intel-in-annual-revenue-and-won-the-ai-crown?utm_source=tldrfounders</link>
+            <guid>https://www.crn.com/news/components-peripherals/2024/analysis-how-nvidia-surpassed-intel-in-annual-revenue-and-won-the-ai-crown?utm_source=tldrfounders</guid>
+            <pubDate>Wed, 28 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Nvidia achieved the significant milestone of surpassing Intel in annual revenue and established itself as the leader in AI computing by ending the fiscal year with $60.9B in revenue. This article delves into the market dynamics that enabled Nvidia to overtake Intel and explores whether Intel can make a comeback.]]></description>
+            <content:encoded><![CDATA[Nvidia achieved the significant milestone of surpassing Intel in annual revenue and established itself as the leader in AI computing by ending the fiscal year with $60.9B in revenue. This article delves into the market dynamics that enabled Nvidia to overtake Intel and explores whether Intel can make a comeback.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Discord Moved Engineering to Cloud Development Environments (8 minute read)]]></title>
+            <link>https://discord.com/blog/how-discord-moved-engineering-to-cloud-development-environments?utm_source=tldrwebdev</link>
+            <guid>https://discord.com/blog/how-discord-moved-engineering-to-cloud-development-environments?utm_source=tldrwebdev</guid>
+            <pubDate>Wed, 28 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Discord successfully transitioned to a Linux-based Cloud Development Environment (CDE) to address the challenges of a growing remote engineering team. Its initial Kubernetes-based CDE solution proved problematic, and switching to a VM-based offering provided a stable and performant experience. The migration involved careful planning, early feedback, and a phased rollout.]]></description>
+            <content:encoded><![CDATA[Discord successfully transitioned to a Linux-based Cloud Development Environment (CDE) to address the challenges of a growing remote engineering team. Its initial Kubernetes-based CDE solution proved problematic, and switching to a VM-based offering provided a stable and performant experience. The migration involved careful planning, early feedback, and a phased rollout.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Corporate Ozempic (8 minute read)]]></title>
+            <link>https://medium.com/@profgalloway/corporate-ozempic-da829480c878?utm_source=tldrproduct</link>
+            <guid>https://medium.com/@profgalloway/corporate-ozempic-da829480c878?utm_source=tldrproduct</guid>
+            <pubDate>Tue, 27 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[AI's role in recent layoffs is more significant than corporations admit. The tech industry's recent job cuts are less about economic conditions and more about technological innovation's impact.]]></description>
+            <content:encoded><![CDATA[AI's role in recent layoffs is more significant than corporations admit. The tech industry's recent job cuts are less about economic conditions and more about technological innovation's impact.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Announcing bpftop: Streamlining eBPF performance optimization (2 minute read)]]></title>
+            <link>https://netflixtechblog.com/announcing-bpftop-streamlining-ebpf-performance-optimization-6a727c1ae2e5?utm_source=tldrdevops</link>
+            <guid>https://netflixtechblog.com/announcing-bpftop-streamlining-ebpf-performance-optimization-6a727c1ae2e5?utm_source=tldrdevops</guid>
+            <pubDate>Tue, 27 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Netflix's bpftop is a command-line tool for optimizing and monitoring eBPF programs in real time. With features like dynamic performance views and time series graphs, bpftop streamlines the optimization process, eliminating manual calculations and providing immediate feedback. Built in Rust and open-sourced under the Apache 2 license, the bpftop project welcomes community contributions.]]></description>
+            <content:encoded><![CDATA[Netflix's bpftop is a command-line tool for optimizing and monitoring eBPF programs in real time. With features like dynamic performance views and time series graphs, bpftop streamlines the optimization process, eliminating manual calculations and providing immediate feedback. Built in Rust and open-sourced under the Apache 2 license, the bpftop project welcomes community contributions.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mistral Large (4 minute read)]]></title>
+            <link>https://mistral.ai/news/mistral-large/?utm_source=tldrai</link>
+            <guid>https://mistral.ai/news/mistral-large/?utm_source=tldrai</guid>
+            <pubDate>Tue, 27 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Mistral, a French AI start-up, has announced a new model for its API along with an Azure partnership. Mistral Large excels at multilingual tasks, is within a few percent of GPT-4 on MMLU, and generally has powerful performance. The startup also added a new mistral-small model to its API.]]></description>
+            <content:encoded><![CDATA[Mistral, a French AI start-up, has announced a new model for its API along with an Azure partnership. Mistral Large excels at multilingual tasks, is within a few percent of GPT-4 on MMLU, and generally has powerful performance. The startup also added a new mistral-small model to its API.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[21 B2B Marketing Tactics (1 minute read)]]></title>
+            <link>https://www.linkedin.com/posts/pierre-herubel-540b3949_21-b2b-marketing-tactics-for-2024-start-activity-7167790420670840832-L4nK?utm_source=tldrmarketing</link>
+            <guid>https://www.linkedin.com/posts/pierre-herubel-540b3949_21-b2b-marketing-tactics-for-2024-start-activity-7167790420670840832-L4nK?utm_source=tldrmarketing</guid>
+            <pubDate>Tue, 27 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[This post contains 21 B2B marketing ideas that span across content strategy, outbound campaigns, paid ads, and network effects. The tactics are mapped on a graph based on investment level and time to see results.]]></description>
+            <content:encoded><![CDATA[This post contains 21 B2B marketing ideas that span across content strategy, outbound campaigns, paid ads, and network effects. The tactics are mapped on a graph based on investment level and time to see results.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Peering through Lenovo’s transparent laptop into a sci-fi future (7 minute read)]]></title>
+            <link>https://www.theverge.com/24082244/lenovo-concept-transparent-laptop-mwc-2024-drawing-tablet?utm_source=tldrnewsletter</link>
+            <guid>https://www.theverge.com/24082244/lenovo-concept-transparent-laptop-mwc-2024-drawing-tablet?utm_source=tldrnewsletter</guid>
+            <pubDate>Tue, 27 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Lenovo's ThinkBook Transparent Display Laptop is a 17.3-inch notebook with a see-through screen. Its bezel-less MicroLED display offers up to 55% transparency when its pixels are set to black or turned off. The display becomes less and less see-through as its pixels light up. Due to technical challenges, the laptop's display resolution is only 720p and it is not currently possible to manually set the whole laptop screen to be opaque. The laptop has a flat touch keyboard as its base that is also designed to work as a drawing tablet. Pictures of the device are available in the article.]]></description>
+            <content:encoded><![CDATA[Lenovo's ThinkBook Transparent Display Laptop is a 17.3-inch notebook with a see-through screen. Its bezel-less MicroLED display offers up to 55% transparency when its pixels are set to black or turned off. The display becomes less and less see-through as its pixels light up. Due to technical challenges, the laptop's display resolution is only 720p and it is not currently possible to manually set the whole laptop screen to be opaque. The laptop has a flat touch keyboard as its base that is also designed to work as a drawing tablet. Pictures of the device are available in the article.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Prescription orders delayed as US pharmacies grapple with “nation-state” cyber attack (1 minute read)]]></title>
+            <link>https://www.bitdefender.com/blog/hotforsecurity/prescription-orders-delayed-as-us-pharmacies-grapple-with-nation-state-cyber-attack/?utm_source=tldrinfosec</link>
+            <guid>https://www.bitdefender.com/blog/hotforsecurity/prescription-orders-delayed-as-us-pharmacies-grapple-with-nation-state-cyber-attack/?utm_source=tldrinfosec</guid>
+            <pubDate>Mon, 26 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Prescription orders in the US are being delayed as pharmacies are experiencing a "nation-state" cyber attack. The attack is believed to coming from a foreign government. It is targeting major pharmacy chains, including Walgreens, Rite Aid, and CVS Health. The attack has disrupted the pharmacies' prescription-filling systems, causing delays across the country.]]></description>
+            <content:encoded><![CDATA[Prescription orders in the US are being delayed as pharmacies are experiencing a "nation-state" cyber attack. The attack is believed to coming from a foreign government. It is targeting major pharmacy chains, including Walgreens, Rite Aid, and CVS Health. The attack has disrupted the pharmacies' prescription-filling systems, causing delays across the country.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[GPT in 500 lines of SQL (22 minute read)]]></title>
+            <link>https://explainextended.com/2023/12/31/happy-new-year-15/?utm_source=tldrwebdev</link>
+            <guid>https://explainextended.com/2023/12/31/happy-new-year-15/?utm_source=tldrwebdev</guid>
+            <pubDate>Mon, 26 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[This article explains how GPT is built and then proceeds to implement it in SQL. Yes, SQL. ChatGPT itself couldn’t figure out how to implement GPT in SQL, but the author builds it step-by-step in about 500 lines. Each part of the implementation is explained, including the tokenizer, embeddings, and the attention mechanism.]]></description>
+            <content:encoded><![CDATA[This article explains how GPT is built and then proceeds to implement it in SQL. Yes, SQL. ChatGPT itself couldn’t figure out how to implement GPT in SQL, but the author builds it step-by-step in about 500 lines. Each part of the implementation is explained, including the tokenizer, embeddings, and the attention mechanism.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Uniswap Foundation Proposal Suggests Turning On Rewards for UNI Token Holders (1 minute read)]]></title>
+            <link>https://www.theblock.co/post/278840/uniswap-foundation-proposal-suggests-turning-on-rewards-for-uni-token-holders?utm_source=tldrcrypto</link>
+            <guid>https://www.theblock.co/post/278840/uniswap-foundation-proposal-suggests-turning-on-rewards-for-uni-token-holders?utm_source=tldrcrypto</guid>
+            <pubDate>Mon, 26 Feb 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[Uniswap put out a proposal to modify the governance of its DEX, including adjusting the fee structure to benefit users who delegate and stake their UNI tokens. The proposal will be put to a vote on March 1, followed by an on-chain vote on March 8. This was a huge shift for Uniswap and for governance tokens in general, as very few tokens actually allow holders to participate in the revenues of the protocol. Many are speculating that this indicates positive regulatory progress in the background and could lead to more protocols choosing to include token holders in fee-sharing mechanisms.]]></description>
+            <content:encoded><![CDATA[Uniswap put out a proposal to modify the governance of its DEX, including adjusting the fee structure to benefit users who delegate and stake their UNI tokens. The proposal will be put to a vote on March 1, followed by an on-chain vote on March 8. This was a huge shift for Uniswap and for governance tokens in general, as very few tokens actually allow holders to participate in the revenues of the protocol. Many are speculating that this indicates positive regulatory progress in the background and could lead to more protocols choosing to include token holders in fee-sharing mechanisms.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP100: Polling vs. Webhooks ]]></title>
+            <link>https://blog.bytebytego.com/p/ep100-polling-vs-webhooks</link>
+            <guid>https://blog.bytebytego.com/p/ep100-polling-vs-webhooks</guid>
+            <pubDate>Sat, 24 Feb 2024 22:30:21 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Polling vs. Webhooks How do we manage configurations in a system? What is CSS (Cascading Style Sheets)? What is GraphQL? Is it a replacement for the REST API? SPONSOR US &#128536; Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Polling vs. Webhooks How do we manage configurations in a system? What is CSS (Cascading Style Sheets)? What is GraphQL? Is it a replacement for the REST API? SPONSOR US &#128536; Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How to Design a Good API?]]></title>
+            <link>https://blog.bytebytego.com/p/how-to-design-a-good-api</link>
+            <guid>https://blog.bytebytego.com/p/how-to-design-a-good-api</guid>
+            <pubDate>Thu, 22 Feb 2024 22:30:28 GMT</pubDate>
+            <description><![CDATA[We can find web services and APIs (Application Programming Interfaces) everywhere, but many are painful to use. Have you ever connected a web service using its API and wondered, "What were they thinking?" We have, and connecting services via API can be confusing. Whether due to bad design, missing docs, constant changes, or bugs, using APIs is often a struggle.]]></description>
+            <content:encoded><![CDATA[We can find web services and APIs (Application Programming Interfaces) everywhere, but many are painful to use. Have you ever connected a web service using its API and wondered, "What were they thinking?" We have, and connecting services via API can be confusing. Whether due to bad design, missing docs, constant changes, or bugs, using APIs is often a struggle.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Brief History of Airbnb’s Architecture]]></title>
+            <link>https://blog.bytebytego.com/p/a-brief-history-of-airbnbs-architecture</link>
+            <guid>https://blog.bytebytego.com/p/a-brief-history-of-airbnbs-architecture</guid>
+            <pubDate>Tue, 20 Feb 2024 22:30:45 GMT</pubDate>
+            <description><![CDATA[Boost your AI projects with Brave (Sponsored) You probably know Brave as the privacy browser. But did you also know it has a search API that can power your AI projects? Introducing, the Brave Search API. It&#8217;s affordable: Small teams can access the same tools as the big players.]]></description>
+            <content:encoded><![CDATA[Boost your AI projects with Brave (Sponsored) You probably know Brave as the privacy browser. But did you also know it has a search API that can power your AI projects? Introducing, the Brave Search API. It&#8217;s affordable: Small teams can access the same tools as the big players.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP99: What is the best way to learn SQL?]]></title>
+            <link>https://blog.bytebytego.com/p/ep99-what-is-the-best-way-to-learn</link>
+            <guid>https://blog.bytebytego.com/p/ep99-what-is-the-best-way-to-learn</guid>
+            <pubDate>Sat, 17 Feb 2024 22:31:00 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Top 6 Tools to Turn Diagrams into Beautiful Code (Youtube video) How do you pay from your digital wallet, such as Paypal, Paytm and Venmo, by scanning the QR code? What is the best way to learn SQL? What is gRPC?]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Top 6 Tools to Turn Diagrams into Beautiful Code (Youtube video) How do you pay from your digital wallet, such as Paypal, Paytm and Venmo, by scanning the QR code? What is the best way to learn SQL? What is gRPC?]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Virtualization and Containerization: Which one to pick? ]]></title>
+            <link>https://blog.bytebytego.com/p/virtualization-and-containerization</link>
+            <guid>https://blog.bytebytego.com/p/virtualization-and-containerization</guid>
+            <pubDate>Thu, 15 Feb 2024 22:30:37 GMT</pubDate>
+            <description><![CDATA[Software applications have traditionally been closely tied to the specific servers they run on and the operating systems they use. But as companies look to get more out of their infrastructure while spending less time and effort managing it, vendors are offering easier deployment options. Virtualization and Containerization let you run multiple isolated applications on a single physical server while sharing and managing resources between them.]]></description>
+            <content:encoded><![CDATA[Software applications have traditionally been closely tied to the specific servers they run on and the operating systems they use. But as companies look to get more out of their infrastructure while spending less time and effort managing it, vendors are offering easier deployment options. Virtualization and Containerization let you run multiple isolated applications on a single physical server while sharing and managing resources between them.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP98: GitOps Workflow - Simplified Visual Guide ]]></title>
+            <link>https://blog.bytebytego.com/p/ep98-gitops-workflow-simplified-visual</link>
+            <guid>https://blog.bytebytego.com/p/ep98-gitops-workflow-simplified-visual</guid>
+            <pubDate>Sat, 10 Feb 2024 22:30:07 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Good APIs Vs Bad APIs: 7 Tips for API Design (Youtube video) GitOps Workflow - Simplified Visual Guide How do Search Engines Work? The Payments Ecosystem Object-oriented Programming: A Primer Compare your streaming data options (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Good APIs Vs Bad APIs: 7 Tips for API Design (Youtube video) GitOps Workflow - Simplified Visual Guide How do Search Engines Work? The Payments Ecosystem Object-oriented Programming: A Primer Compare your streaming data options (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How do We Design for High Availability?]]></title>
+            <link>https://blog.bytebytego.com/p/how-do-we-design-for-high-availability</link>
+            <guid>https://blog.bytebytego.com/p/how-do-we-design-for-high-availability</guid>
+            <pubDate>Thu, 08 Feb 2024 22:30:32 GMT</pubDate>
+            <description><![CDATA[In an era where digital presence is vital for business continuity, the concept of high availability (HA) has become a cornerstone in system design. High availability refers to systems that can operate continuously without failure for extended periods.]]></description>
+            <content:encoded><![CDATA[In an era where digital presence is vital for business continuity, the concept of high availability (HA) has become a cornerstone in system design. High availability refers to systems that can operate continuously without failure for extended periods.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Crash Course in P2P]]></title>
+            <link>https://blog.bytebytego.com/p/a-crash-course-in-p2p</link>
+            <guid>https://blog.bytebytego.com/p/a-crash-course-in-p2p</guid>
+            <pubDate>Tue, 06 Feb 2024 22:31:00 GMT</pubDate>
+            <description><![CDATA[Create your free AI chatbot (Sponsored) Meet Sendbird SmartAssistant, a customizable chatbot powered by OpenAI&#8217;s GPT engine. The only chatbot that can be presented in your brand, trained with your own content, and deployed via low-to-no code. In this interactive Demo you will see how Sendbird offers:]]></description>
+            <content:encoded><![CDATA[Create your free AI chatbot (Sponsored) Meet Sendbird SmartAssistant, a customizable chatbot powered by OpenAI&#8217;s GPT engine. The only chatbot that can be presented in your brand, trained with your own content, and deployed via low-to-no code. In this interactive Demo you will see how Sendbird offers:]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP97: 10 Good Coding Principles to Improve Code Quality]]></title>
+            <link>https://blog.bytebytego.com/p/ep97-10-good-coding-principles-to</link>
+            <guid>https://blog.bytebytego.com/p/ep97-10-good-coding-principles-to</guid>
+            <pubDate>Sat, 03 Feb 2024 22:30:56 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: How Disney Hotstar Captures One Billion Emojis (Youtube video) 10 Good Coding Principles to improve code quality Top Network Security Cheatsheet How does a VPN work? Explaining 9 types of API testing What is a cookie?]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: How Disney Hotstar Captures One Billion Emojis (Youtube video) 10 Good Coding Principles to improve code quality Top Network Security Cheatsheet How does a VPN work? Explaining 9 types of API testing What is a cookie?]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Good Code vs. Bad Code]]></title>
+            <link>https://blog.bytebytego.com/p/good-code-vs-bad-code</link>
+            <guid>https://blog.bytebytego.com/p/good-code-vs-bad-code</guid>
+            <pubDate>Thu, 01 Feb 2024 22:30:28 GMT</pubDate>
+            <description><![CDATA[In our newsletter, we&#8217;ve mainly focused on system designs. This time, we&#8217;re switching gears to a topic just as crucial: the code itself. Ever encountered a system that looks great in design but turns out to be a headache in code? That&#8217;s our focus in this issue. We&#8217;re breaking down what makes code good versus bad. It&#8217;s all about turning those great designs into equally great code. Let&#8217;s dive into the details that truly make a difference in coding.]]></description>
+            <content:encoded><![CDATA[In our newsletter, we&#8217;ve mainly focused on system designs. This time, we&#8217;re switching gears to a topic just as crucial: the code itself. Ever encountered a system that looks great in design but turns out to be a headache in code? That&#8217;s our focus in this issue. We&#8217;re breaking down what makes code good versus bad. It&#8217;s all about turning those great designs into equally great code. Let&#8217;s dive into the details that truly make a difference in coding.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP96: A cheat sheet for system design]]></title>
+            <link>https://blog.bytebytego.com/p/ep96-a-cheat-sheet-for-system-design</link>
+            <guid>https://blog.bytebytego.com/p/ep96-a-cheat-sheet-for-system-design</guid>
+            <pubDate>Sat, 27 Jan 2024 22:30:23 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: A cheat sheet for system designs Visualizing a SQL query Cloud Disaster Recovery Strategies Part-Time Opportunity: Tech Researcher & Writer at ByteByteGo Free Digital Download: The State of Streaming Data (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: A cheat sheet for system designs Visualizing a SQL query Cloud Disaster Recovery Strategies Part-Time Opportunity: Tech Researcher & Writer at ByteByteGo Free Digital Download: The State of Streaming Data (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mastering Design Principles - SOLID]]></title>
+            <link>https://blog.bytebytego.com/p/mastering-design-principles-solid</link>
+            <guid>https://blog.bytebytego.com/p/mastering-design-principles-solid</guid>
+            <pubDate>Thu, 25 Jan 2024 22:30:09 GMT</pubDate>
+            <description><![CDATA[In the fast-paced world of software development, writing robust, maintainable, and scalable code is critically important. One way to achieve this is by following a set of fundamental design principles known as the SOLID principles. These principles provide a clear framework for crafting software that is easy to understand, extend, and maintain.]]></description>
+            <content:encoded><![CDATA[In the fast-paced world of software development, writing robust, maintainable, and scalable code is critically important. One way to achieve this is by following a set of fundamental design principles known as the SOLID principles. These principles provide a clear framework for crafting software that is easy to understand, extend, and maintain.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP95: Linux File System Explained]]></title>
+            <link>https://blog.bytebytego.com/p/ep95-linux-file-system-explained</link>
+            <guid>https://blog.bytebytego.com/p/ep95-linux-file-system-explained</guid>
+            <pubDate>Sat, 20 Jan 2024 22:30:10 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Linux File System Explained (Youtube video) REST API Vs. GraphQL Key Use Cases for Load Balancers Types of memory. Which ones do you know? Top 6 Firewall Use Cases SPONSOR US ScyllaDB Summit | Feb 14-15 | Free + Virtual (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Linux File System Explained (Youtube video) REST API Vs. GraphQL Key Use Cases for Load Balancers Types of memory. Which ones do you know? Top 6 Firewall Use Cases SPONSOR US ScyllaDB Summit | Feb 14-15 | Free + Virtual (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Crash Course in Networking]]></title>
+            <link>https://blog.bytebytego.com/p/a-crash-course-in-networking</link>
+            <guid>https://blog.bytebytego.com/p/a-crash-course-in-networking</guid>
+            <pubDate>Thu, 18 Jan 2024 22:30:46 GMT</pubDate>
+            <description><![CDATA[The Internet has become an integral part of our daily lives, shaping how we communicate, access information, and conduct business. At its core, the Internet is a global system of interconnected computer networks that use standardized communication protocols to facilitate data exchange. This enables the transmission of text, images, videos, and more, across all sorts of devices.]]></description>
+            <content:encoded><![CDATA[The Internet has become an integral part of our daily lives, shaping how we communicate, access information, and conduct business. At its core, the Internet is a global system of interconnected computer networks that use standardized communication protocols to facilitate data exchange. This enables the transmission of text, images, videos, and more, across all sorts of devices.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP94: REST API Cheatsheet]]></title>
+            <link>https://blog.bytebytego.com/p/ep94-rest-api-cheatsheet</link>
+            <guid>https://blog.bytebytego.com/p/ep94-rest-api-cheatsheet</guid>
+            <pubDate>Sat, 13 Jan 2024 22:30:37 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Everything You NEED to Know About Client Architecture Patterns (Youtube video) REST API Cheatsheet How Does a Typical Push Notification System Work? Top 4 Most Popular Use Cases for UDP Top 8 Programming Paradigms]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Everything You NEED to Know About Client Architecture Patterns (Youtube video) REST API Cheatsheet How Does a Typical Push Notification System Work? Top 4 Most Popular Use Cases for UDP Top 8 Programming Paradigms]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Netflix: What Happens When You Press Play - Part 2]]></title>
+            <link>https://blog.bytebytego.com/p/netflix-what-happens-when-you-press-288</link>
+            <guid>https://blog.bytebytego.com/p/netflix-what-happens-when-you-press-288</guid>
+            <pubDate>Thu, 11 Jan 2024 22:30:14 GMT</pubDate>
+            <description><![CDATA[Remember how we said a CDN has computers distributed all over the world? Netflix developed its own computer system for video storage. Netflix calls them Open Connect Appliances or OCAs. Here&#8217;s what an early OCA installation in a site looked like: There are many OCAs in the above picture. OCAs are grouped into clusters of multiple servers.]]></description>
+            <content:encoded><![CDATA[Remember how we said a CDN has computers distributed all over the world? Netflix developed its own computer system for video storage. Netflix calls them Open Connect Appliances or OCAs. Here&#8217;s what an early OCA installation in a site looked like: There are many OCAs in the above picture. OCAs are grouped into clusters of multiple servers.]]></content:encoded>
+        </item>
+    </channel>
 </rss>

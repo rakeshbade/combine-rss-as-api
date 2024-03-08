@@ -1,5 +1,5 @@
 const { Feed } = require("feed");
-const { isWithInHours } = require("../services/earnings");
+const { isWithInHours } = require("./../services/utils");
 
 // const buildCache = () => {
 //   const cache = new NodeCache({ stdTTL: 60000, checkperiod: 60000 });
@@ -38,7 +38,7 @@ const buildCache = () => {
     hasChangedData: (newData)=>{
       if(!newData?.length || !lastLoadedData.length) return true;
       //filter old post
-      const filterData = lastLoadedData.filter(post=> isWithInHours(post.date,1));
+      const filterData = lastLoadedData?.length && lastLoadedData.filter(post=> isWithInHours(post.date,1));
       if(!filterData.length) return newData;
       return newData.filter((post)=>{
         let notFound = true;

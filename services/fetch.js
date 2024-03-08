@@ -1,6 +1,5 @@
 const config = require("../config/index");
 const blogRegex = require("../config/regex");
-const { curly } = require("node-libcurl");
 const axios = require("axios");
 const xml2js = require("xml2js");
 const puppeteer = require("puppeteer");
@@ -9,10 +8,12 @@ const parser = new xml2js.Parser();
 const { writeToFile } = require("../utils/fileUtils");
 const { convertEntriesToRss } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
-const { isWithInHours } = require("./earnings");
+const {isWithInHours} = require("./utils")
 
-const isPostByRegex = (post, blogName) => {
+
+const isPostFiltered = (post, blogName) => {
   if (!post) return;
+  if (!isWithInHours(post.date, 1)) return;
   const regex = blogRegex[blogName];
   const excludeTitle = regex?.exclude ? !post.title.match(regex.exclude) : true;
   const includePost = regex?.include
@@ -22,9 +23,9 @@ const isPostByRegex = (post, blogName) => {
 };
 
 const loadDataBy = {
-  curl: "curl",
   puppeteer: "puppeteer",
   axios: "axios",
+  barrons: "barrons"
 };
 
 const createRetryPromise = (asyncFunction, maxRetries = 3, delayMs = 100) => {
@@ -50,17 +51,9 @@ const createRetryPromise = (asyncFunction, maxRetries = 3, delayMs = 100) => {
   });
 };
 
-const getCurlHttpHeaders = (url) => {
-  const urlParams = new URL(url);
-  return [
-    `Host: ${urlParams.host}`,
-    `Access-Control-Allowed-Origin: ${urlParams.host}`,
-    `User-Agent: PostmanRuntime/7.32.3`,
-  ];
-};
-
 const parseFeed = (feed) => {
   return new Promise((resolve) => {
+    if(Array.isArray(feed)) return resolve(feed);
     parser.parseString(feed, (err, result) => {
       const entries =
         result?.["rss"]?.["channel"]?.[0]?.["item"] || result?.urlset?.url;
@@ -81,7 +74,6 @@ const parseFeed = (feed) => {
         if (!link || !pubDate || !title) return prev;
         // filter all posts older than 1 hours
         const date = new Date(String(pubDate)).getTime();
-        if (!isWithInHours(date, 1)) return prev;
         const description =
           entry?.description?.[0] || entry?.content?.[0] || title;
         const post = {
@@ -98,7 +90,7 @@ const parseFeed = (feed) => {
   });
 };
 
-const getArticlesFromPuppeter = (html, config) => {
+const getArticlesFromHtml = (html, config) => {
   const articles = [];
   const $ = cheerio.load(html);
   $(config.container).each((i, ele) => {
@@ -107,13 +99,13 @@ const getArticlesFromPuppeter = (html, config) => {
     article.link = $(ele).find(config.link).attr("href");
     article.date = $(ele).find(config.date).text().trim();
     if (article.date) {
-      if (article.date.includes(" ago")) {
-        article.date = article.date.replace(" ago", "");
+      if (article.date.toLowerCase().includes("ago")) {
+        article.date = article.date.replace("ago", "");
       }
-      if (article.date.includes(" ET")) {
-        article.date = article.date.replace(" ET", "");
+      if (article.date.toLowerCase().includes("et")) {
+        article.date = article.date.toLowerCase().replace("et", "");
       }
-      article.date = new Date(article.date).getTime();
+      article.date = new Date(article.date.trim()).getTime();
     } else {
       article.date = new Date().getTime();
     }
@@ -137,7 +129,7 @@ const fetchArticlesFromPuppeter = async (url, config) => {
     );
     await page.waitForSelector(config.container);
     const pageSourceHTML = await page.content();
-    return getArticlesFromPuppeter(pageSourceHTML, config);
+    return getArticlesFromHtml(pageSourceHTML, config);
   } catch (e) {
     throw e;
   } finally {
@@ -150,6 +142,12 @@ const waitFor = (timer) => {
     setTimeout(resolve, timer);
   });
 };
+
+const fetchArticlesForBarrons = async (url, config)=>{
+  const { data } = await axios.get(url);
+  const pageSourceHTML = data.toString();
+  return getArticlesFromHtml(pageSourceHTML, config);
+}
 
 const fetchEntries = async (blogName) => {
   const blogs = config[blogName];
@@ -170,11 +168,8 @@ const fetchEntries = async (blogName) => {
         currentLoadType,
     );
     try {
-      if (currentLoadType === loadDataBy.curl) {
-        const { data } = await curly.get(url, {
-          httpHeader: getCurlHttpHeaders(url),
-        });
-        return data.toString();
+      if (currentLoadType === loadDataBy.barrons) {
+        return await fetchArticlesForBarrons(url, rss);
       } else if (currentLoadType === loadDataBy.puppeteer) {
         return await fetchArticlesFromPuppeter(url, rss);
       } else {
@@ -200,7 +195,7 @@ const fetchEntries = async (blogName) => {
   LOG.info("Blog data parsed for ", blogName, " successfully");
   const entries = xmlToList
     .reduce((accumulator, current) => accumulator.concat(current), [])
-    .filter((post) => isPostByRegex(post, blogName));
+    .filter((post) => isPostFiltered(post, blogName));
 
   LOG.info(
     "Blog data merged for ",
@@ -220,9 +215,10 @@ const fetchData = async (blogName) => {
   LOG.info("Blog data written for ", blogName, " successfully");
 };
 
+
+
 module.exports = {
   fetchData,
-  getCurlHttpHeaders,
   fetchEntries,
-  createRetryPromise,
+  createRetryPromise
 };
