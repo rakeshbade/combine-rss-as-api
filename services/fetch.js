@@ -8,7 +8,7 @@ const parser = new xml2js.Parser();
 const { writeToFile } = require("../utils/fileUtils");
 const { convertEntriesToRss } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
-const {isWithInHours} = require("./utils")
+const {isWithInHours, curlChildProcess} = require("./utils")
 
 
 const isPostFiltered = (post, blogName) => {
@@ -25,7 +25,8 @@ const isPostFiltered = (post, blogName) => {
 const loadDataBy = {
   puppeteer: "puppeteer",
   axios: "axios",
-  barrons: "barrons"
+  barrons: "barrons",
+  accesswire: "accesswire"
 };
 
 const createRetryPromise = (asyncFunction, maxRetries = 3, delayMs = 100) => {
@@ -149,6 +150,25 @@ const fetchArticlesForBarrons = async (url, config)=>{
   return getArticlesFromHtml(pageSourceHTML, config);
 }
 
+const fetchArticlesForAccessWire = async(url, config)=>{
+  const curlCommand = `curl '${url}' \
+  -X 'POST' \
+  -H 'authority: www.accesswire.com' \
+  -H 'cookie: __ctmid=65d04d6f00028b352f9d0bf0; __ctmid=65d04d6f00028b352f9d0bf0; _gcl_au=1.1.232772572.1708150128; hubspotutk=b364064a5af9f38d6d9d86b78837df1e; messagesUtk=54cbfc1540144bfba56ba6fdec914ee5; .AspNetCore.Antiforgery.yHDs6zQR-IY=CfDJ8MSc_ezAjklJkECDjjBas-9I-4sc_d9AJqdUqiTHogN2KlOLRgS0gEEfnKZVh1L7chBd3DdejhWS6Q9o4ymBTuaJeXBZwl_g16QhX-VXPFAhLwKFh9G1GSbd65xtyoJAvnnuYRZfT83--rJ5jjrWrYs; _gid=GA1.2.1336151060.1709741404; _gat=1; ads__landing_url__c=https%3A%2F%2Fwww.accesswire.com%2Fnewsroom; ads__referral_url__c=https%3A%2F%2Fwww.accesswire.com%2Fnewsroom; _ga_K04P53QQQB=GS1.2.1709741404.11.0.1709741404.60.0.0; ads__geoip=country%3DUnited%2520States%26city%3DDallas%26latitude%3D32.7831%26longitude%3D-96.8067; __hstc=117828950.b364064a5af9f38d6d9d86b78837df1e.1708150128794.1709334624879.1709741404864.11; __hssrc=1; __hssc=117828950.1.1709741404864; _ga_LZSJWCFSJY=GS1.1.1709741404.13.0.1709741417.47.0.0; _ga=GA1.2.1058342375.1708150128' \
+  -H 'origin: https://www.accesswire.com' \
+  -H 'referer: https://www.accesswire.com/newsroom' \
+  -H 'sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'x-csrf-token-headername: CfDJ8MSc_ezAjklJkECDjjBas--_U-RcXf1xbs3E-xl28SLXn3yLSuRLkdsAps0m7f461gAru8F-ObY9ZhW6Eb6VftVnr5kHMVTJS52IDRL5M3DK6MnQS4EOIBK87u0ya3llKxip459V7EVY9WwlAaLml58'`
+  const data = await curlChildProcess(curlCommand)
+  const pageSourceHTML = data.toString();
+  return getArticlesFromHtml(pageSourceHTML, config);
+}
+
 const fetchEntries = async (blogName) => {
   const blogs = config[blogName];
   if (!blogs?.length) return [];
@@ -172,7 +192,9 @@ const fetchEntries = async (blogName) => {
         return await fetchArticlesForBarrons(url, rss);
       } else if (currentLoadType === loadDataBy.puppeteer) {
         return await fetchArticlesFromPuppeter(url, rss);
-      } else {
+      }if(currentLoadType === loadDataBy.accesswire){
+        return await fetchArticlesForAccessWire(url, rss);
+      }else {
         const { data } = await axios.get(url);
         return data;
       }

@@ -38,7 +38,7 @@ const buildCache = () => {
     hasChangedData: (newData)=>{
       if(!newData?.length || !lastLoadedData.length) return true;
       //filter old post
-      const filterData = lastLoadedData?.length && lastLoadedData.filter(post=> isWithInHours(post.date,1));
+      const filterData = lastLoadedData.filter(post=> isWithInHours(post.date,1));
       if(!filterData.length) return newData;
       return newData.filter((post)=>{
         let notFound = true;
