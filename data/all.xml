@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>all</title>
         <link>http://all.link</link>
         <description>all</description>
-        <lastBuildDate>Fri, 08 Mar 2024 06:34:41 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Mar 2024 11:56:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Why We Should Cool Down the Rhetoric Over AI]]></title>
+            <link>https://www.barrons.com/articles/why-we-should-cool-down-the-rhetoric-over-ai-291b3dfa?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/why-we-should-cool-down-the-rhetoric-over-ai-291b3dfa?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Sat, 09 Mar 2024 11:56:00 GMT</pubDate>
+            <description><![CDATA[Venture investors spar debate artificial intelligence with images of nuclear bombs and savior software. The reality is more aboiut continuing innovation.]]></description>
+            <content:encoded><![CDATA[Venture investors spar debate artificial intelligence with images of nuclear bombs and savior software. The reality is more aboiut continuing innovation.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[The Stock Market’s Great Reshuffling]]></title>
+            <link>https://www.barrons.com/articles/nvidia-and-lilly-stock-now-point-the-way-for-the-market-its-a-great-reshuffling-68027afe?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/nvidia-and-lilly-stock-now-point-the-way-for-the-market-its-a-great-reshuffling-68027afe?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Sat, 09 Mar 2024 10:52:00 GMT</pubDate>
+            <description><![CDATA[Apple, Tesla and Alphabet have receded, while Nividia and Eli are ascendant.]]></description>
+            <content:encoded><![CDATA[Apple, Tesla and Alphabet have receded, while Nividia and Eli are ascendant.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Bragar Eagel & Squire, P.C. Is Investigating Thoughtworks, Chemours, Methanex, and Inari Medical and Encourages Investors to Contact the Firm]]></title>
+            <link>https://www.globenewswire.com/news-release/2024/03/09/2843378/0/en/Bragar-Eagel-Squire-P-C-Is-Investigating-Thoughtworks-Chemours-Methanex-and-Inari-Medical-and-Encourages-Investors-to-Contact-the-Firm.html</link>
+            <guid>https://www.globenewswire.com/news-release/2024/03/09/2843378/0/en/Bragar-Eagel-Squire-P-C-Is-Investigating-Thoughtworks-Chemours-Methanex-and-Inari-Medical-and-Encourages-Investors-to-Contact-the-Firm.html</guid>
+            <pubDate>Sat, 09 Mar 2024 10:30:00 GMT</pubDate>
+            <description><![CDATA[NEW YORK, March  08, 2024  (GLOBE NEWSWIRE) -- Bragar Eagel &amp; Squire, P.C., a nationally recognized shareholder rights law firm, is investigating potential claims against Thoughtworks Holding, Inc. (NASDAQ: TWKS), The Chemours Company (NYSE: CC), Methanex Corporation (NASDAQ: MEOH), and Inari Medical, Inc. (NASDAQ: NARI). Our investigations concern whether these companies have violated the federal securities laws and/or engaged in other unlawful business practices. Additional information about each case can be found at the link provided.]]></description>
+            <content:encoded><![CDATA[NEW YORK, March  08, 2024  (GLOBE NEWSWIRE) -- Bragar Eagel &amp; Squire, P.C., a nationally recognized shareholder rights law firm, is investigating potential claims against Thoughtworks Holding, Inc. (NASDAQ: TWKS), The Chemours Company (NYSE: CC), Methanex Corporation (NASDAQ: MEOH), and Inari Medical, Inc. (NASDAQ: NARI). Our investigations concern whether these companies have violated the federal securities laws and/or engaged in other unlawful business practices. Additional information about each case can be found at the link provided.]]></content:encoded>
+        </item>
     </channel>
 </rss>

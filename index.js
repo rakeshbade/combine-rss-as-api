@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
-const { fetchData, fetchEntries } = require("./services/fetch");
+const localtunnel = require('localtunnel');
+const tunnelmole = require('tunnelmole/cjs');
+const { fetchData } = require("./services/fetch");
 const { getDataFromRssData } = require("./utils/fileUtils");
 const port = process.env.PORT || 9981; // You can choose any port number
-const { applicationLogger: LOG, eventLogger } = require("./services/logger");
+const { applicationLogger: LOG } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
 const {
   getEarningsCalendar,
@@ -53,10 +55,11 @@ app.get("/feed-all", async (req, res) => {
 
 app.get("/sec-earnings", async (req, res) => {
   try {
+    const { ignoreCompanies } = req.query;
     const numberOfWeeks = 2;
     const earnings = await getEarningsCalendar({ numberOfWeeks });
     const companies = getCompanyCodesFromEarningsData(earnings);
-    const secFillings = await getRecentSecFilingsForEarnings(companies);
+    const secFillings = await getRecentSecFilingsForEarnings(companies, ignoreCompanies);
     LOG.info("secFillings", secFillings);
     const rssXml = convertEntriesToRss("sec-listings", secFillings);
     LOG.info("XML RSS lisings", rssXml);
@@ -68,23 +71,6 @@ app.get("/sec-earnings", async (req, res) => {
   }
 });
 
-app.post("/log", express.json({ type: ["text/*"] }), (req, res) => {
-  const { type } = req.params;
-  if (!req.body) {
-    return res.status(400).send(`Invalid body: ${req.body}`);
-  }
-  try {
-    if (!type) {
-      eventLogger.info(req.body);
-    } else {
-      eventLogger[type](req.body);
-    }
-    return res.status(200);
-  } catch (e) {
-    return res.status(500).send(e);
-  }
-});
-
 app.get("/download", async (req, res) => {
   const archive = zipAllFiles();
   res.set("Content-Type", "application/zip");
@@ -93,6 +79,15 @@ app.get("/download", async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.listen(port, async () => {
+  // expose outside
+  const tunnel = await localtunnel({ port, subdomain:"5faf81bd-8668-48e7-b442-6348a539584b", "bypass-tunnel-reminder": true });
+  const localUrl = await tunnelmole({port})
+  // for testing
+  console.log(`Server listening on port ${port} `);
+  console.log(
+    `
+      Extenal: ${tunnel.url}
+      Test: ${localUrl}
+   `);
 });

@@ -2,40 +2,44 @@ const EventEmitter = require("node:events");
 const { fetchData, fetchEntries } = require("../services/fetch");
 const blogs = require("./../config/index");
 const { writeToFile } = require("./fileUtils");
-const { convertEntriesToRss, appCache, getDateTimeET } = require("./feed");
+const { convertEntriesToRss, appCache } = require("./feed");
+const { applicationLogger: LOG } = require("./../services/logger");
 
 const eventEmitter = new EventEmitter();
 eventEmitter.on("fetchData", (blogName) => {
-  eventEmitter.removeListener("fetchData", () => {});
+  eventEmitter.removeListener("fetchData", () => { });
   fetchData(blogName);
 });
 
 eventEmitter.on("fetchAllFeed", async (feedName) => {
-  eventEmitter.removeListener("fetchAllFeed", () => {});
-  const blogNames = Object.keys(blogs);
-  let completeData = [];
-  for (let i = 0; i < blogNames.length; i++) {
-    const blog = blogNames[i];
-    console.log("Fetching data for ", blog);
-    const data = await fetchEntries(blog);
-    console.log("data", data);
-    completeData = [...data, ...completeData];
-  }
-  const currentData = appCache.getCurrentData();
-  if(!currentData){
-    appCache.setCurrentData(completeData);
-  }
-  else{
-    const changedData = appCache.hasChangedData(completeData);
-    if(changedData.length){
-      appCache.setCurrentData(completeData);
-      completeData = changedData;
-    }else{
-      completeData = [];
+  eventEmitter.removeListener("fetchAllFeed", () => { });
+  try {
+    const blogNames = Object.keys(blogs);
+    let completeData = [];
+    for (let i = 0; i < blogNames.length; i++) {
+      const blog = blogNames[i];
+      const data = await fetchEntries(blog);
+
+      completeData = [...data, ...completeData];
     }
+    const currentData = appCache.getCurrentData();
+    if (!currentData) {
+      appCache.setCurrentData(completeData);
+    }
+    else {
+      const changedData = appCache.hasChangedData(completeData);
+      if (changedData.length) {
+        appCache.setCurrentData(completeData);
+        completeData = changedData;
+      } else {
+        completeData = [];
+      }
+    }
+    let rssXml = convertEntriesToRss(feedName, completeData);
+    writeToFile(feedName, rssXml);
+  } catch (err) {
+    LOG.error(err)
   }
-  let rssXml = convertEntriesToRss(feedName, completeData);
-  writeToFile(feedName, rssXml);
 });
 
 module.exports = { eventEmitter };

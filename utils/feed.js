@@ -1,5 +1,6 @@
 const { Feed } = require("feed");
 const { isWithInHours } = require("./../services/utils");
+const { postLogger: LOG } = require("./../services/logger");
 
 // const buildCache = () => {
 //   const cache = new NodeCache({ stdTTL: 60000, checkperiod: 60000 });
@@ -27,7 +28,6 @@ const buildCache = () => {
       return lastLoadedData;
     },
     setCurrentData: (value) => {
-      console.log("setting current data")
       lastLoadedData = value
       return lastLoadedData;
     },
@@ -45,6 +45,7 @@ const buildCache = () => {
         for(i=0; i<filterData.length;i++){
           const urlParams = new URL(post.link);
           if(filterData[i].link.includes(urlParams.pathname) && filterData[i].link.includes(urlParams.hostname)){
+            LOG.info(post);
             notFound = false;
             break;
           }
