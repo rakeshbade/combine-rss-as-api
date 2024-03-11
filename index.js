@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const os = require('os');
+const ip = require('ip');
 const localtunnel = require('localtunnel');
 const tunnelmole = require('tunnelmole/cjs');
 const { fetchData } = require("./services/fetch");
@@ -82,7 +82,7 @@ app.get("/download", async (req, res) => {
 // Start the server
 app.listen(port, async () => {
   // expose outside
-  const subdomain = os.networkInterfaces()["eth0"]? `rbade-` + os.networkInterfaces()["eth0"][0]["mac"].replaceAll(":","-") : null;
+  const subdomain = ip.address() ? `rbade-` + ip.address().replaceAll(":","-") : null;
   const tunnel = await localtunnel({ port, subdomain, "bypass-tunnel-reminder": true });
   const localUrl = await tunnelmole({port})
   // for testing
