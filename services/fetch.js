@@ -172,7 +172,11 @@ const fetchArticlesForAccessWire = async(url, config)=>{
 
 const fetchArticlesForReuters = async (url, config)=>{
   const { data } = await axios.get(url);
-  return (data?.result?.articles || []).map((post)=>{post.date = post.published_time; return post})
+  return (data?.result?.articles || []).map((post)=>{
+    post.date = post.published_time; 
+    post.link = `https://www.reuters.com${post.canonical_url}`
+    return post
+  })
 }
 
 const fetchEntries = async (blogName) => {
