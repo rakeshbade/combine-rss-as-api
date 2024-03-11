@@ -81,7 +81,9 @@ app.get("/download", async (req, res) => {
 // Start the server
 app.listen(port, async () => {
   // expose outside
-  const tunnel = await localtunnel({ port, subdomain:"5faf81bd-8668-48e7-b442-6348a539584b", "bypass-tunnel-reminder": true });
+  const subdomain = process.env.SUBDOMAIN || null;
+
+  const tunnel = await localtunnel({ port, subdomain, "bypass-tunnel-reminder": true });
   const localUrl = await tunnelmole({port})
   // for testing
   console.log(`Server listening on port ${port} `);

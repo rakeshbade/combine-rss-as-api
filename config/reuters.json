@@ -1,0 +1,4 @@
+[{
+    "blogUrl": "https://www.reuters.com/pf/api/v3/content/fetch/recent-stories-by-sections-v1?query=%7B%22section_ids%22%3A%22%2Fmarkets%2Fus%2F%22%2C%22size%22%3A10%2C%22website%22%3A%22reuters%22%7D&d=179&_website=reuters",
+    "loadType":"reuters"
+}]

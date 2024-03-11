@@ -8,5 +8,8 @@ module.exports = {
     },
     barrons:{
       include: /(?:.*)/i,
+    },
+    reuters:{
+      include: /(?:.*)/i,
     }
 };

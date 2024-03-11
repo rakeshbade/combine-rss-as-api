@@ -136,7 +136,7 @@ const secFromListings = async () => {
 const getRecentSecFilingsForEarnings = async (companies = [], ignoreCompanies = false) => {
   const listings = await secFromListings();
   if (!listings.length) return [];
-  if (companies.length && ignoreCompanies === false) {
+  if (companies.length && ignoreCompanies === true) {
     return (listings || []).filter((company) => {
       return companies.find((c) => company.ticker === c);
     });

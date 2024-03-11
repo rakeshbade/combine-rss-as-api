@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>reuters</title>
+        <link>http://reuters.link</link>
+        <description>reuters</description>
+        <lastBuildDate>Tue, 12 Mar 2024 02:48:33 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>nodejs</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Morning Bid: Stocks drift lower again, India CPI on deck]]></title>
+            <pubDate>Tue, 12 Mar 2024 02:48:33 GMT</pubDate>
+            <description><![CDATA[A look at the day ahead in Asian markets.]]></description>
+            <content:encoded><![CDATA[A look at the day ahead in Asian markets.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Advance Auto Parts to add three board members as activist investors take stake]]></title>
+            <pubDate>Tue, 12 Mar 2024 02:36:18 GMT</pubDate>
+            <description><![CDATA[Advance Auto Parts is appointing three new board members after hedge funds Third Point LLC and Saddle Point Management took positions in the automotive afterparts provider, the company said.]]></description>
+            <content:encoded><![CDATA[Advance Auto Parts is appointing three new board members after hedge funds Third Point LLC and Saddle Point Management took positions in the automotive afterparts provider, the company said.]]></content:encoded>
+        </item>
+    </channel>
+</rss>

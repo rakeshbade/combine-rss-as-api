@@ -26,7 +26,8 @@ const loadDataBy = {
   puppeteer: "puppeteer",
   axios: "axios",
   barrons: "barrons",
-  accesswire: "accesswire"
+  accesswire: "accesswire",
+  reuters:"reuters"
 };
 
 const createRetryPromise = (asyncFunction, maxRetries = 3, delayMs = 100) => {
@@ -169,6 +170,11 @@ const fetchArticlesForAccessWire = async(url, config)=>{
   return getArticlesFromHtml(pageSourceHTML, config);
 }
 
+const fetchArticlesForReuters = async (url, config)=>{
+  const { data } = await axios.get(url);
+  return (data?.result?.articles || []).map((post)=>{post.date = post.published_time; return post})
+}
+
 const fetchEntries = async (blogName) => {
   const blogs = config[blogName];
   if (!blogs?.length) return [];
@@ -192,8 +198,10 @@ const fetchEntries = async (blogName) => {
         return await fetchArticlesForBarrons(url, rss);
       } else if (currentLoadType === loadDataBy.puppeteer) {
         return await fetchArticlesFromPuppeter(url, rss);
-      }if(currentLoadType === loadDataBy.accesswire){
+      }else if(currentLoadType === loadDataBy.accesswire){
         return await fetchArticlesForAccessWire(url, rss);
+      }else if(currentLoadType === loadDataBy.reuters){
+        return await fetchArticlesForReuters(url, rss);
       }else {
         const { data } = await axios.get(url);
         return data;
