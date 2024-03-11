@@ -82,7 +82,7 @@ app.get("/download", async (req, res) => {
 // Start the server
 app.listen(port, async () => {
   // expose outside
-  const subdomain = ip.address() ? `rbade-` + ip.address().replaceAll(":","-") : null;
+  const subdomain = ip.address() ? `rbade-` + ip.address().replaceAll(".","-") : null;
   const tunnel = await localtunnel({ port, subdomain, "bypass-tunnel-reminder": true });
   const localUrl = await tunnelmole({port})
   // for testing
