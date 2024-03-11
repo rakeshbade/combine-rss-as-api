@@ -69,7 +69,9 @@ const secCompanyMap = Object.entries(secCompanies).reduce(
 
 const isSupportedForm = (title) => {
   if (!title) return false;
-  return title.startsWith("10-", "8-", "13F", "13D");
+  const findForm = ["10-", "8-", "13F", "SC 13D"].find(form=> (title || "").toUpperCase().startsWith(form))
+  return Boolean(findForm);
+  
 };
 
 const secListingsByCik = (data) => {
@@ -86,7 +88,6 @@ const secListingsByCik = (data) => {
           const cik = link.match(regex)[1];
           // look for cik in the sec entries
           if (!secCompanyMap[cik]) return acc;
-
           // escape old entries
           // 5 days
           if (!isWithInHours(date, 24 * 5)) return acc;
@@ -97,17 +98,19 @@ const secListingsByCik = (data) => {
             return acc;
           }
           if (!isSupportedForm(entry?.title?.[0])) return acc;
-          acc.push({
+          const post = {
             title: `COMPANY::(${secCompanyMap[cik].title} - ${secCompanyMap[cik].ticker}) - CIK::[${cik}] - ${entry?.title?.[0]}`,
             date,
             description: `[1] - ${link} \n`,
             url: `https://data.sec.gov/rss?cik=${cik}&type=&exclude=true&count=20`,
             cik,
             ticker: secCompanyMap[cik].ticker,
-          });
+          }
+          postLogger.info(post)
+          acc.push(post);
           return acc;
         }, [])
-        .filter((x) => x && x.url).map((post)=>postLogger.info(post));
+        .filter((x) => x && x.url);
       return resolve(secEntries);
     });
   });
