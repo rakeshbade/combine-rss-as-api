@@ -27,8 +27,8 @@ npm install
 # Step 4: Run Your Application (using PM2)
 sudo npm install pm2 --global
 
-cd $APP_DIR
-# pm2 start npm --name $APP_DIR -- start --port $PORT --cron-restart="0 0 * * *"  # Replace "appName" with your desired PM2 app name
-pm2 start pm2.config.js -- start --port $PORT
+
+pm2 start npm --name $APP_DIR -- start --port $PORT --cron-restart="0 0 * * *"  # Replace "appName" with your desired PM2 app name
+
 
 echo "Node.js app successfully deployed and accessible externally!"
