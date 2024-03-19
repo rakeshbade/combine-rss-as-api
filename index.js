@@ -15,6 +15,7 @@ const {
 } = require("./services/earnings");
 const { eventEmitter } = require("./utils/events");
 const { appCache, convertEntriesToRss } = require("./utils/feed");
+const { getAnalystRatings } = require("./services/ratings");
 
 process.env.TZ = "America/New_York";
 
@@ -71,6 +72,23 @@ app.get("/sec-earnings", async (req, res) => {
     return res.status(500).send({ error });
   }
 });
+
+app.get("/ratings", async (req, res)=>{
+  try {
+    const { ignoreCompanies } = req.query;
+    const numberOfWeeks = 2;
+    const earnings = await getEarningsCalendar({ numberOfWeeks });
+    const companies = getCompanyCodesFromEarningsData(earnings);
+    const ratings = await getAnalystRatings(companies, ignoreCompanies);
+    const rssXml = convertEntriesToRss("sec-listings", ratings);
+    LOG.info("XML RSS lisings", rssXml);
+    return res.set("Content-Type", "text/xml").send(rssXml);
+  }catch (e) {
+    LOG.error(e);
+    let error = typeof e === "object" ? JSON.stringify(e) : e;
+    return res.status(500).send({ error });
+  }
+})
 
 app.get("/download", async (req, res) => {
   const archive = zipAllFiles();

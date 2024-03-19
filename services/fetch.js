@@ -271,5 +271,7 @@ const fetchData = async (blogName) => {
 module.exports = {
   fetchData,
   fetchEntries,
-  createRetryPromise
+  createRetryPromise,
+  parseFeed,
+  isPostFiltered
 };
