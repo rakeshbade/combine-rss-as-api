@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for combine-rss-as-api-billowing-log-3070 on 2024-03-20T20:50:48Z
+# fly.toml app configuration file generated for combine-rss-as-api-rough-shape-1568 on 2024-03-20T22:30:15Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'combine-rss-as-api-billowing-log-3070'
+app = 'combine-rss-as-api-rough-shape-1568'
 primary_region = 'sea'
 
 [build]
