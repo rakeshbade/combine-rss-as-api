@@ -22,5 +22,8 @@
     "puppeteer": "^22.4.0",
     "tunnelmole": "^2.2.14",
     "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.3"
   }
 }
