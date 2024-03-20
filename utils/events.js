@@ -22,14 +22,14 @@ eventEmitter.on("fetchAllFeed", async (feedName) => {
 
       completeData = [...data, ...completeData];
     }
-    const currentData = appCache.getCurrentData();
+    const currentData = await appCache.getCurrentData();
     if (!currentData) {
-      appCache.setCurrentData(completeData);
+      await appCache.setCurrentData(completeData);
     }
     else {
-      const changedData = appCache.hasChangedData(completeData);
+      const changedData = await appCache.hasChangedData(completeData);
       if (changedData.length) {
-        appCache.setCurrentData(completeData);
+        await appCache.setCurrentData(completeData);
         completeData = changedData;
       } else {
         completeData = [];

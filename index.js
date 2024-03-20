@@ -5,7 +5,7 @@ const localtunnel = require('localtunnel');
 const tunnelmole = require('tunnelmole/cjs');
 const { fetchData } = require("./services/fetch");
 const { getDataFromRssData } = require("./utils/fileUtils");
-const port = process.env.PORT || 9981; // You can choose any port number
+const port = process.env.PORT || 3000; // You can choose any port number
 const { applicationLogger: LOG } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
 const {
@@ -99,15 +99,17 @@ app.get("/download", async (req, res) => {
 
 // Start the server
 app.listen(port, async () => {
-  // expose outside
-  const subdomain = ip.address() ? `rbade-` + ip.address().replaceAll(".","-") : null;
-  const tunnel = await localtunnel({ port, subdomain, "bypass-tunnel-reminder": true });
-  const localUrl = await tunnelmole({port})
+
   // for testing
   console.log(`Server listening on port ${port} `);
-  console.log(
-    `
-      Extenal: ${tunnel.url}
-      Test: ${localUrl}
-   `);
+
+    // expose outside
+  //   const subdomain = ip.address() ? `rbade-` + ip.address().replaceAll(".","-") : null;
+  //   const tunnel = await localtunnel({ port, subdomain, "bypass-tunnel-reminder": true });
+  //   const localUrl = await tunnelmole({port})
+  // console.log(
+  //   `
+  //     Extenal: ${tunnel.url}
+  //     Test: ${localUrl}
+  //  `);
 });

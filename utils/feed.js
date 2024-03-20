@@ -1,6 +1,7 @@
 const { Feed } = require("feed");
 const { isWithInHours } = require("./../services/utils");
 const { postLogger: LOG } = require("./../services/logger");
+const { default: axios } = require("axios");
 
 // const buildCache = () => {
 //   const cache = new NodeCache({ stdTTL: 60000, checkperiod: 60000 });
@@ -24,21 +25,25 @@ const { postLogger: LOG } = require("./../services/logger");
 const buildCache = () => {
   let lastLoadedData;
   return {
-    getCurrentData: () => {
+    getCurrentData: async () => {
+      const { data } = await axios.get("https://65fb597614650eb21009d993.mockapi.io/api/v1/current/posts/1");
+      lastLoadedData = data?.data || null;
       return lastLoadedData;
     },
-    setCurrentData: (value) => {
+    setCurrentData: async (value) => {
+      await axios.put("https://65fb597614650eb21009d993.mockapi.io/api/v1/current/posts/1", {data: value});
       lastLoadedData = value
       return lastLoadedData;
     },
-    clearCurrentData: () => {
+    clearCurrentData: async () => {
+      await axios.put("https://65fb597614650eb21009d993.mockapi.io/api/v1/current/posts/1", {data: null});
       lastLoadedData = null;
       return lastLoadedData;
     },
-    hasChangedData: (newData)=>{
+    hasChangedData: async (newData)=>{
       if(!newData?.length || !lastLoadedData.length) return true;
       //filter old post
-      const filterData = lastLoadedData.filter(post=> isWithInHours(post.date,1));
+      const filterData = (lastLoadedData || []).filter(post=> isWithInHours(post.date,1));
       if(!filterData.length) return newData;
       return newData.filter((post)=>{
         let notFound = true;

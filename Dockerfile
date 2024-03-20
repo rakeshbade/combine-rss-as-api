@@ -7,7 +7,7 @@ FROM node:${NODE_VERSION}-slim as base
 LABEL fly_launch_runtime="Node.js"
 
 # Node.js app lives here
-WORKDIR /combine-rss-as-api
+WORKDIR /app
 
 # Set production environment
 ENV NODE_ENV="production"
@@ -24,8 +24,6 @@ RUN apt-get update -qq && \
 COPY --link package-lock.json package.json ./
 RUN npm ci
 
-RUN npm install pm2 --global
-
 # Copy application code
 COPY --link . .
 
@@ -34,14 +32,14 @@ COPY --link . .
 FROM base
 
 # Install packages needed for deployment
-# RUN apt-get update -qq && \
-#     apt-get install --no-install-recommends -y chromium chromium-sandbox && \
-#     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y chromium chromium-sandbox && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built application
-COPY --from=build /combine-rss-as-api /combine-rss-as-api
+COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-# ENV PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium"
-CMD [ "pm2","start", "npm", "--name","combine-rss-as-api", "--", "start", "--port", "3000"]
+ENV PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium"
+CMD [ "npm", "run", "start" ]
