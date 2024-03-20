@@ -1,12 +1,13 @@
-# fly.toml app configuration file generated for combine-rss-as-api-rough-shape-1568 on 2024-03-20T22:30:15Z
+# fly.toml app configuration file generated for combine-rss-as-api on 2024-03-20T22:45:27Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'combine-rss-as-api-rough-shape-1568'
+app = 'combine-rss-as-api'
 primary_region = 'sea'
 
 [build]
+  dockerfile = 'Dockerfile'
 
 [http_service]
   internal_port = 3000
@@ -20,3 +21,6 @@ primary_region = 'sea'
   memory = '512mb'
   cpu_kind = 'shared'
   cpus = 1
+
+
+# fly machine run --shell --name hr-docker --app combine-rss-as-api --vm-cpu-kind 'shared' --vm-cpus 1 --vm-memory 1024
