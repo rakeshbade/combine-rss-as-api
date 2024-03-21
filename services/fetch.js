@@ -103,11 +103,33 @@ const getArticlesFromHtml = (html, config) => {
     if (article.date) {
       if (article.date.toLowerCase().includes("ago")) {
         article.date = article.date.replace("ago", "");
+        article.date = new Date(article.date.trim()).getTime();
       }
       if (article.date.toLowerCase().includes("et")) {
-        article.date = article.date.toLowerCase().replace("et", "");
+        const monthToNumber = (month)=> {
+          const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+          return months.indexOf(month.toLowerCase());
+        }        
+        const dateString = article.date;
+        const dateParts = dateString.split(" "); // Split by spaces
+        const month = dateParts[0]; // "March"
+        const day = parseInt(dateParts[1]); // 20
+        const year = parseInt(dateParts[2]); // 2024
+        const time = dateParts[3]; // "4:19"
+        const meridiem = dateParts[4]; // "pm"
+        let [hour, minute] = time.split(":").map(Number);
+        if (meridiem === "pm" && hour !== 12) {
+          hour += 12; // Convert to 24-hour format
+        }
+        
+        article.date = new Date(year, monthToNumber(month), day, hour, minute);
+        if( dateParts[5] &&  dateParts[5].toLowerCase() === "et"){
+          const etOffset = -4; // Eastern Time (ET) offset in hours
+          article.date.setHours(article.date.getHours() + etOffset);
+        }
+        article.date = article.date.getTime();
       }
-      article.date = new Date(article.date.trim()).getTime();
+      
     } else {
       article.date = new Date().getTime();
     }
