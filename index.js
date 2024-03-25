@@ -8,6 +8,8 @@ const { getDataFromRssData } = require("./utils/fileUtils");
 const port = process.env.PORT || 3000; // You can choose any port number
 const { applicationLogger: LOG } = require("./services/logger");
 const { zipAllFiles } = require("./services/download");
+const fs = require("fs")
+
 const {
   getEarningsCalendar,
   getCompanyCodesFromEarningsData,
@@ -86,6 +88,26 @@ app.get("/ratings", async (req, res)=>{
   }catch (e) {
     LOG.error(e);
     let error = typeof e === "object" ? JSON.stringify(e) : e;
+    return res.status(500).send({ error });
+  }
+})
+
+app.get("/gainers", async(req, res)=>{
+  try{
+    const gainersXml = fs.readFileSync("././data/gainers.xml");
+    return res.set("Content-Type", "text/xml").send(gainersXml);
+  }catch(error){
+    console.log(error)
+    return res.status(500).send({ error });
+  }
+})
+
+app.get("/losers", async(req, res)=>{
+  try{
+    const losersXml = fs.readFileSync("././data/losers.xml");
+    return res.set("Content-Type", "text/xml").send(losersXml);
+  }catch(error){
+    console.log(error)
     return res.status(500).send({ error });
   }
 })

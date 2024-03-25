@@ -19,7 +19,14 @@ const isWithInHours = (date, hours = 24) => {
   return hoursDifference <= hours;
 };
 
+const waitFor = (timer) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timer);
+  });
+};
+
 module.exports = {
     curlChildProcess,
-    isWithInHours
+    isWithInHours,
+    waitFor
 }
