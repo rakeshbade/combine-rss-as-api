@@ -69,7 +69,7 @@ const secCompanyMap = Object.entries(secCompanies).reduce(
 
 const isSupportedForm = (title) => {
   if (!title) return false;
-  const findForm = ["10-", "8-", "13F", "SC 13D"].find(form=> (title || "").toUpperCase().startsWith(form))
+  const findForm = ["SC 13D"].find(form=> (title || "").toUpperCase().startsWith(form))
   return Boolean(findForm);
   
 };
