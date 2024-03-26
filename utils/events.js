@@ -4,6 +4,7 @@ const blogs = require("./../config/index");
 const { writeToFile } = require("./fileUtils");
 const { convertEntriesToRss, appCache } = require("./feed");
 const { applicationLogger: LOG } = require("./../services/logger");
+const { getRecentSecFilingsForEarnings } = require("../services/earnings");
 
 const eventEmitter = new EventEmitter();
 eventEmitter.on("fetchData", (blogName) => {
@@ -41,5 +42,12 @@ eventEmitter.on("fetchAllFeed", async (feedName) => {
     LOG.error(err)
   }
 });
+
+eventEmitter.on("secEarnings",async (feedName)=>{
+  const secFillings = await getRecentSecFilingsForEarnings();
+  LOG.info("secFillings", secFillings);
+  const rssXml = convertEntriesToRss("sec-listings", secFillings);
+  writeToFile(feedName, rssXml);
+})
 
 module.exports = { eventEmitter };

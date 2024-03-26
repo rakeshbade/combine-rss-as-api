@@ -57,21 +57,37 @@ app.get("/feed-all", async (req, res) => {
   }
 });
 
+// app.get("/sec-earnings", async (req, res) => {
+//   try {
+//     const { ignoreCompanies } = req.query;
+//     const numberOfWeeks = 2;
+//     const earnings = await getEarningsCalendar({ numberOfWeeks });
+//     const companies = getCompanyCodesFromEarningsData(earnings);
+//     const secFillings = await getRecentSecFilingsForEarnings(companies, ignoreCompanies);
+//     LOG.info("secFillings", secFillings);
+//     const rssXml = convertEntriesToRss("sec-listings", secFillings);
+//     LOG.info("XML RSS lisings", rssXml);
+//     return res.set("Content-Type", "text/xml").send(rssXml);
+//   } catch (e) {
+//     LOG.error(e);
+//     let error = typeof e === "object" ? JSON.stringify(e) : e;
+//     return res.status(500).send({ error });
+//   }
+// });
+
 app.get("/sec-earnings", async (req, res) => {
   try {
-    const { ignoreCompanies } = req.query;
-    const numberOfWeeks = 2;
-    const earnings = await getEarningsCalendar({ numberOfWeeks });
-    const companies = getCompanyCodesFromEarningsData(earnings);
-    const secFillings = await getRecentSecFilingsForEarnings(companies, ignoreCompanies);
-    LOG.info("secFillings", secFillings);
-    const rssXml = convertEntriesToRss("sec-listings", secFillings);
-    LOG.info("XML RSS lisings", rssXml);
-    return res.set("Content-Type", "text/xml").send(rssXml);
+    let name = "sec-earnings";
+    let xmlFeed = await getDataFromRssData(name);
+    const { cache } = req.query;
+    if (cache === "false") {
+      appCache.clearCurrentData();
+    }
+    eventEmitter.emit("secEarnings", name);
+    return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
     LOG.error(e);
-    let error = typeof e === "object" ? JSON.stringify(e) : e;
-    return res.status(500).send({ error });
+    return res.status(500).send(e);
   }
 });
 

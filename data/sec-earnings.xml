@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>sec-listings</title>
+        <link>http://sec-listings.link</link>
+        <description>sec-listings</description>
+        <lastBuildDate>Tue, 26 Mar 2024 06:48:27 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>nodejs</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[COMPANY::(SPRUCE BIOSCIENCES, INC. - SPRB) - CIK::[1683553] - SC 13D/A - SPRUCE BIOSCIENCES, INC. (0001683553) (Subject)]]></title>
+            <link>https://data.sec.gov/rss?cik=1683553&amp;type=&amp;exclude=true&amp;count=20</link>
+            <guid>https://data.sec.gov/rss?cik=1683553&amp;type=&amp;exclude=true&amp;count=20</guid>
+            <pubDate>Tue, 26 Mar 2024 06:48:27 GMT</pubDate>
+            <description><![CDATA[[1] - https://www.sec.gov/Archives/edgar/data/1683553/000119312524076792/0001193125-24-076792-index.htm 
+
+[2] - https://www.sec.gov/Archives/edgar/data/1683553/000120919124005075/0001209191-24-005075-index.htm ]]></description>
+            <content:encoded><![CDATA[[1] - https://www.sec.gov/Archives/edgar/data/1683553/000119312524076792/0001193125-24-076792-index.htm 
+
+[2] - https://www.sec.gov/Archives/edgar/data/1683553/000120919124005075/0001209191-24-005075-index.htm ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[COMPANY::(COMSTOCK RESOURCES INC - CRK) - CIK::[23194] - SC 13D/A - COMSTOCK RESOURCES INC (0000023194) (Subject)]]></title>
+            <link>https://data.sec.gov/rss?cik=23194&amp;type=&amp;exclude=true&amp;count=20</link>
+            <guid>https://data.sec.gov/rss?cik=23194&amp;type=&amp;exclude=true&amp;count=20</guid>
+            <pubDate>Tue, 26 Mar 2024 06:18:51 GMT</pubDate>
+            <description><![CDATA[[1] - https://www.sec.gov/Archives/edgar/data/23194/000119312524076776/0001193125-24-076776-index.htm 
+
+[2] - https://www.sec.gov/Archives/edgar/data/23194/000095017024036131/0000950170-24-036131-index.htm ]]></description>
+            <content:encoded><![CDATA[[1] - https://www.sec.gov/Archives/edgar/data/23194/000119312524076776/0001193125-24-076776-index.htm 
+
+[2] - https://www.sec.gov/Archives/edgar/data/23194/000095017024036131/0000950170-24-036131-index.htm ]]></content:encoded>
+        </item>
+    </channel>
+</rss>
