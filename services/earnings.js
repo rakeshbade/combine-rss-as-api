@@ -118,20 +118,19 @@ const secListingsByCik = (data) => {
 
 const secFromListings = async () => {
   const curlCommand = `curl 'https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom' \
-    -H 'authority: www.sec.gov' \
-    -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
-    -H 'accept-language: en-US,en;q=0.9' \
-    -H 'cache-control: max-age=0' \
-    -H 'cookie: _gid=GA1.2.321654017.1709839942; ...' \
-    -H 'sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"' \
-    -H 'sec-ch-ua-mobile: ?0' \
-    -H 'sec-ch-ua-platform: "macOS"' \
-    -H 'sec-fetch-dest: document' \
-    -H 'sec-fetch-mode: navigate' \
-    -H 'sec-fetch-site: none' \
-    -H 'sec-fetch-user: ?1' \
-    -H 'upgrade-insecure-requests: 1' \
-    -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'`
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cache-control: max-age=0' \
+  -H 'cookie: _gid=GA1.2.490164931.1711382626; _ga=GA1.1.2115862634.1708834616; _4c_=%7B%22_4c_s_%22%3A%22dZLBTuMwEIZfpfK5SWMndezcVl1pxQEQK%2BBaJfG0sYA6ckwNW%2BXdmSlpC6vdXtJ88%2Fmf0cQHFjvYsYqXnOcqL7TMpZ6zJ3gfWHVg3hp67FnFVL1pG15mia5rnRRcQtKYUieiqTcKygJA5mzO3o5ZUvJMcimK5ThnZnfK8GBgsNvdF0%2FnWixlTp7twyRiG6V5qYUspPjuEiH3FFmzf9Z9PEdNhRIzv6tEUO39313%2Fq7b9pB5Y6wxge65TrtIs2Qw4R%2FiDJMmzjFGqM69tWIf3nrwIzWwwT1gwsLctrKM1oaOAUqgL7cBuu0CY85IwDcdor9HujIuXY3wpLvR8TB57N97FAejkqvPuBWZckOzwk7LrusW%2FHjbg%2FVHpQuiHarGIMaZb57bPkLbuZYHSYAONPkCLhf0E8GZ8suSTPVqiZna%2F%2Bo385gu5W91eT%2BjXj%2FXD1U98ETi3kkLmRUrbxguHt4SNp2XzQmqF25YZLjM8s0rJIqPfOI4f%22%7D; _ga_300V1CHKH1=GS1.1.1711382633.34.1.1711383496.0.0.0; _ga_CSLL4ZEK4L=GS1.1.1711382633.16.1.1711383496.0.0.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-fetch-dest: document' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-site: none' \
+  -H 'sec-fetch-user: ?1' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'`
   const feedXml = await curlChildProcess(curlCommand)
   return secListingsByCik(feedXml);
 };
