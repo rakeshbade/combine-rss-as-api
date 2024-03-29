@@ -1,36 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0">
     <channel>
         <title>barrons</title>
         <link>http://barrons.link</link>
         <description>barrons</description>
-        <lastBuildDate>Thu, 21 Mar 2024 23:14:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Mar 2024 04:51:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
-        <item>
-            <title><![CDATA[Tesla Stock Was Up, Until Investors Saw This.]]></title>
-            <link>https://www.barrons.com/articles/tesla-stock-price-today-abc4e324?refsec=markets&amp;mod=topics_markets</link>
-            <guid>https://www.barrons.com/articles/tesla-stock-price-today-abc4e324?refsec=markets&amp;mod=topics_markets</guid>
-            <pubDate>Thu, 21 Mar 2024 23:14:00 GMT</pubDate>
-            <description><![CDATA[Chinese EV rival Li Auto lowered its forecast for deliveries for the first quarter. It matters because China is a key market for Tesla.]]></description>
-            <content:encoded><![CDATA[Chinese EV rival Li Auto lowered its forecast for deliveries for the first quarter. It matters because China is a key market for Tesla.]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Apple, Micron, Reddit, Astera, Guess, Five Below, Accenture, and More Stock Market Movers]]></title>
-            <link>https://www.barrons.com/articles/stock-market-movers-b2313bbc?refsec=markets&amp;mod=topics_markets</link>
-            <guid>https://www.barrons.com/articles/stock-market-movers-b2313bbc?refsec=markets&amp;mod=topics_markets</guid>
-            <pubDate>Thu, 21 Mar 2024 23:05:00 GMT</pubDate>
-            <description><![CDATA[The Department of Justice sues Apple, alleging the tech giant operates a monopoly over the mobile phone market, Micron posts a surprise quarterly profit, and Reddit soars in trading debut.]]></description>
-            <content:encoded><![CDATA[The Department of Justice sues Apple, alleging the tech giant operates a monopoly over the mobile phone market, Micron posts a surprise quarterly profit, and Reddit soars in trading debut.]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Digital Auto Sales Are Here to Stay. That’s Good for CarMax and Carvana.]]></title>
-            <link>https://www.barrons.com/articles/carmax-carvana-stock-digital-auto-sales-d9bdf455?refsec=markets&amp;mod=topics_markets</link>
-            <guid>https://www.barrons.com/articles/carmax-carvana-stock-digital-auto-sales-d9bdf455?refsec=markets&amp;mod=topics_markets</guid>
-            <pubDate>Thu, 21 Mar 2024 22:48:00 GMT</pubDate>
-            <description><![CDATA[Analysts expect continued industry disruption from online car retailers.]]></description>
-            <content:encoded><![CDATA[Analysts expect continued industry disruption from online car retailers.]]></content:encoded>
-        </item>
     </channel>
 </rss>

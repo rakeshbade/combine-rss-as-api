@@ -115,8 +115,40 @@ const convertEntriesToRss = (blogName, entries = []) => {
   return feed.rss2();
 };
 
+const convertFeedToJson = (feed)=>{
+  return new Promise((resolve, reject)=>{
+    parser.parseString(feed, (err, result)=>{
+      if(err) return reject(err);
+      const entries =
+        result?.["rss"]?.["channel"]?.[0]?.["item"]  || result?.urlset?.url;
+        const jsonObj = JSON.stringify(entries);
+        const replaceNews = jsonObj.replace(/news:/g,"");
+        const parseNews = JSON.parse(replaceNews)
+        let list = parseNews.map((e)=>{
+          const objEntrires = Object.entries(e?.news?.[0] || {});
+          if(!objEntrires.length > 1) return;
+          if(e.lastmod){
+            objEntrires.push(["lastmod", e.lastmod])
+          }
+          if(e.loc){
+            objEntrires.push(["link", e.loc])
+          }
+          return objEntrires.reduce((prev, [key,value])=>{
+            return {
+              ...prev,
+              [key]: value[0]
+            } 
+          },{})
+          
+        }).filter(Boolean)
+        return resolve(list)
+    })
+  })
+}
+
 module.exports = {
   convertEntriesToRss,
   appCache: buildCache(),
   getDateTimeET,
+  convertFeedToJson
 };

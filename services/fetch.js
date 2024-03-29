@@ -6,7 +6,7 @@ const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const parser = new xml2js.Parser();
 const { writeToFile } = require("../utils/fileUtils");
-const { convertEntriesToRss } = require("../utils/feed");
+const { convertEntriesToRss, convertFeedToJson } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
 const { isWithInHours, curlChildProcess } = require("./utils")
 
@@ -167,10 +167,26 @@ const waitFor = (timer) => {
   });
 };
 
+
+
 const fetchArticlesForBarrons = async (url, config) => {
   const { data } = await axios.get(url);
   const pageSourceHTML = data.toString();
-  return getArticlesFromHtml(pageSourceHTML, config);
+  const articles = getArticlesFromHtml(pageSourceHTML, config);
+  const { data: sitemapData } = await axios.get("https://www.barrons.com/bol_news_sitemap.xml");
+  const entries = await convertFeedToJson(sitemapData);
+  const filterEntries = (articles || []).filter((article)=>{
+    const link = article?.link || "";
+    const articleIndex = entries.findIndex((e)=>link.includes(e.link))
+    if(articleIndex !== -1){
+        const stocks = entries[articleIndex]?.stock_tickers?.split(",");
+        if(stocks?.length){
+          article.title = `[${stocks?.join(',')}] - ${article.title}`
+        }
+       return stocks && stocks.length < 4 && !entries[articleIndex].lastmod
+    }
+  })
+  return filterEntries;
 }
 
 const fetchArticlesForAccessWire = async (url, config) => {
