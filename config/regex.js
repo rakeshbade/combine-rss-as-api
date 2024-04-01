@@ -10,6 +10,6 @@ module.exports = {
       include: /(?:.*)/i,
     },
     reuters:{
-      include: /(?:.*)/i,
-    }
+      include: /(?:\/markets\/\/us\/)/i,
+    },
 };
