@@ -8,5 +8,5 @@ module.exports = {
   barrons,
   learn,
   wsj,
-  // reuters,
+  reuters,
 };

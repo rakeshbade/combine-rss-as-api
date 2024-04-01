@@ -2,6 +2,8 @@ const { Feed } = require("feed");
 const { isWithInHours } = require("./../services/utils");
 const { postLogger: LOG } = require("./../services/logger");
 const { default: axios } = require("axios");
+const xml2js = require("xml2js");
+const parser = new xml2js.Parser();
 
 // const buildCache = () => {
 //   const cache = new NodeCache({ stdTTL: 60000, checkperiod: 60000 });

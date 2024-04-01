@@ -1,12 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>all</title>
         <link>http://all.link</link>
         <description>all</description>
-        <lastBuildDate>Thu, 21 Mar 2024 17:44:39 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 01 Apr 2024 19:16:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[[SPX] - Worried About Investing in a Frothy Market? Try Dollar-Cost Averaging.]]></title>
+            <link>https://www.barrons.com/articles/stock-market-investing-dollar-cost-averaging-60497c1b?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/stock-market-investing-dollar-cost-averaging-60497c1b?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 19:16:00 GMT</pubDate>
+            <description><![CDATA[By investing over a period of time, you protect your investments from a market plunge.]]></description>
+            <content:encoded><![CDATA[By investing over a period of time, you protect your investments from a market plunge.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[BLDP.T] - Ballard Power Stock Rises. Fuel-Cell Maker Gets Largest Order in Its History.]]></title>
+            <link>https://www.barrons.com/articles/ballard-power-stock-fuel-cell-order-81c8c6a8?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/ballard-power-stock-fuel-cell-order-81c8c6a8?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 19:01:00 GMT</pubDate>
+            <description><![CDATA[Ballard signs an agreement with a European bus maker for the supply of 1,000 fuel-cell engines through 2027.]]></description>
+            <content:encoded><![CDATA[Ballard signs an agreement with a European bus maker for the supply of 1,000 fuel-cell engines through 2027.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[MSFT] - $100 Billion Microsoft and OpenAI Data Plans Reported and Other Tech News Today]]></title>
+            <link>https://www.barrons.com/articles/microsoft-openai-stock-tech-price-d6500b19?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/microsoft-openai-stock-tech-price-d6500b19?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 18:47:00 GMT</pubDate>
+            <description><![CDATA[Jefferies called Microsoft a top AI winner, with the broker raising its price target on the stock to $550.]]></description>
+            <content:encoded><![CDATA[Jefferies called Microsoft a top AI winner, with the broker raising its price target on the stock to $550.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[MSFT,SPX] - Microsoft Has ‘Most Valuable AI Real Estate,’ Analyst Says]]></title>
+            <link>https://www.barrons.com/articles/microsoft-stock-ai-wall-street-db4d0bd3?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/microsoft-stock-ai-wall-street-db4d0bd3?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 18:04:00 GMT</pubDate>
+            <description><![CDATA[Melius Research analyst Ben Reitzes is upbeat on Mircosoft’s artificial-intelligence prospects. He has a Buy rating and $475 price target on the shares.]]></description>
+            <content:encoded><![CDATA[Melius Research analyst Ben Reitzes is upbeat on Mircosoft’s artificial-intelligence prospects. He has a Buy rating and $475 price target on the shares.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[CME,HTZ,T] - Stocks Are Still on a Tear. What to Expect in the Second Quarter.]]></title>
+            <link>https://www.barrons.com/articles/things-to-know-today-cc2713f2?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/things-to-know-today-cc2713f2?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 15:49:00 GMT</pubDate>
+            <description><![CDATA[Jobs data, Disney’s showdown, tourism dollars from the eclipse, AT&T’s data leak, and other news to start your day.]]></description>
+            <content:encoded><![CDATA[Jobs data, Disney’s showdown, tourism dollars from the eclipse, AT&T’s data leak, and other news to start your day.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[NVDA,SPX] - Markets Had a Great Start. What’s Next.]]></title>
+            <link>https://www.barrons.com/articles/stock-market-performance-quarter-outlook-0e5168a0?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/stock-market-performance-quarter-outlook-0e5168a0?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 14:49:00 GMT</pubDate>
+            <description><![CDATA[The S&P 500’s first-quarter rally comes on the heels of last year’s 24% surge. There are strong arguments in favor of further gains.]]></description>
+            <content:encoded><![CDATA[The S&P 500’s first-quarter rally comes on the heels of last year’s 24% surge. There are strong arguments in favor of further gains.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[7203.TO,VOW3.XE,TSLA] - Volkswagen’s New EV Van Is, Like, Wow. Roomy and Groovy.]]></title>
+            <link>https://www.barrons.com/articles/volkswagen-vw-ev-van-bus-buzz-stock-f5a9917f?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/volkswagen-vw-ev-van-bus-buzz-stock-f5a9917f?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 11:00:00 GMT</pubDate>
+            <description><![CDATA[This EV callback to the iconic bus is anything but dated.]]></description>
+            <content:encoded><![CDATA[This EV callback to the iconic bus is anything but dated.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[[NDAQ,LEVI,SPX] - Is the Stock Market Open Today? Here Are the Easter Monday Trading Hours.]]></title>
+            <link>https://www.barrons.com/articles/stock-market-open-close-hours-easter-monday-today-79649b79?refsec=markets&amp;mod=topics_markets</link>
+            <guid>https://www.barrons.com/articles/stock-market-open-close-hours-easter-monday-today-79649b79?refsec=markets&amp;mod=topics_markets</guid>
+            <pubDate>Mon, 01 Apr 2024 09:01:00 GMT</pubDate>
+            <description><![CDATA[Here’s what you need to know about the trading hours on Easter Monday.]]></description>
+            <content:encoded><![CDATA[Here’s what you need to know about the trading hours on Easter Monday.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP105: The 12 Factor App]]></title>
+            <link>https://blog.bytebytego.com/p/ep105-the-12-factor-app</link>
+            <guid>https://blog.bytebytego.com/p/ep105-the-12-factor-app</guid>
+            <pubDate>Sat, 30 Mar 2024 20:30:56 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: ACID Properties in Databases With Examples (Youtube video) Have you heard of the 12-Factor App? What does API gateway do? How does Redis architecture evolve? Cloud Cost Reduction Techniques SPONSOR US How-to Guide: Effective Goals and Reporting for Software Teams (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: ACID Properties in Databases With Examples (Youtube video) Have you heard of the 12-Factor App? What does API gateway do? How does Redis architecture evolve? Cloud Cost Reduction Techniques SPONSOR US How-to Guide: Effective Goals and Reporting for Software Teams (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Crash Course in IPv4 Addressing]]></title>
+            <link>https://blog.bytebytego.com/p/a-crash-course-in-ipv4-addressing</link>
+            <guid>https://blog.bytebytego.com/p/a-crash-course-in-ipv4-addressing</guid>
+            <pubDate>Thu, 28 Mar 2024 20:31:12 GMT</pubDate>
+            <description><![CDATA[Welcome to our latest issue on IPv4 addressing. In this issue, we'll learn about the basic parts of IPv4 addressing, including its structure, the role of subnet masks, and the meaning of network, broadcast, and host addresses. IP is used to send packets from the source to their final destination, either within the same network or across multiple networks.]]></description>
+            <content:encoded><![CDATA[Welcome to our latest issue on IPv4 addressing. In this issue, we'll learn about the basic parts of IPv4 addressing, including its structure, the role of subnet masks, and the meaning of network, broadcast, and host addresses. IP is used to send packets from the source to their final destination, either within the same network or across multiple networks.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Uber Uses Integrated Redis Cache to Serve 40M Reads/Second?]]></title>
+            <link>https://blog.bytebytego.com/p/how-uber-uses-integrated-redis-cache</link>
+            <guid>https://blog.bytebytego.com/p/how-uber-uses-integrated-redis-cache</guid>
+            <pubDate>Tue, 26 Mar 2024 20:30:32 GMT</pubDate>
+            <description><![CDATA[80% automated E2E test coverage in 4 months (Sponsored) Were you aware that despite allocating 25%+ of budgets to QA, 2/3rds of companies still have less than 50% end-to-end test coverage? This means over half of every app is exposed to quality issues.]]></description>
+            <content:encoded><![CDATA[80% automated E2E test coverage in 4 months (Sponsored) Were you aware that despite allocating 25%+ of budgets to QA, 2/3rds of companies still have less than 50% end-to-end test coverage? This means over half of every app is exposed to quality issues.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP104: How do Search Engines Work?]]></title>
+            <link>https://blog.bytebytego.com/p/ep104-how-do-search-engines-work</link>
+            <guid>https://blog.bytebytego.com/p/ep104-how-do-search-engines-work</guid>
+            <pubDate>Sat, 23 Mar 2024 20:30:21 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: System Design: Why is Kafka so Popular? (Youtube video) How do Search Engines Work? Top 9 Website Performance Metrics You Cannot Ignore Top 6 Data Management Patterns Comparing Different API Clients: Postman vs. Insomnia vs. ReadyAPI vs. Thunder Client vs. Hoppscotch]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: System Design: Why is Kafka so Popular? (Youtube video) How do Search Engines Work? Top 9 Website Performance Metrics You Cannot Ignore Top 6 Data Management Patterns Comparing Different API Clients: Postman vs. Insomnia vs. ReadyAPI vs. Thunder Client vs. Hoppscotch]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Brief History of Scaling Netflix]]></title>
+            <link>https://blog.bytebytego.com/p/a-brief-history-of-scaling-netflix</link>
+            <guid>https://blog.bytebytego.com/p/a-brief-history-of-scaling-netflix</guid>
+            <pubDate>Thu, 21 Mar 2024 20:31:09 GMT</pubDate>
+            <description><![CDATA[Netflix began its life in 1997 as a mail-based DVD rental business. Marc Randolph and Reed Hastings got the idea of Netflix while carpooling between their office and home in California. Hastings admired Amazon and wanted to emulate their success by finding a large category of portable items to sell over the Internet. It was around the same time that DVDs were introduced in the United States and they tested the concept of selling or renting DVDs by mail.]]></description>
+            <content:encoded><![CDATA[Netflix began its life in 1997 as a mail-based DVD rental business. Marc Randolph and Reed Hastings got the idea of Netflix while carpooling between their office and home in California. Hastings admired Amazon and wanted to emulate their success by finding a large category of portable items to sell over the Internet. It was around the same time that DVDs were introduced in the United States and they tested the concept of selling or renting DVDs by mail.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP103: Typical AWS Network Architecture in One Diagram]]></title>
+            <link>https://blog.bytebytego.com/p/ep103-typical-aws-network-architecture</link>
+            <guid>https://blog.bytebytego.com/p/ep103-typical-aws-network-architecture</guid>
+            <pubDate>Sat, 16 Mar 2024 20:30:22 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Reverse Proxy vs API Gateway vs Load Balancer (YouTube video) Typical AWS Network Architecture in one diagram 15 Open-Source Projects That Changed the World Top 6 Database Models How do we detect node failures in distributed systems?]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Reverse Proxy vs API Gateway vs Load Balancer (YouTube video) Typical AWS Network Architecture in one diagram 15 Open-Source Projects That Changed the World Top 6 Database Models How do we detect node failures in distributed systems?]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[15 Open-Source Projects That Changed the World]]></title>
+            <link>https://blog.bytebytego.com/p/15-open-source-projects-that-changed</link>
+            <guid>https://blog.bytebytego.com/p/15-open-source-projects-that-changed</guid>
+            <pubDate>Thu, 14 Mar 2024 20:30:29 GMT</pubDate>
+            <description><![CDATA[Software development is a field of ideas and experiments. One idea leads to an experiment that spawns another idea and the cycle of innovation moves forward. Open-source projects are the fuel for this innovation. A good open-source project impacts the lives of many developers and creates a fertile environment for collaboration. Many of the greatest breakthroughs in software development have come from open-source projects.]]></description>
+            <content:encoded><![CDATA[Software development is a field of ideas and experiments. One idea leads to an experiment that spawns another idea and the cycle of innovation moves forward. Open-source projects are the fuel for this innovation. A good open-source project impacts the lives of many developers and creates a fertile environment for collaboration. Many of the greatest breakthroughs in software development have come from open-source projects.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Deep Dive into Amazon DynamoDB Architecture]]></title>
+            <link>https://blog.bytebytego.com/p/a-deep-dive-into-amazon-dynamodb</link>
+            <guid>https://blog.bytebytego.com/p/a-deep-dive-into-amazon-dynamodb</guid>
+            <pubDate>Tue, 12 Mar 2024 20:31:18 GMT</pubDate>
+            <description><![CDATA[State of Observability for Financial Services and Insurance (Sponsored) Financial institutions are experiencing an incredible transformation, stemming from consumers expecting a higher level of digital interaction and access to services and a lower dependency on physical services. At the same time, FSI organizations are faced with increased regulation, with new mandates for IT and cyber risk management such as the Digital Operational Resilience Act (DORA).]]></description>
+            <content:encoded><![CDATA[State of Observability for Financial Services and Insurance (Sponsored) Financial institutions are experiencing an incredible transformation, stemming from consumers expecting a higher level of digital interaction and access to services and a lower dependency on physical services. At the same time, FSI organizations are faced with increased regulation, with new mandates for IT and cyber risk management such as the Digital Operational Resilience Act (DORA).]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP102: Encoding vs Encryption vs Tokenization]]></title>
+            <link>https://blog.bytebytego.com/p/ep102-encoding-vs-encryption-vs-tokenization</link>
+            <guid>https://blog.bytebytego.com/p/ep102-encoding-vs-encryption-vs-tokenization</guid>
+            <pubDate>Sat, 09 Mar 2024 22:30:19 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Caching Pitfalls Every Developer Should Know (Youtube video) Encoding vs Encryption vs Tokenization Kubernetes Tools Stack Wheel Fixing bugs automatically at Meta Scale The one-line change that reduced clone times by a whopping 99%, says Pinterest]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Caching Pitfalls Every Developer Should Know (Youtube video) Encoding vs Encryption vs Tokenization Kubernetes Tools Stack Wheel Fixing bugs automatically at Meta Scale The one-line change that reduced clone times by a whopping 99%, says Pinterest]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[The Top 3 Resume Mistakes Costing You the Job]]></title>
+            <link>https://blog.bytebytego.com/p/the-top-3-resume-mistakes-costing</link>
+            <guid>https://blog.bytebytego.com/p/the-top-3-resume-mistakes-costing</guid>
+            <pubDate>Thu, 07 Mar 2024 22:30:44 GMT</pubDate>
+            <description><![CDATA[For this week's issue, I am pleased to introduce our guest author, Ethan Evans, a retired Amazon VP who played a pivotal role in creating some of the groundbreaking services we use today, such as Prime Video, Amazon Video, the Amazon Appstore, Prime Gaming (formerly Twitch Prime), and Twitch Commerce.]]></description>
+            <content:encoded><![CDATA[For this week's issue, I am pleased to introduce our guest author, Ethan Evans, a retired Amazon VP who played a pivotal role in creating some of the groundbreaking services we use today, such as Prime Video, Amazon Video, the Amazon Appstore, Prime Gaming (formerly Twitch Prime), and Twitch Commerce.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Automated Bug Fixing at Facebook Scale]]></title>
+            <link>https://blog.bytebytego.com/p/automated-bug-fixing-at-facebook</link>
+            <guid>https://blog.bytebytego.com/p/automated-bug-fixing-at-facebook</guid>
+            <pubDate>Tue, 05 Mar 2024 22:31:14 GMT</pubDate>
+            <description><![CDATA[&#128204;Save the Date! Innovate Faster with AI Code Generation (Sponsored) With AI code generation tools developers can accelerate timelines at a pace and cost that would have been unfathomable just years ago. However, code generated by AI can include bugs and errors, and readability, maintainability, and security issues &#8211; just like code produced by developers.]]></description>
+            <content:encoded><![CDATA[&#128204;Save the Date! Innovate Faster with AI Code Generation (Sponsored) With AI code generation tools developers can accelerate timelines at a pace and cost that would have been unfathomable just years ago. However, code generated by AI can include bugs and errors, and readability, maintainability, and security issues &#8211; just like code produced by developers.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP101: Top 3 Things You Should Know About Webhooks]]></title>
+            <link>https://blog.bytebytego.com/p/ep101-top-3-things-you-should-know</link>
+            <guid>https://blog.bytebytego.com/p/ep101-top-3-things-you-should-know</guid>
+            <pubDate>Sat, 02 Mar 2024 22:30:16 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Top 3 Things You Should Know About Webhooks (Youtube video) Cloud Load Balancer Cheat Sheet How do we manage sensitive data in a system? What does ACID mean? SPONSOR US Learn Streaming Data Fundamentals at Your Pace (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Top 3 Things You Should Know About Webhooks (Youtube video) Cloud Load Balancer Cheat Sheet How do we manage sensitive data in a system? What does ACID mean? SPONSOR US Learn Streaming Data Fundamentals at Your Pace (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Video Recommendations Work - Part 1]]></title>
+            <link>https://blog.bytebytego.com/p/how-video-recommendations-work-part</link>
+            <guid>https://blog.bytebytego.com/p/how-video-recommendations-work-part</guid>
+            <pubDate>Thu, 29 Feb 2024 22:30:24 GMT</pubDate>
+            <description><![CDATA[The digital landscape has seen dramatic changes in how information is retrieved, moving from simple web portals to complex recommendation systems. This shift has been driven by the rapid increase of online content and the growing demand for personalized, relevant experiences. Let&#8217;s dive into the four pivotal stages for this evolution.]]></description>
+            <content:encoded><![CDATA[The digital landscape has seen dramatic changes in how information is retrieved, moving from simple web portals to complex recommendation systems. This shift has been driven by the rapid increase of online content and the growing demand for personalized, relevant experiences. Let&#8217;s dive into the four pivotal stages for this evolution.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP100: Polling vs. Webhooks ]]></title>
+            <link>https://blog.bytebytego.com/p/ep100-polling-vs-webhooks</link>
+            <guid>https://blog.bytebytego.com/p/ep100-polling-vs-webhooks</guid>
+            <pubDate>Sat, 24 Feb 2024 22:30:21 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Polling vs. Webhooks How do we manage configurations in a system? What is CSS (Cascading Style Sheets)? What is GraphQL? Is it a replacement for the REST API? SPONSOR US &#128536; Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Polling vs. Webhooks How do we manage configurations in a system? What is CSS (Cascading Style Sheets)? What is GraphQL? Is it a replacement for the REST API? SPONSOR US &#128536; Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How to Design a Good API?]]></title>
+            <link>https://blog.bytebytego.com/p/how-to-design-a-good-api</link>
+            <guid>https://blog.bytebytego.com/p/how-to-design-a-good-api</guid>
+            <pubDate>Thu, 22 Feb 2024 22:30:28 GMT</pubDate>
+            <description><![CDATA[We can find web services and APIs (Application Programming Interfaces) everywhere, but many are painful to use. Have you ever connected a web service using its API and wondered, "What were they thinking?" We have, and connecting services via API can be confusing. Whether due to bad design, missing docs, constant changes, or bugs, using APIs is often a struggle.]]></description>
+            <content:encoded><![CDATA[We can find web services and APIs (Application Programming Interfaces) everywhere, but many are painful to use. Have you ever connected a web service using its API and wondered, "What were they thinking?" We have, and connecting services via API can be confusing. Whether due to bad design, missing docs, constant changes, or bugs, using APIs is often a struggle.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Brief History of Airbnb’s Architecture]]></title>
+            <link>https://blog.bytebytego.com/p/a-brief-history-of-airbnbs-architecture</link>
+            <guid>https://blog.bytebytego.com/p/a-brief-history-of-airbnbs-architecture</guid>
+            <pubDate>Tue, 20 Feb 2024 22:30:45 GMT</pubDate>
+            <description><![CDATA[Boost your AI projects with Brave (Sponsored) You probably know Brave as the privacy browser. But did you also know it has a search API that can power your AI projects? Introducing, the Brave Search API. It&#8217;s affordable: Small teams can access the same tools as the big players.]]></description>
+            <content:encoded><![CDATA[Boost your AI projects with Brave (Sponsored) You probably know Brave as the privacy browser. But did you also know it has a search API that can power your AI projects? Introducing, the Brave Search API. It&#8217;s affordable: Small teams can access the same tools as the big players.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP99: What is the best way to learn SQL?]]></title>
+            <link>https://blog.bytebytego.com/p/ep99-what-is-the-best-way-to-learn</link>
+            <guid>https://blog.bytebytego.com/p/ep99-what-is-the-best-way-to-learn</guid>
+            <pubDate>Sat, 17 Feb 2024 22:31:00 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Top 6 Tools to Turn Diagrams into Beautiful Code (Youtube video) How do you pay from your digital wallet, such as Paypal, Paytm and Venmo, by scanning the QR code? What is the best way to learn SQL? What is gRPC?]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Top 6 Tools to Turn Diagrams into Beautiful Code (Youtube video) How do you pay from your digital wallet, such as Paypal, Paytm and Venmo, by scanning the QR code? What is the best way to learn SQL? What is gRPC?]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Virtualization and Containerization: Which one to pick? ]]></title>
+            <link>https://blog.bytebytego.com/p/virtualization-and-containerization</link>
+            <guid>https://blog.bytebytego.com/p/virtualization-and-containerization</guid>
+            <pubDate>Thu, 15 Feb 2024 22:30:37 GMT</pubDate>
+            <description><![CDATA[Software applications have traditionally been closely tied to the specific servers they run on and the operating systems they use. But as companies look to get more out of their infrastructure while spending less time and effort managing it, vendors are offering easier deployment options. Virtualization and Containerization let you run multiple isolated applications on a single physical server while sharing and managing resources between them.]]></description>
+            <content:encoded><![CDATA[Software applications have traditionally been closely tied to the specific servers they run on and the operating systems they use. But as companies look to get more out of their infrastructure while spending less time and effort managing it, vendors are offering easier deployment options. Virtualization and Containerization let you run multiple isolated applications on a single physical server while sharing and managing resources between them.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP98: GitOps Workflow - Simplified Visual Guide ]]></title>
+            <link>https://blog.bytebytego.com/p/ep98-gitops-workflow-simplified-visual</link>
+            <guid>https://blog.bytebytego.com/p/ep98-gitops-workflow-simplified-visual</guid>
+            <pubDate>Sat, 10 Feb 2024 22:30:07 GMT</pubDate>
+            <description><![CDATA[This week&#8217;s system design refresher: Good APIs Vs Bad APIs: 7 Tips for API Design (Youtube video) GitOps Workflow - Simplified Visual Guide How do Search Engines Work? The Payments Ecosystem Object-oriented Programming: A Primer Compare your streaming data options (Sponsored)]]></description>
+            <content:encoded><![CDATA[This week&#8217;s system design refresher: Good APIs Vs Bad APIs: 7 Tips for API Design (Youtube video) GitOps Workflow - Simplified Visual Guide How do Search Engines Work? The Payments Ecosystem Object-oriented Programming: A Primer Compare your streaming data options (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How do We Design for High Availability?]]></title>
+            <link>https://blog.bytebytego.com/p/how-do-we-design-for-high-availability</link>
+            <guid>https://blog.bytebytego.com/p/how-do-we-design-for-high-availability</guid>
+            <pubDate>Thu, 08 Feb 2024 22:30:32 GMT</pubDate>
+            <description><![CDATA[In an era where digital presence is vital for business continuity, the concept of high availability (HA) has become a cornerstone in system design. High availability refers to systems that can operate continuously without failure for extended periods.]]></description>
+            <content:encoded><![CDATA[In an era where digital presence is vital for business continuity, the concept of high availability (HA) has become a cornerstone in system design. High availability refers to systems that can operate continuously without failure for extended periods.]]></content:encoded>
+        </item>
     </channel>
 </rss>
