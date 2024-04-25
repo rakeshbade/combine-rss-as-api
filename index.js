@@ -18,6 +18,7 @@ const {
 const { eventEmitter } = require("./utils/events");
 const { appCache, convertEntriesToRss } = require("./utils/feed");
 const { getAnalystRatings } = require("./services/ratings");
+const { updateDate } = require("./services/market");
 
 process.env.TZ = "America/New_York";
 
@@ -122,6 +123,17 @@ app.get("/losers", async(req, res)=>{
   try{
     const losersXml = fs.readFileSync("././data/losers.xml");
     return res.set("Content-Type", "text/xml").send(losersXml);
+  }catch(error){
+    console.log(error)
+    return res.status(500).send({ error });
+  }
+})
+
+app.get("/update-market", async(req, res)=>{
+  try{
+    const { forceReload } = req.query;
+    const data = await updateDate(forceReload)
+    return res.send(data);
   }catch(error){
     console.log(error)
     return res.status(500).send({ error });

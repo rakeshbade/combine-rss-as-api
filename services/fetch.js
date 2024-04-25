@@ -8,8 +8,19 @@ const parser = new xml2js.Parser();
 const { writeToFile } = require("../utils/fileUtils");
 const { convertEntriesToRss, convertFeedToJson } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
-const { isWithInHours, curlChildProcess } = require("./utils")
+const { isWithInHours, curlChildProcess } = require("./utils");
+const { marketCodes } = require("./market");
+const marketData = require("./../data/market.json");
 
+const isMarketMatched = (post)=>{
+  const pattern = new RegExp(`(${marketCodes.join('|')}):\\s*(\\S+)`, 'i')
+  const isMatched = JSON.stringify(post).match(pattern);
+  if(isMatched && isMatched.length > 2){
+    const codeSymbol = isMatched[2].replaceAll(/[^a-zA-Z0-9]/g, "");
+    return marketData.findIndex((m)=>m.symbol.toUpperCase() == codeSymbol.trim().toUpperCase()) !== -1
+  }
+  return true
+}
 
 const isPostFiltered = (post, blogName) => {
   if (!post) return;
@@ -19,7 +30,8 @@ const isPostFiltered = (post, blogName) => {
   const includePost = regex?.include
     ? JSON.stringify(post).match(regex.include)
     : true;
-  if (includePost && excludeTitle) return post;
+  const marketMatched = isMarketMatched(post);
+  if (includePost && excludeTitle && marketMatched) return post;
 };
 
 const loadDataBy = {
