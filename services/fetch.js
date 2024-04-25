@@ -10,7 +10,7 @@ const { convertEntriesToRss, convertFeedToJson } = require("../utils/feed");
 const { applicationLogger: LOG } = require("./logger");
 const { isWithInHours, curlChildProcess } = require("./utils");
 const { marketCodes } = require("./market");
-const marketData = require("./../data/market.json");
+// const marketData = require("./../data/market.json");
 
 const isMarketMatched = (post)=>{
   const pattern = new RegExp(`(${marketCodes.join('|')}):\\s*(\\S+)`, 'i')
