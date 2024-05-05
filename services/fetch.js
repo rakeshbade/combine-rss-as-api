@@ -185,6 +185,7 @@ const fetchArticlesForBarrons = async (url, config) => {
   const { data } = await axios.get(url);
   const pageSourceHTML = data.toString();
   const articles = getArticlesFromHtml(pageSourceHTML, config);
+  return articles;
   const { data: sitemapData } = await axios.get("https://www.barrons.com/bol_news_sitemap.xml");
   const entries = await convertFeedToJson(sitemapData);
   const filterEntries = (articles || []).filter((article)=>{
