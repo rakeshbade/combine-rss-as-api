@@ -17,7 +17,8 @@ const isMarketMatched = (post)=>{
   const isMatched = JSON.stringify(post).match(pattern);
   if(isMatched && isMatched.length > 2){
     const codeSymbol = isMatched[2].replaceAll(/[^a-zA-Z0-9]/g, "");
-    return marketData.findIndex((m)=>m.symbol.toUpperCase() == codeSymbol.trim().toUpperCase()) !== -1
+    // 1 billion market cap
+    return marketData.findIndex((m)=>m.symbol.toUpperCase() == codeSymbol.trim().toUpperCase() && m.marketCap > 1000000000) !== -1;
   }
   return true
 }
@@ -112,7 +113,7 @@ const getArticlesFromHtml = (html, config) => {
     article.title = $(ele).find(config.header).text().trim();
     article.link = $(ele).find(config.link).attr("href");
     article.date = $(ele).find(config.date).text().trim();
-    if (article.date) {
+    if (article.date && !article?.date?.toLowerCase()?.includes("updated")) {
       if (article.date.toLowerCase().includes("ago")) {
         article.date = article.date.replace("ago", "");
         article.date = new Date(article.date.trim()).getTime();

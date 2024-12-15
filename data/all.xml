@@ -1,12 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>all</title>
         <link>http://all.link</link>
         <description>all</description>
-        <lastBuildDate>Thu, 25 Apr 2024 23:53:45 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 14 Dec 2024 22:40:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>nodejs</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[EP142: The Fundamental Pillars of Object-Oriented Programming]]></title>
+            <link>https://blog.bytebytego.com/p/ep142-the-fundamental-pillars-of</link>
+            <guid>https://blog.bytebytego.com/p/ep142-the-fundamental-pillars-of</guid>
+            <pubDate>Sat, 14 Dec 2024 22:40:29 GMT</pubDate>
+            <description><![CDATA[Abstraction, Encapsulation, Inheritance, and Polymorphism are the four pillars of object-oriented programming.]]></description>
+            <content:encoded><![CDATA[Abstraction, Encapsulation, Inheritance, and Polymorphism are the four pillars of object-oriented programming.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Database Performance Demystified: Essential Tips and Strategies]]></title>
+            <link>https://blog.bytebytego.com/p/database-performance-demystified</link>
+            <guid>https://blog.bytebytego.com/p/database-performance-demystified</guid>
+            <pubDate>Thu, 12 Dec 2024 22:31:05 GMT</pubDate>
+            <description><![CDATA[Databases are the backbone of modern applications.]]></description>
+            <content:encoded><![CDATA[Databases are the backbone of modern applications.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Tinder Recommends To 75 Million Users with Geosharding]]></title>
+            <link>https://blog.bytebytego.com/p/how-tinder-recommends-to-75-million</link>
+            <guid>https://blog.bytebytego.com/p/how-tinder-recommends-to-75-million</guid>
+            <pubDate>Tue, 10 Dec 2024 22:31:01 GMT</pubDate>
+            <description><![CDATA[Disclaimer: The details in this post have been derived from the Tinder Technical Blog.]]></description>
+            <content:encoded><![CDATA[Disclaimer: The details in this post have been derived from the Tinder Technical Blog.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP141: How to Ace System Design Interviews Like a Boss?]]></title>
+            <link>https://blog.bytebytego.com/p/ep141-how-to-ace-system-design-interviews</link>
+            <guid>https://blog.bytebytego.com/p/ep141-how-to-ace-system-design-interviews</guid>
+            <pubDate>Sat, 07 Dec 2024 22:30:49 GMT</pubDate>
+            <description><![CDATA[They are the most critical components to crafting successful software systems.]]></description>
+            <content:encoded><![CDATA[They are the most critical components to crafting successful software systems.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mastering Modern Authentication: Cookies, Sessions, JWT, and PASETO]]></title>
+            <link>https://blog.bytebytego.com/p/mastering-modern-authentication-cookies</link>
+            <guid>https://blog.bytebytego.com/p/mastering-modern-authentication-cookies</guid>
+            <pubDate>Thu, 05 Dec 2024 22:31:17 GMT</pubDate>
+            <description><![CDATA[Authentication serves as the first line of defense in ensuring the security of applications and the sensitive data they handle.]]></description>
+            <content:encoded><![CDATA[Authentication serves as the first line of defense in ensuring the security of applications and the sensitive data they handle.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[My NEW book, Coding Interview Patterns, is now available on Amazon]]></title>
+            <link>https://blog.bytebytego.com/p/my-new-book-coding-interview-patterns</link>
+            <guid>https://blog.bytebytego.com/p/my-new-book-coding-interview-patterns</guid>
+            <pubDate>Wed, 04 Dec 2024 22:46:02 GMT</pubDate>
+            <description><![CDATA[My new book, Coding Interview Patterns, is now available on Amazon!]]></description>
+            <content:encoded><![CDATA[My new book, Coding Interview Patterns, is now available on Amazon!]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How LinkedIn Customizes Its 7 Trillion Message Kafka Ecosystem]]></title>
+            <link>https://blog.bytebytego.com/p/how-linkedin-customizes-its-7-trillion</link>
+            <guid>https://blog.bytebytego.com/p/how-linkedin-customizes-its-7-trillion</guid>
+            <pubDate>Tue, 03 Dec 2024 22:31:38 GMT</pubDate>
+            <description><![CDATA[Disclaimer: The details in this post have been derived from the LinkedIn Engineering Blog.]]></description>
+            <content:encoded><![CDATA[Disclaimer: The details in this post have been derived from the LinkedIn Engineering Blog.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP140: HTTP/1 -> HTTP/2 -> HTTP/3]]></title>
+            <link>https://blog.bytebytego.com/p/ep140-http1-http2-http3</link>
+            <guid>https://blog.bytebytego.com/p/ep140-http1-http2-http3</guid>
+            <pubDate>Sat, 30 Nov 2024 22:31:26 GMT</pubDate>
+            <description><![CDATA[What's your favorite?]]></description>
+            <content:encoded><![CDATA[What's your favorite?]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Stateless Architecture: The Key to Building Scalable and Resilient Systems]]></title>
+            <link>https://blog.bytebytego.com/p/stateless-architecture-the-key-to</link>
+            <guid>https://blog.bytebytego.com/p/stateless-architecture-the-key-to</guid>
+            <pubDate>Thu, 28 Nov 2024 22:31:11 GMT</pubDate>
+            <description><![CDATA[In today's rapidly evolving digital landscape, developers face the constant challenge of building applications that are not only robust and secure but also infinitely scalable.]]></description>
+            <content:encoded><![CDATA[In today's rapidly evolving digital landscape, developers face the constant challenge of building applications that are not only robust and secure but also infinitely scalable.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Crash Course on Using AI to Save Time and Focus on What Matters]]></title>
+            <link>https://blog.bytebytego.com/p/a-crash-course-on-using-ai-to-save</link>
+            <guid>https://blog.bytebytego.com/p/a-crash-course-on-using-ai-to-save</guid>
+            <pubDate>Tue, 26 Nov 2024 22:30:15 GMT</pubDate>
+            <description><![CDATA[7 steps to level up your AI prompts and 8 of my favorite AI use cases for work.]]></description>
+            <content:encoded><![CDATA[7 steps to level up your AI prompts and 8 of my favorite AI use cases for work.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP139: Design a Live Streaming System]]></title>
+            <link>https://blog.bytebytego.com/p/ep139-design-a-live-streaming-system</link>
+            <guid>https://blog.bytebytego.com/p/ep139-design-a-live-streaming-system</guid>
+            <pubDate>Sat, 23 Nov 2024 22:50:11 GMT</pubDate>
+            <description><![CDATA[Mike Tyson vs. Jake Paul was live-streamed on Netflix last week. Let&#8217;s break down the typical tech stack of a live-streaming system.]]></description>
+            <content:encoded><![CDATA[Mike Tyson vs. Jake Paul was live-streamed on Netflix last week. Let&#8217;s break down the typical tech stack of a live-streaming system.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Distributed Caching: The Secret to High-Performance Applications]]></title>
+            <link>https://blog.bytebytego.com/p/distributed-caching-the-secret-to</link>
+            <guid>https://blog.bytebytego.com/p/distributed-caching-the-secret-to</guid>
+            <pubDate>Thu, 21 Nov 2024 22:30:32 GMT</pubDate>
+            <description><![CDATA[The demand for high-speed, high-performance applications has skyrocketed in recent years.]]></description>
+            <content:encoded><![CDATA[The demand for high-speed, high-performance applications has skyrocketed in recent years.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Uber’s Billion Trips Migration Setup with Zero Downtime]]></title>
+            <link>https://blog.bytebytego.com/p/ubers-billion-trips-migration-setup</link>
+            <guid>https://blog.bytebytego.com/p/ubers-billion-trips-migration-setup</guid>
+            <pubDate>Tue, 19 Nov 2024 22:30:50 GMT</pubDate>
+            <description><![CDATA[Maintaining uptime during system upgrades or migrations is essential, especially for high-stakes, real-time platforms like Uber's trip fulfillment system.]]></description>
+            <content:encoded><![CDATA[Maintaining uptime during system upgrades or migrations is essential, especially for high-stakes, real-time platforms like Uber's trip fulfillment system.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Our New Book, Generative AI System Design Interview, Is Now Available]]></title>
+            <link>https://blog.bytebytego.com/p/our-new-book-generative-ai-system</link>
+            <guid>https://blog.bytebytego.com/p/our-new-book-generative-ai-system</guid>
+            <pubDate>Mon, 18 Nov 2024 23:08:00 GMT</pubDate>
+            <description><![CDATA[Our new book Generative AI System Design Interview is available on Amazon!]]></description>
+            <content:encoded><![CDATA[Our new book Generative AI System Design Interview is available on Amazon!]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP138: How do AirTags work?]]></title>
+            <link>https://blog.bytebytego.com/p/ep138-how-do-airtags-work</link>
+            <guid>https://blog.bytebytego.com/p/ep138-how-do-airtags-work</guid>
+            <pubDate>Sat, 16 Nov 2024 22:31:00 GMT</pubDate>
+            <description><![CDATA[WorkOS: Your app, Enterprise Ready.]]></description>
+            <content:encoded><![CDATA[WorkOS: Your app, Enterprise Ready.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Speedrunning Guide: Junior to Staff Engineer in 3 years]]></title>
+            <link>https://blog.bytebytego.com/p/speedrunning-guide-junior-to-staff</link>
+            <guid>https://blog.bytebytego.com/p/speedrunning-guide-junior-to-staff</guid>
+            <pubDate>Thu, 14 Nov 2024 22:30:09 GMT</pubDate>
+            <description><![CDATA[This is a guest newsletter by Ryan Peterman, who was promoted from Junior to Staff Engineer in 3 years at Meta.]]></description>
+            <content:encoded><![CDATA[This is a guest newsletter by Ryan Peterman, who was promoted from Junior to Staff Engineer in 3 years at Meta.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Storing 200 Billion Entities: Notion’s Data Lake Project]]></title>
+            <link>https://blog.bytebytego.com/p/storing-200-billion-entities-notions</link>
+            <guid>https://blog.bytebytego.com/p/storing-200-billion-entities-notions</guid>
+            <pubDate>Tue, 12 Nov 2024 22:31:00 GMT</pubDate>
+            <description><![CDATA[Data Modeling for Performance: Virtual Masterclass (Sponsored)]]></description>
+            <content:encoded><![CDATA[Data Modeling for Performance: Virtual Masterclass (Sponsored)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[EP137: Proxy vs Reverse Proxy]]></title>
+            <link>https://blog.bytebytego.com/p/ep137-proxy-vs-reverse-proxy</link>
+            <guid>https://blog.bytebytego.com/p/ep137-proxy-vs-reverse-proxy</guid>
+            <pubDate>Sat, 09 Nov 2024 22:30:55 GMT</pubDate>
+            <description><![CDATA[A forward proxy is a server that sits between user devices and the internet. A forward proxy is commonly used for:]]></description>
+            <content:encoded><![CDATA[A forward proxy is a server that sits between user devices and the internet. A forward proxy is commonly used for:]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Pattern Every Modern Developer Should Know: CQRS]]></title>
+            <link>https://blog.bytebytego.com/p/a-pattern-every-modern-developer</link>
+            <guid>https://blog.bytebytego.com/p/a-pattern-every-modern-developer</guid>
+            <pubDate>Thu, 07 Nov 2024 22:30:27 GMT</pubDate>
+            <description><![CDATA[CQRS, which stands for Command Query Responsibility Segregation, is an architectural pattern that separates the concerns of reading and writing data.]]></description>
+            <content:encoded><![CDATA[CQRS, which stands for Command Query Responsibility Segregation, is an architectural pattern that separates the concerns of reading and writing data.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How McDonald Sells Millions of Burgers Per Day With Event-Driven Architecture]]></title>
+            <link>https://blog.bytebytego.com/p/how-mcdonald-sells-millions-of-burgers</link>
+            <guid>https://blog.bytebytego.com/p/how-mcdonald-sells-millions-of-burgers</guid>
+            <pubDate>Tue, 05 Nov 2024 22:31:04 GMT</pubDate>
+            <description><![CDATA[Cloud-scale monitoring with AWS and Datadog (Sponsored)]]></description>
+            <content:encoded><![CDATA[Cloud-scale monitoring with AWS and Datadog (Sponsored)]]></content:encoded>
+        </item>
     </channel>
 </rss>
