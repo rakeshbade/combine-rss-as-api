@@ -24,7 +24,17 @@ process.env.TZ = "America/New_York";
 
 app.get("/rss", async (req, res) => {
   const { blog } = req.query;
-  if (!blog) return res.status(404).send({ message: "invalid query" });
+  if (!blog) {
+    const errorXml = `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Error</title>
+    <link>http://error.link</link>
+    <description>Error: invalid query parameter</description>
+  </channel>
+</rss>`;
+    return res.set("Content-Type", "text/xml; charset=utf-8").status(400).send(errorXml);
+  }
   try {
     LOG.info("Received request for", blog);
 
@@ -35,10 +45,19 @@ app.get("/rss", async (req, res) => {
     } else {
       eventEmitter.emit("fetchData", { blog, enableAI: req.query.aiFilter === 'true' });
     }
-    return res.set("Content-Type", "text/xml").send(xmlFeed);
+    return res.set("Content-Type", "text/xml; charset=utf-8").send(xmlFeed);
   } catch (e) {
     LOG.error(e);
-    return res.status(500).send(e);
+    // Return error as XML to prevent "not valid XML format" error from RSS readers
+    const errorXml = `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Error</title>
+    <link>http://error.link</link>
+    <description>Error fetching feed: ${e.message}</description>
+  </channel>
+</rss>`;
+    return res.set("Content-Type", "text/xml; charset=utf-8").status(200).send(errorXml);
   }
 });
 
@@ -59,10 +78,19 @@ app.get("/feed-all", async (req, res) => {
     }
     
     let xmlFeed = await getDataFromRssData(name);
-    return res.set("Content-Type", "text/xml").send(xmlFeed);
+    return res.set("Content-Type", "text/xml; charset=utf-8").send(xmlFeed);
   } catch (e) {
     LOG.error(e);
-    return res.status(500).send(e);
+    // Return error as XML to prevent "not valid XML format" error from RSS readers
+    const errorXml = `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Error</title>
+    <link>http://error.link</link>
+    <description>Error fetching feed: ${e.message}</description>
+  </channel>
+</rss>`;
+    return res.set("Content-Type", "text/xml; charset=utf-8").status(200).send(errorXml);
   }
 });
 
