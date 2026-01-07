@@ -11,7 +11,11 @@ const updateDate = async (forceReload)=>{
         const apiKey = '3GBzPHgsqzSenwBwCfNp4ca6JNk7Hcvb';
         const urlsWithKey = marketCodes.map((x)=>{
             const url = `https://financialmodelingprep.com/api/v3/symbol/${x}?apikey=${apiKey}`;
-            return axios.get(url)
+            return axios.get(url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                }
+            });
         });
         const data = await Promise.all(urlsWithKey);
         const maxCap = 1000000000 // 1 Billion

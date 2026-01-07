@@ -10,7 +10,12 @@ const { parseFeed, isPostFiltered } = require("./fetch");
 
 const getAnalystRatings = async (companies = [], ignoreCompanies = false) => {
     const ratingsProms =  ratingsConfig.map(async(rating)=>{
-        const { data } = await axios.get(rating.blogUrl);
+        const { data } = await axios.get(rating.blogUrl, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/rss+xml, application/xml, */*'
+            }
+        });
         const items = await parseFeed(data);
         return (items || []).filter(item=>{
             const companyMatch =  companies.find(company=> {
