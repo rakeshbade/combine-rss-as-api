@@ -185,7 +185,12 @@ const waitFor = (timer) => {
 
 const fetchArticlesForBarrons = async (url, config) => {
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/rss+xml, application/xml, */*'
+      }
+    });
     
     // Parse the RSS/XML feed
     const parsedData = await parseFeed(data);
@@ -333,7 +338,12 @@ const fetchEntries = async (blogName, enableAI = false) => {
       } else if (currentLoadType === loadDataBy.reuters) {
         return await fetchArticlesForReuters(url, rss);
       } else {
-        const { data } = await axios.get(url);
+        const { data } = await axios.get(url, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'application/rss+xml, application/xml, */*'
+          }
+        });
         return data;
       }
     } catch (error) {
