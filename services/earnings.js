@@ -8,6 +8,36 @@ const {curlChildProcess, isWithInHours} = require("./utils");
 const { default: axios } = require("axios");
 const parser = new xml2js.Parser();
 
+// Get the largest file from SEC filing directory
+const getLargestFileFromIndex = async (indexLink) => {
+  try {
+    const { data } = await axios.get(indexLink, {
+      headers: {
+        'User-Agent': 'RSS-News-Aggregator/1.0 (rss-api-service)',
+        'Accept': 'application/json'
+      }
+    });
+    
+    const items = data?.directory?.item || [];
+    if (!items.length) return null;
+    
+    // Sort by size (largest first), filter out empty sizes
+    const sortedItems = items
+      .filter(item => item.size && item.size !== '')
+      .filter(item => item.name.endsWith('.htm') || item.name.endsWith('.html') || item.name.endsWith('.xml')) // only consider .htm files
+      .sort((a, b) => parseInt(b.size) - parseInt(a.size));
+    
+    if (!sortedItems.length) return null;
+    
+    const largestFile = sortedItems[0];
+    const baseUrl = data.directory.name;
+    return `https://www.sec.gov${baseUrl}/${largestFile.name}`;
+  } catch (error) {
+    LOG.error(`Error fetching index.json: ${error.message}`);
+    return null;
+  }
+};
+
 const getCompanyCodesFromEarningsData = (earnings) => {
   if (typeof earnings == "string") {
     earnings = JSON.parse(earnings);
@@ -69,69 +99,83 @@ const secCompanyMap = Object.entries(secCompanies).reduce(
 
 const isSupportedForm = (title) => {
   if (!title) return false;
-  const findForm = ["SC 13D"].find(form=> (title || "").toUpperCase().startsWith(form))
-  return Boolean(findForm);
+  const importantForms = [
+    "SC 13D",      // Large ownership stakes (5%+) - activist investors
+    "SC 13G",      // Passive ownership stakes (5%+)
+    "8-K",         // Current events - major announcements, M&A, earnings
+    "10-Q",        // Quarterly financial reports
+    "10-K",        // Annual financial reports
+    "FORM 3",      // Initial insider ownership
+    "FORM 4",      // Changes in insider ownership (buy/sell)
+    "144",         // Notice of insider stock sale
+    "425",         // Merger/acquisition prospectus
+    "SC TO",       // Tender offer statement
+  ];
   
+  const findForm = importantForms.find(form => (title || "").toUpperCase().startsWith(form));
+  return Boolean(findForm);
 };
 
-const secListingsByCik = (data) => {
+const secListingsByCik = async (data) => {
   return new Promise((resolve, reject) => {
-    parser.parseString(data, (err, result) => {
+    parser.parseString(data, async (err, result) => {
       if (err) return reject(`Error parsing data: ${err}, Data: ${data} `);
       const entries = result?.["feed"]?.["entry"];
-      const secEntries = (entries || [])
-        .reduce((acc, entry) => {
-          const link = entry?.link?.[0]?.["$"]?.["href"];
-          const date = entry?.updated?.[0];
-          if (!link || !date) return acc;
-          const regex = /\/data\/(\d+)\//;
-          const cik = link.match(regex)[1];
-          // look for cik in the sec entries
-          if (!secCompanyMap[cik]) return acc;
-          // escape old entries
-          // 5 days
-          if (!isWithInHours(date, 24 * 5)) return acc;
-          const foundComp = acc.find((c) => c.cik === cik);
-          if (foundComp) {
-            foundComp.count = foundComp.count + 1 || 2;
-            foundComp.description += `\n[${foundComp.count}] - ${link} `;
-            return acc;
-          }
-          if (!isSupportedForm(entry?.title?.[0])) return acc;
-          const post = {
-            title: `COMPANY::(${secCompanyMap[cik].title} - ${secCompanyMap[cik].ticker}) - CIK::[${cik}] - ${entry?.title?.[0]}`,
-            date,
-            description: `[1] - ${link} \n`,
-            url: `https://data.sec.gov/rss?cik=${cik}&type=&exclude=true&count=20`,
-            cik,
-            ticker: secCompanyMap[cik].ticker,
-          }
-          postLogger.info(post)
-          acc.push(post);
-          return acc;
-        }, [])
-        .filter((x) => x && x.url);
-      return resolve(secEntries);
+      const secEntries = [];
+      
+      for (const entry of entries || []) {
+        const link = entry?.link?.[0]?.["$"]?.["href"];
+        const date = entry?.updated?.[0];
+        if (!link || !date) continue;
+        
+        // Convert -index.htm to index.json by removing everything after last "/" and adding /index.json
+        const indexJsonLink = link.substring(0, link.lastIndexOf('/')) + '/index.json';
+        const regex = /\/data\/(\d+)\//;
+        const cik = link.match(regex)[1];
+        
+        // look for cik in the sec entries
+        if (!secCompanyMap[cik]) continue;
+        // escape old entries - 5 days
+        if (!isWithInHours(date, 24 * 5)) continue;
+        if (!isSupportedForm(entry?.title?.[0])) continue;
+        
+        // Get the largest file from index.json
+        const primaryDocLink = await getLargestFileFromIndex(indexJsonLink);
+        
+        // Add 50ms delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 50));
+        
+        if (!primaryDocLink) continue;
+        
+        const foundComp = secEntries.find((c) => c.cik === cik);
+        if (foundComp) {
+          foundComp.count = foundComp.count + 1 || 2;
+          foundComp.description += `\n[${foundComp.count}] - ${primaryDocLink} `;
+          foundComp.data.push(primaryDocLink);
+          continue;
+        }
+        
+        const post = {
+          title: `COMPANY::(${secCompanyMap[cik].title} - ${secCompanyMap[cik].ticker}) - CIK::[${cik}] - ${entry?.title?.[0]}`,
+          date,
+          description: `COMPANY::(${secCompanyMap[cik].ticker}) - ${entry?.title?.[0]} \n ${primaryDocLink} \n`,
+          url: `${primaryDocLink}`,
+          cik,
+          ticker: secCompanyMap[cik].ticker
+        }
+        postLogger.info(post)
+        secEntries.push(post);
+      }
+      
+      return resolve(secEntries.filter((x) => x && x.url));
     });
   });
 };
 
 const secFromListings = async () => {
-  // const curlCommand = `curl 'https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom' \
-  // -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
-  // -H 'accept-language: en-US,en;q=0.9' \
-  // -H 'cache-control: max-age=0' \
-  // -H 'cookie: _gid=GA1.2.490164931.1711382626; _ga=GA1.1.2115862634.1708834616; _4c_=%7B%22_4c_s_%22%3A%22dZLBTuMwEIZfpfK5SWMndezcVl1pxQEQK%2BBaJfG0sYA6ckwNW%2BXdmSlpC6vdXtJ88%2Fmf0cQHFjvYsYqXnOcqL7TMpZ6zJ3gfWHVg3hp67FnFVL1pG15mia5rnRRcQtKYUieiqTcKygJA5mzO3o5ZUvJMcimK5ThnZnfK8GBgsNvdF0%2FnWixlTp7twyRiG6V5qYUspPjuEiH3FFmzf9Z9PEdNhRIzv6tEUO39313%2Fq7b9pB5Y6wxge65TrtIs2Qw4R%2FiDJMmzjFGqM69tWIf3nrwIzWwwT1gwsLctrKM1oaOAUqgL7cBuu0CY85IwDcdor9HujIuXY3wpLvR8TB57N97FAejkqvPuBWZckOzwk7LrusW%2FHjbg%2FVHpQuiHarGIMaZb57bPkLbuZYHSYAONPkCLhf0E8GZ8suSTPVqiZna%2F%2Bo385gu5W91eT%2BjXj%2FXD1U98ETi3kkLmRUrbxguHt4SNp2XzQmqF25YZLjM8s0rJIqPfOI4f%22%7D; _ga_300V1CHKH1=GS1.1.1711382633.34.1.1711383496.0.0.0; _ga_CSLL4ZEK4L=GS1.1.1711382633.16.1.1711383496.0.0.0' \
-  // -H 'sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"' \
-  // -H 'sec-ch-ua-mobile: ?0' \
-  // -H 'sec-ch-ua-platform: "macOS"' \
-  // -H 'sec-fetch-dest: document' \
-  // -H 'sec-fetch-mode: navigate' \
-  // -H 'sec-fetch-site: none' \
-  // -H 'sec-fetch-user: ?1' \
-  // -H 'upgrade-insecure-requests: 1' \
-  // -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'`
-  const curlCommand = `curl 'https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom' -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' -H 'accept-language: en-US,en;q=0.9' -H 'cache-control: max-age=0' -H 'cookie: _gid=GA1.2.490164931.1711382626; _ga=GA1.1.2115862634.1708834616; _4c_=%7B%22_4c_s_%22%3A%22dZLBTuMwEIZfpfK5SWMndezcVl1pxQEQK%2BBaJfG0sYA6ckwNW%2BXdmSlpC6vdXtJ88%2Fmf0cQHFjvYsYqXnOcqL7TMpZ6zJ3gfWHVg3hp67FnFVL1pG15mia5rnRRcQtKYUieiqTcKygJA5mzO3o5ZUvJMcimK5ThnZnfK8GBgsNvdF0%2FnWixlTp7twyRiG6V5qYUspPjuEiH3FFmzf9Z9PEdNhRIzv6tEUO39313%2Fq7b9pB5Y6wxge65TrtIs2Qw4R%2FiDJMmzjFGqM69tWIf3nrwIzWwwT1gwsLctrKM1oaOAUqgL7cBuu0CY85IwDcdor9HujIuXY3wpLvR8TB57N97FAejkqvPuBWZckOzwk7LrusW%2FHjbg%2FVHpQuiHarGIMaZb57bPkLbuZYHSYAONPkCLhf0E8GZ8suSTPVqiZna%2F%2Bo385gu5W91eT%2BjXj%2FXD1U98ETi3kkLmRUrbxguHt4SNp2XzQmqF25YZLjM8s0rJIqPfOI4f%22%7D; _ga_300V1CHKH1=GS1.1.1711382633.34.1.1711383496.0.0.0; _ga_CSLL4ZEK4L=GS1.1.1711382633.16.1.1711383496.0.0.0' -H 'sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"' -H 'sec-ch-ua-mobile: ?0' -H 'sec-ch-ua-platform: "macOS"' -H 'sec-fetch-dest: document' -H 'sec-fetch-mode: navigate' -H 'sec-fetch-site: none' -H 'sec-fetch-user: ?1' -H 'upgrade-insecure-requests: 1' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'`
+  // SEC.gov requires a User-Agent header that identifies the caller
+  // See: https://www.sec.gov/os/accessing-edgar-data
+  const curlCommand = `curl 'https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=100&output=atom' -H 'User-Agent: RSS-News-Aggregator/1.0 (rss-api-service)' -H 'Accept: application/atom+xml,application/xml,text/xml,*/*' -H 'Accept-Language: en-US,en;q=0.9'`
   const feedXml = await curlChildProcess(curlCommand)
   return secListingsByCik(feedXml);
 };
