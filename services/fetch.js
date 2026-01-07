@@ -11,6 +11,7 @@ const { applicationLogger: LOG } = require("./logger");
 const { isWithInHours, curlChildProcess } = require("./utils");
 const { marketCodes } = require("./market");
 const marketData = require("./../data/market.json");
+const { filterPostsWithAI } = require("./aiFilter");
 
 const isMarketMatched = (post)=>{
   const pattern = new RegExp(`(${marketCodes.join('|')}):\\s*(\\S+)`, 'i')
@@ -183,24 +184,67 @@ const waitFor = (timer) => {
 
 
 const fetchArticlesForBarrons = async (url, config) => {
-  const { data } = await axios.get(url);
-  const pageSourceHTML = data.toString();
-  const articles = getArticlesFromHtml(pageSourceHTML, config);
-  return articles;
-  const { data: sitemapData } = await axios.get("https://www.barrons.com/bol_news_sitemap.xml");
-  const entries = await convertFeedToJson(sitemapData);
-  const filterEntries = (articles || []).filter((article)=>{
-    const link = article?.link || "";
-    const articleIndex = entries.findIndex((e)=>link.includes(e.link))
-    if(articleIndex !== -1){
-        const stocks = entries[articleIndex]?.stock_tickers?.split(",");
-        if(stocks?.length){
-          article.title = `[${stocks?.join(',')}] - ${article.title}`
-        }
-       return stocks && stocks.length < 4 && !entries[articleIndex].lastmod
-    }
-  })
-  return filterEntries;
+  try {
+    const { data } = await axios.get(url);
+    
+    // Parse the RSS/XML feed
+    const parsedData = await parseFeed(data);
+    
+    // Filter by stock_tickers count (exactly 1)
+    const filteredArticles = parsedData.filter((article) => {
+      // Parse the original XML to get stock_tickers
+      return new Promise((resolve) => {
+        parser.parseString(data, (err, result) => {
+          if (err) return resolve(false);
+          const entries = result?.urlset?.url || [];
+          const entry = entries.find(e => {
+            const link = e.loc?.[0];
+            return link === article.link;
+          });
+          
+          if (!entry || !entry["news:news"]) return resolve(false);
+          
+          const stockTickers = entry["news:news"][0]["news:stock_tickers"]?.[0];
+          if (!stockTickers) return resolve(false);
+          
+          const tickerCount = stockTickers.split(',').filter(Boolean).length;
+          resolve(tickerCount === 1);
+        });
+      });
+    });
+    
+    // Wait for all filter promises to resolve
+    const results = await Promise.all(
+      parsedData.map(async (article) => {
+        return new Promise((resolve) => {
+          parser.parseString(data, (err, result) => {
+            if (err) return resolve(null);
+            const entries = result?.urlset?.url || [];
+            const entry = entries.find(e => {
+              const link = e.loc?.[0];
+              return link === article.link;
+            });
+            
+            if (!entry || !entry["news:news"]) return resolve(null);
+            
+            const stockTickers = entry["news:news"][0]["news:stock_tickers"]?.[0];
+            if (!stockTickers) return resolve(null);
+            
+            const tickerCount = stockTickers.split(',').filter(Boolean).length;
+            if (tickerCount === 1) {
+              return resolve(article);
+            }
+            resolve(null);
+          });
+        });
+      })
+    );
+    
+    return results.filter(Boolean);
+  } catch (error) {
+    LOG.error(`Barron's fetch failed: ${error.message}`);
+    return [];
+  }
 }
 
 const fetchArticlesForAccessWire = async (url, config) => {
@@ -241,15 +285,28 @@ const fetchArticlesForAccessWire = async (url, config) => {
 }
 
 const fetchArticlesForReuters = async (url, config) => {
-  const { data } = await axios.get(url);
-  return (data?.result?.articles || []).map((post) => {
-    post.date = post.published_time;
-    post.link = `https://www.reuters.com${post.canonical_url}`
-    return post
-  })
+  try {
+    const { data } = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Referer': 'https://www.reuters.com/markets/',
+      }
+    });
+    return (data?.result?.articles || []).map((post) => {
+      post.date = post.published_time;
+      post.link = `https://www.reuters.com${post.canonical_url}`
+      return post
+    })
+  } catch (error) {
+    // Reuters has bot protection, return empty array on failure
+    LOG.error(`Reuters fetch failed (likely bot protection): ${error.message}`);
+    return [];
+  }
 }
 
-const fetchEntries = async (blogName) => {
+const fetchEntries = async (blogName, enableAI = false) => {
   const blogs = config[blogName];
   if (!blogs?.length) return [];
   let currentLoadType = loadDataBy.axios;
@@ -296,7 +353,7 @@ const fetchEntries = async (blogName) => {
     blogJsonData.filter(Boolean).map(parseFeed),
   );
   LOG.info("Blog data parsed for ", blogName, " successfully");
-  const entries = xmlToList
+  let entries = xmlToList
     .reduce((accumulator, current) => accumulator.concat(current), [])
     .filter((post) => isPostFiltered(post, blogName));
 
@@ -307,11 +364,22 @@ const fetchEntries = async (blogName) => {
     "with entries",
     entries.length,
   );
+
+  // Apply AI filtering to remove class action and legal investigation posts
+  const entriesBeforeAI = entries.length;
+  entries = await filterPostsWithAI(entries, enableAI);
+  LOG.info(
+    "AI filtering removed",
+    entriesBeforeAI - entries.length,
+    "legal/class action posts from",
+    blogName,
+  );
+
   return entries;
 };
 
-const fetchData = async (blogName) => {
-  const entries = await fetchEntries(blogName);
+const fetchData = async (blogName, enableAI = false) => {
+  const entries = await fetchEntries(blogName, enableAI);
   const rssXml = convertEntriesToRss(blogName, entries);
   await writeToFile(blogName, rssXml);
 

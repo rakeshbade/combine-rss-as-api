@@ -7,19 +7,25 @@ const { applicationLogger: LOG } = require("./../services/logger");
 const { getRecentSecFilingsForEarnings } = require("../services/earnings");
 
 const eventEmitter = new EventEmitter();
-eventEmitter.on("fetchData", (blogName) => {
+eventEmitter.on("fetchData", (params) => {
   eventEmitter.removeListener("fetchData", () => { });
-  fetchData(blogName);
+  const blogName = typeof params === 'string' ? params : params.blog;
+  const enableAI = typeof params === 'string' ? false : params.enableAI || false;
+  fetchData(blogName, enableAI);
 });
 
-eventEmitter.on("fetchAllFeed", async (feedName) => {
+eventEmitter.on("fetchAllFeed", async (params) => {
   eventEmitter.removeListener("fetchAllFeed", () => { });
   try {
-    const blogNames = Object.keys(blogs);
+    const feedName = typeof params === 'string' ? params : params.name;
+    const exclude = typeof params === 'string' ? '' : params.exclude || '';
+    const enableAI = typeof params === 'string' ? false : params.enableAI || false;
+    const excludeList = exclude ? exclude.split(',').map(item => item.trim()) : [];
+    const blogNames = Object.keys(blogs).filter(name => !excludeList.includes(name));
     let completeData = [];
     for (let i = 0; i < blogNames.length; i++) {
       const blog = blogNames[i];
-      const data = await fetchEntries(blog);
+      const data = await fetchEntries(blog, enableAI);
 
       completeData = [...data, ...completeData];
     }
@@ -38,8 +44,10 @@ eventEmitter.on("fetchAllFeed", async (feedName) => {
     }
     let rssXml = convertEntriesToRss(feedName, completeData);
     writeToFile(feedName, rssXml);
+    eventEmitter.emit("fetchAllFeedComplete");
   } catch (err) {
     LOG.error(err)
+    eventEmitter.emit("fetchAllFeedComplete");
   }
 });
 

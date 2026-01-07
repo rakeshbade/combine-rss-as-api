@@ -1,11 +1,6 @@
 [
   {
-    "blogUrl": "https://www.barrons.com/topics/markets?mod=BOL_TOPNAV",
-    "container": "article",
-    "header": "h3 a span",
-    "description": ".BarronsTheme--summary--3UHA7uDx span",
-    "link": "h3 a",
-    "date": ".emotion-nr8oy5",
+    "blogUrl": "https://www.barrons.com/bol_news_sitemap.xml",
     "loadType": "barrons"
   }
 ]

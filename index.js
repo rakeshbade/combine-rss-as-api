@@ -30,10 +30,10 @@ app.get("/rss", async (req, res) => {
 
     let xmlFeed = await getDataFromRssData(blog);
     if (!xmlFeed) {
-      await fetchData(blog);
+      await fetchData(blog, req.query.aiFilter === 'true');
       xmlFeed = await getDataFromRssData(blog);
     } else {
-      eventEmitter.emit("fetchData", blog);
+      eventEmitter.emit("fetchData", { blog, enableAI: req.query.aiFilter === 'true' });
     }
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
@@ -45,12 +45,20 @@ app.get("/rss", async (req, res) => {
 app.get("/feed-all", async (req, res) => {
   try {
     let name = "all";
-    let xmlFeed = await getDataFromRssData(name);
-    const { cache } = req.query;
-    if (cache === "false") {
-      appCache.clearCurrentData();
+    const { exclude, aiFilter, forceReload = "true" } = req.query;
+    
+    if (forceReload === "true") {
+      // Fetch fresh data synchronously before returning
+      await new Promise((resolve) => {
+        eventEmitter.once("fetchAllFeedComplete", resolve);
+        eventEmitter.emit("fetchAllFeed", { name, exclude, enableAI: aiFilter === 'true' });
+      });
+    } else {
+      // Return cached data and fetch in background
+      eventEmitter.emit("fetchAllFeed", { name, exclude, enableAI: aiFilter === 'true' });
     }
-    eventEmitter.emit("fetchAllFeed", name);
+    
+    let xmlFeed = await getDataFromRssData(name);
     return res.set("Content-Type", "text/xml").send(xmlFeed);
   } catch (e) {
     LOG.error(e);
