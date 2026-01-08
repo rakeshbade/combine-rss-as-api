@@ -166,7 +166,9 @@ const secListingsByCik = async (data) => {
           description: `COMPANY::(${secCompanyMap[cik].ticker}) - ${entry?.title?.[0]} \n ${primaryDocLink} \n`,
           url: `${primaryDocLink}`,
           cik,
-          ticker: secCompanyMap[cik].ticker
+          ticker: secCompanyMap[cik].ticker,
+          data: [primaryDocLink],
+          count: 1
         }
         postLogger.info(post)
         secEntries.push(post);
