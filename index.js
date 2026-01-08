@@ -102,15 +102,20 @@ app.get("/sec-earnings", async (req, res) => {
     const companies = getCompanyCodesFromEarningsData(earnings);
     const secFillings = await getRecentSecFilingsForEarnings(companies, ignoreCompanies);
     LOG.info("secFillings", secFillings);
-    return res.json({ 
-      count: secFillings.length,
-      companies: companies.length,
-      filings: secFillings 
-    });
+    const rssXml = convertEntriesToRss("sec-earnings", secFillings);
+    return res.set("Content-Type", "text/xml").send(rssXml);
   } catch (e) {
     LOG.error(e);
-    let error = typeof e === "object" ? JSON.stringify(e) : e;
-    return res.status(500).send({ error });
+    // Return error as XML to prevent "not valid XML format" error from RSS readers
+    const errorXml = `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Error</title>
+    <link>http://error.link</link>
+    <description>Error fetching SEC earnings: ${e.message}</description>
+  </channel>
+</rss>`;
+    return res.set("Content-Type", "text/xml; charset=utf-8").status(200).send(errorXml);
   }
 });
 
