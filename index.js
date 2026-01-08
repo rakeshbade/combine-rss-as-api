@@ -64,9 +64,10 @@ app.get("/rss", async (req, res) => {
 app.get("/feed-all", async (req, res) => {
   try {
     let name = "all";
-    const { exclude, aiFilter, forceReload = "true" } = req.query;
+    const { exclude, aiFilter } = req.query;
+    const forceReload = req.query.forceReload === 'true' ? true : false;
     
-    if (forceReload === "true") {
+    if (forceReload) {
       // Fetch fresh data synchronously before returning
       await new Promise((resolve) => {
         eventEmitter.once("fetchAllFeedComplete", resolve);
@@ -158,7 +159,7 @@ app.get("/losers", async(req, res)=>{
 
 app.get("/update-market", async(req, res)=>{
   try{
-    const { forceReload } = req.query;
+    const forceReload = req.query.forceReload === 'true';
     const data = await updateDate(forceReload)
     return res.send(data);
   }catch(error){

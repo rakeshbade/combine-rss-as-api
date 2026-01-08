@@ -6,7 +6,7 @@ const marketCodes = ['NYSE', 'NASDAQ', 'OTCQB','TSXV','OTCQX']
 const updateDate = async (forceReload)=>{
     let result = [];
     const fileName = "././data/market.json";
-    const shouldReload = fs.existsSync(fileName) ? forceReload : true;
+    const shouldReload = fs.existsSync(fileName) ? forceReload === true : true;
     if(shouldReload){
         const apiKey = '3GBzPHgsqzSenwBwCfNp4ca6JNk7Hcvb';
         const urlsWithKey = marketCodes.map((x)=>{
