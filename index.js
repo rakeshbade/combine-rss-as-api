@@ -169,6 +169,10 @@ app.get("/download", async (req, res) => {
   archive.pipe(res);
 });
 
+app.get("/ping", (req, res) => {
+  res.send("pong");
+});
+
 // Start the server
 app.listen(port, async () => {
 
