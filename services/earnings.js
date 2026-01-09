@@ -21,6 +21,10 @@ const getLargestFileFromIndex = async (indexLink) => {
     const items = data?.directory?.item || [];
     if (!items.length) return null;
     
+    const textLink = items.find(item => item.name.endsWith('.txt'))
+    if (textLink) {
+      return `https://www.sec.gov${data.directory.name}/${textLink.name}`;
+    }
     // Sort by size (largest first), filter out empty sizes
     const sortedItems = items
       .filter(item => item.size && item.size !== '')
@@ -135,6 +139,7 @@ const secListingsByCik = async (data) => {
         
         // Convert -index.htm to index.json by removing everything after last "/" and adding /index.json
         const indexJsonLink = link.substring(0, link.lastIndexOf('/')) + '/index.json';
+        
         const regex = /\/data\/(\d+)\//;
         const cik = link.match(regex)[1];
         
@@ -145,7 +150,11 @@ const secListingsByCik = async (data) => {
         if (!isSupportedForm(entry?.title?.[0])) continue;
         
         // Get the largest file from index.json
-        const primaryDocLink = await getLargestFileFromIndex(indexJsonLink);
+        const primaryDocLink = link.includes('-index.html') ? link.replace(/-index\.html$/, '.txt') :await getLargestFileFromIndex(indexJsonLink);
+        if (!primaryDocLink) {
+          LOG.warn(`No primary document link found for CIK: ${cik}, indexLink: ${indexJsonLink}`);
+          continue;
+        }
         
         // Add 50ms delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 50));
